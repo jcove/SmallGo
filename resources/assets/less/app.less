@@ -1,0 +1,233 @@
+@import "../../../node_modules/bootstrap/less/bootstrap";
+@import "../../../node_modules/bootstrap/less/theme";
+@import "color";
+@import "eui";
+@import "../../../node_modules/swiper/dist/css/swiper.css";
+@import "common";
+@import "goods";
+@import "recommend_goods_list";
+
+body, button, input, select, textarea, code {
+  font: 12px/1.5 "Microsoft Yahei","微软雅黑",verdana
+}
+header {
+  background-color: #fff;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
+  border-bottom: 1px solid #e8e8e8;
+  .header-top {
+    width: 1090px;
+    margin: 0 auto;
+    .header-a-logo {
+      color: @greenColor;
+      font-size: 36px;
+      height: 60px;
+      line-height: 60px;
+    }
+    .header-right {
+      float: right;
+      width: 400px;
+      margin-top: 60px;
+      .right-menu {
+        .menu-item {
+          float: right;
+          width: 32px;
+          text-align: center;
+          font-size: 16px;
+          margin: 0 15px;
+          i {
+            font-size: 24px;
+          }
+          span {
+            color: @greenColor;
+          }
+        }
+      }
+    }
+  }
+
+}
+.bg{
+  background-color: rgba(0,0,0,0.3);
+  z-index: 99999;
+  height: 100%;
+  width: 100%;
+}
+.newCates {
+  margin-top: 60px;
+}
+.lazyload{
+  background: url('../images/loading.gif') center center no-repeat #ededed;
+  color: #ededed;
+}
+.newCate {
+  .banner {
+    margin-bottom: 20px;
+  }
+  > .hd {
+    margin-bottom: 20px;
+    line-height: 1;
+    height: 28px;
+    &:after {
+      content: " ";
+      display: table
+    }
+    &:before {
+      content: " ";
+      display: table
+    }
+    .name {
+      float: left;
+      margin-right: 10px;
+      font-size: 28px;
+      font-weight: 700;
+    }
+  }
+  > .bd {
+    width: 1090px;
+    overflow: hidden;
+  }
+  .left {
+    float: left
+  }
+  .right {
+    float: right;
+    nav {
+      float: left
+    }
+    .getMore {
+      display: inline-block;
+      font-size: 14px;
+      padding-left: 30px;
+      margin-top: 14px
+    }
+    .subCateList {
+      font-size: 14px;
+      padding-top: 14px;
+      .item{
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+  }
+
+}
+
+
+.g-bd, .g-bd-list {
+  z-index: 1;
+  position: relative;
+  padding-bottom: 80px;
+}
+
+.goodsArea {
+
+  position: relative;
+  background-color: #fff;
+  margin-top: 20px;
+}
+
+.sortbar {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eaeaea;
+  overflow: hidden;
+  padding: 0 20px;
+  .category, .manufacture {
+    overflow: hidden;
+    line-height: 1;
+    padding-top: 20px;
+    .name {
+      font-size: 14px;
+      color: #999;
+      float: left;
+      margin-right: 22px;
+    }
+    .categoryItem {
+      float: left;
+      margin-right: 30px;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    .categoryGroup {
+      overflow: hidden;
+      float: left;
+      margin-bottom: 4px;
+    }
+  }
+  .active {
+    color: @greenColor;
+  }
+  .active, .sorts {
+    .priceSure {
+      .reset {
+        &:hover {
+          color: @greenColor;
+        }
+      }
+    }
+  }
+  .sorts {
+    overflow: hidden;
+    padding: 20px 0;
+    line-height: 1;
+    border-top: 1px dashed #dedede;
+    position: relative;
+    .name {
+      font-size: 14px;
+      color: #999;
+      margin-right: 22px;
+    }
+    .sort {
+      margin-right: 30px;
+      font-size: 14px;
+    }
+    .sort-price .icon {
+      display: inline-block;
+      margin-left: 10px;
+      vertical-align: middle;
+      margin-top: -2px;
+    }
+  }
+
+}
+
+.content, .focusSlick, .goodsArea, .slick-list {
+  overflow: hidden;
+}
+
+.itemList {
+  margin-right: -10px;
+  .item {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 50px;
+  }
+}
+
+#go-top{
+  position: fixed;
+  bottom: 60px;
+  width: 72px;
+  height: 72px;
+  text-align: center;
+  line-height: 1;
+  cursor: pointer;
+  right: 10px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  padding: 8px;
+  display: none;
+  background-color: #fff;
+  z-index: 999;
+  .text{
+    line-height: 20px;
+    font-size: 14px;
+    margin: 8px auto 0;
+    position: relative;
+  }
+}
+.page-list{
+  margin: auto;
+  text-align: center;
+}
+@import "category_side";
+@import "goods_list";

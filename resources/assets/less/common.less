@@ -1,0 +1,43 @@
+@import "functions";
+@import "color";
+.main{
+  width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+body{
+  background-color: #f6f6f6;
+}
+.btn {
+  border: none;
+}
+.btn-radius{
+  .border-radius(5);
+}
+.margin-auto{
+  margin: auto;
+}
+.box{
+  overflow: hidden;
+}
+.btn-l{
+  line-height: 50px;
+}
+.btn-danger {
+  background: @redColor;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  background-repeat: repeat-x;
+  border-color: #b92c28;
+}
+.btn-danger:hover,
+.btn-danger:focus {
+  background-color: #c12e2a;
+  background-position: 0 -15px;
+}
+.btn-danger:active,
+.btn-danger.active {
+  background-color: #c12e2a;
+  border-color: #b92c28;
+}
