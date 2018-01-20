@@ -1,0 +1,79 @@
+
+.rem(@name,@px){
+    @{name}:@px / @baseFontSize * 1rem;
+}
+.rem(@name,@px1,@px2){
+    @{name}:@px1 / @baseFontSize * 1rem @px2 / @baseFontSize * 1rem;
+}
+.height(@px){
+  .rem(height,@px);
+}
+.width(@px){
+  .rem(width,@px);
+}
+.top(@px){
+  .rem(top,@px);
+}
+.bottom(@px){
+  .rem(bottom,@px )
+}
+.left(@px){
+  .rem(left,@px);
+}
+.right(@px){
+  .rem(right,@px);
+}
+.padding(@px){
+  .rem(padding,@px);
+}
+.padding(@px1,@px2){
+  .rem(padding,@px1,@px2);
+}
+.margin(@px){
+  .rem(padding,@px);
+}
+.margin(@px1,@px2){
+  .rem(padding,@px1,@px2);
+}
+.font-size(@px){
+  .rem(font-size,@px);
+}
+.margin-left(@px){
+  .rem(margin-left,@px)
+}
+.margin-right(@px){
+  .rem(margin-right,@px);
+}
+.margin-top(@px){
+  .rem(margin-top,@px);
+}
+.margin-bottom(@px){
+  .rem(margin-bottom,@px);
+}
+.padding-left(@px){
+  .rem(padding-left,@px)
+}
+.padding-right(@px){
+  .rem(padding-right,@px);
+}
+.padding-top(@px){
+  .rem(padding-top,@px);
+}
+.padding-bottom(@px){
+  .rem(padding-bottom,@px);
+}
+.line-height(@px){
+  .rem(line-height,@px)
+}
+.border-radius(@px){
+  .rem(border-radius,@px);
+}
+.border(@px,@style,@color){
+  border: @px / @baseFontSize * 1rem @style @color;
+}
+.letter-spacing(@px){
+  .rem(letter-spacing,@px )
+}
+.max-height(@px){
+  .rem(max-height,@px );
+}

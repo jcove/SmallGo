@@ -1,0 +1,176 @@
+body {
+  font-size: 12px;
+}
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+body,
+button,
+dd,
+dl,
+dt,
+fieldset,
+figure,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+input,
+legend,
+li,
+ol,
+p,
+pre,
+td,
+textarea,
+th,
+ul {
+  margin: 0;
+  margin-right: 0px;
+  padding: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+a {
+  color: #333;
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+a,
+a:active,
+a:hover {
+  outline: 0;
+}
+.clear {
+  clear: both;
+}
+.e-nav {
+  width: 1090px;
+  margin: 0 auto;
+  height: 50px;
+}
+.e-nav ul {
+  line-height: 1;
+  position: relative;
+}
+.e-nav .nav-item {
+  float: left;
+  padding: 6px 26px 0 26px;
+  font-size: 14px;
+}
+.e-nav .nav-item .topLevel {
+  position: relative;
+  z-index: 2;
+  display: block;
+  padding-bottom: 6px;
+  color: #000;
+}
+.e-nav .nav-item .nav-item:hover .topLevel {
+  color: #34A79E;
+  border-bottom: 3px solid #34A79E;
+}
+.e-nav .nav-item .nav-dropdown {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: 36px;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+}
+.e-nav .nav-item .nav-dropdown .nav-cateCard {
+  position: relative;
+  padding-top: 33px;
+  background-color: #fff;
+  text-align: center;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+.e-nav .nav-item .nav-dropdown .nav-cateCard .card-list {
+  display: inline-block;
+  white-space: nowrap;
+  width: 1090px;
+  padding-left: 100px;
+  margin: 0 auto;
+}
+.e-nav .nav-item .nav-dropdown .nav-cateCard .card-list .item {
+  float: left;
+  margin-right: 90px;
+  margin-bottom: 30px;
+  vertical-align: middle;
+  width: 44px;
+}
+.e-nav .nav-item .nav-dropdown .nav-cateCard .card-list .item .iconfont {
+  font-size: 42px;
+  color: #34A79E;
+}
+.e-nav .nav-item .nav-dropdown .nav-cateCard .card-list .item .text {
+  font-size: 14px;
+  line-height: 3;
+  width: 100px;
+  margin-left: -28px;
+}
+.e-nav .first {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+.e-nav .active .topLevel {
+  color: #34A79E;
+  border-bottom: 3px solid #34A79E;
+}
+.m-crumbs {
+  font-size: 13px;
+  color: #747171;
+  line-height: 1;
+  padding: 20px 0px;
+}
+.m-crumbs a {
+  color: #747171;
+}
+.btn {
+  border-radius: 2px;
+  width: 96px;
+  height: 28px;
+  padding: 0;
+  letter-spacing: normal;
+  line-height: 26px;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  background-color: #34A79E;
+  display: block;
+}
+.btn-default {
+  background-color: #34A79E;
+}
+.btn-l {
+  width: 168px;
+  height: 50px;
+  line-height: 54px;
+  font-size: 22px;
+}

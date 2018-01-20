@@ -1,0 +1,112 @@
+.recommend-box {
+  width: 300px;
+  float: left;
+}
+
+.recommend-goods-list {
+  border: 1px solid #e8e8e8;
+  overflow: hidden;
+  background-color: white;
+  .recommend-goods-list-title {
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: #f6f6f6;
+  }
+  .item {
+    float: left;
+    margin: 0 10px 50px 0;
+    width: 300px;
+    list-style: none;
+
+    &:nth-child(4) {
+      margin-right: 0;
+    }
+    .product {
+      line-height: 1;
+      text-align: center;
+      font-size: 13px;
+      width: 280px;
+      height: 350px;
+      position: relative;
+      .hd {
+        position: relative;
+        margin-bottom: 8px;
+        overflow: hidden;
+        background-color: #ededed;
+        .img {
+          width: 280px;
+          height: 300px;
+          -webkit-transition: transform 1s;
+          -moz-transition: transform 1s;
+          -o-transition: transform 1s;
+          transition: -webkit-transform 1s;
+          transition: transform 1s, -webkit-transform 1s;
+          background-color: #ededed;
+          border: 1px solid transparent;
+          color: black;
+          text-align: center;
+          line-height: 120px;
+          display: block;
+          margin: 0 auto;
+        }
+        .coupon-tip {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          background-color: #FFA248;
+          color: #fff;
+          padding: 8px;
+        }
+      }
+      &:hover .hd .img {
+        -webkit-transform: scale(1.05);
+        -moz-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        -o-transform: scale(1.05);
+        transform: scale(1.05)
+      }
+      .price {
+        color: @redColor;
+        text-align: center;
+        span {
+          display: inline-block;
+          overflow: hidden;
+          height: 20px;
+          line-height: 22px;
+        }
+      }
+      .name {
+        line-height: 20px;
+        margin-bottom: 7px;
+        height: auto;
+        font-size: 16px;
+        a {
+          font-size: 14px;
+        }
+      }
+
+      .prdtTags {
+        height: 20px;
+        font-size: 0;
+        color: #fff;
+        width: 200px;
+        margin: 0 auto 3px;
+        overflow: hidden;
+      }
+      hr {
+        display: block;
+        width: 130px;
+        height: 1px;
+        padding: 0;
+        margin: 6px auto 14px;
+        border: 0;
+        border-top: 1px solid #e8e8e8;
+      }
+    }
+
+  }
+}

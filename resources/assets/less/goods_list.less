@@ -1,0 +1,103 @@
+.goods-list {
+  padding-top: 20px;
+  margin-top: 30px;;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+  .itemList {
+    margin-right: -10px;
+    .item {
+      float: left;
+      margin: 0 10px 50px 0;
+      width: 285px;
+      &:nth-child(4){
+        margin-right: 0;
+      }
+      .product {
+        line-height: 1;
+        text-align: center;
+        font-size: 13px;
+        width: 245px;
+        height: 361px;
+        position: relative;
+        .hd {
+          position: relative;
+          margin-bottom: 8px;
+          overflow: hidden;
+          background-color: #ededed;
+          .img {
+            width: 245px;
+            height: 245px;
+            -webkit-transition: transform 1s;
+            -moz-transition: transform 1s;
+            -o-transition: transform 1s;
+            transition: -webkit-transform 1s;
+            transition: transform 1s, -webkit-transform 1s;
+            background-color: #ededed;
+            border: 1px solid transparent;
+            color: black;
+            text-align: center;
+            line-height: 120px;
+            display: block;
+            margin: 0 auto;
+          }
+          .coupon-tip{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            background-color: #FFA248;
+            color: #fff;
+            padding: 8px;
+          }
+        }
+        &:hover .hd .img {
+          -webkit-transform: scale(1.05);
+          -moz-transform: scale(1.05);
+          -ms-transform: scale(1.05);
+          -o-transform: scale(1.05);
+          transform: scale(1.05)
+        }
+        .price {
+          color: @redColor;
+          text-align: center;
+          span {
+            display: inline-block;
+            overflow: hidden;
+            height: 20px;
+            line-height: 22px;
+          }
+        }
+        .name {
+          line-height: 20px;
+          margin-bottom: 7px;
+          height: auto;
+          font-size: 16px;
+          a{
+            font-size: 14px;
+          }
+        }
+
+        .prdtTags {
+          height: 20px;
+          font-size: 0;
+          color: #fff;
+          width: 200px;
+          margin: 0 auto 3px;
+          overflow: hidden;
+        }
+        hr {
+          display: block;
+          width: 130px;
+          height: 1px;
+          padding: 0;
+          margin: 6px auto 14px;
+          border: 0;
+          border-top: 1px solid #e8e8e8;
+        }
+      }
+
+    }
+  }
+}

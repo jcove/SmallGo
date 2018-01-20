@@ -1,0 +1,40 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "devDependencies": {
+    "axios": "^0.17.0",
+    "bootstrap": "^3.3.7",
+    "cross-env": "^5.1.1",
+    "css-loader": "^0.28.7",
+    "iscroll": "^5.2.0",
+    "laravel-mix": "^1.6.1",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "lodash": "^4.17.4",
+    "swiper": "^3.4.2",
+    "vue": "^2.5.3",
+    "vue-loader": "^13.4.0",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.3",
+    "webpack": "^3.8.1"
+  },
+  "dependencies": {
+    "amfe-flexible": "^2.2.1",
+    "cnpm": "^5.1.1",
+    "es6-promise": "^4.1.1",
+    "isomorphic-fetch": "^2.2.1",
+    "jquery": "^3.2.1",
+    "lazyload": "^2.0.0-beta.2",
+    "normalize.css": "^7.0.0",
+    "python": "0.0.4",
+    "sweetalert": "^2.0.8"
+  }
+}

@@ -1,0 +1,1 @@
+import flexible from 'amfe-flexible';
