@@ -140,7 +140,10 @@ class GoodsShare extends Model
         }
         return $value;
     }
-    public function getTpwdAttribute(){
+    public function getTpwdAttribute($value){
+        if (!empty($value) && Carbon::now()->lt((new Carbon($this->tpwd_create_time))->addDay(30))) {
+            return $value;
+        }
         $c                                  =   new TopClient;
         $c->appkey                          =   config('taobao.app_key');
         $c->secretKey                       =   config('taobao.app_secret');
@@ -160,6 +163,11 @@ class GoodsShare extends Model
         $resp = $c->execute($req);
         if(isset($resp->code)){
             return '';
+        }
+        $this->attributes['tpwd']           =   $resp->data->model;
+        $this->attributes['tpwd_create_time'] = Carbon::now();
+        if($this->id >0){
+            $this->save();
         }
 
         return $resp->data->model;
