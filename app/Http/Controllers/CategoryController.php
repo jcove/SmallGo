@@ -47,7 +47,7 @@ class CategoryController extends Controller
     public function goods($id,$sort='id',$desc='desc'){
         $category                           =   Category::info($id);
         if($category){
-            $goods                              =   GoodsShare::where(['status'=>1,'category_id'=>$id])->orderBy($sort,$desc)->paginate(10);
+            $goods                              =   GoodsShare::where(['status'=>1,'category_id'=>$id])->orderBy($sort,$desc)->paginate(16);
             $data['list']                       =   GoodsShare::setCouponPrice($goods);
             $data['title']                      =   $category->name;
             $data['desc']                       =   $desc=='desc'? 'asc' : 'desc';

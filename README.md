@@ -14,7 +14,7 @@
     
     $ composer install
     
-修改.env下配置
+复制.example.env为.env，修改以下配置信息
 
 DB_HOST=127.0.0.1，数据库地址
 

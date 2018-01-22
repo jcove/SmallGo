@@ -27,8 +27,6 @@
     </section>
     <section>
         <div class="goods-list-v">
-            @component('mobile.component.sort_bar',['url'=>'/','desc'=>$desc,'sort'=>$sort])
-            @endcomponent
             @if(count($list) > 0)
                 <ul id="result">
                     @foreach($list as $item)
