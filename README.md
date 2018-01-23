@@ -40,3 +40,4 @@ TAOBAO_PID          =   淘宝联盟pid，形如：mm_xxxxx_xxxxx_xxxx
     
 演示站点(搭建中) http://www.nayiya.com (支持pc和手机浏览)  
 交流社区(搭建中) http://www.361dream.com
+QQ交流群：169730866
