@@ -101,6 +101,65 @@ class InitTableSeeder extends Seeder
                 'order'             =>   1
             ],
         ]);
+        Menu::truncate();
+        Menu::insert([
+            [
+                'parent_id' => 0,
+                'order'     => 1,
+                'title'     => '运营管理',
+                'icon'      => 'fa-adn',
+                'uri'       => '/',
+            ],
+            [
+                'parent_id' => 8,
+                'order'     => 2,
+                'title'     => '广告',
+                'icon'      => 'fa-adn',
+                'uri'       => 'ad',
+            ],
+            [
+                'parent_id' => 8,
+                'order'     => 3,
+                'title'     => '分类',
+                'icon'      => 'fa-certificate',
+                'uri'       => 'category',
+            ],
+            [
+                'parent_id' => 8,
+                'order'     => 4,
+                'title'     => '商品',
+                'icon'      => 'fa-product-hunt',
+                'uri'       => 'goods',
+            ],
+            [
+                'parent_id' => 8,
+                'order'     => 5,
+                'title'     => '商品更新',
+                'icon'      => 'fa-arrow-up',
+                'uri'       => 'taobao/update',
+            ],
+            [
+                'parent_id' => 8,
+                'order'     => 6,
+                'title'     => '频道',
+                'icon'      => 'fa-stack-exchange',
+                'uri'       => 'channel',
+            ],
+            [
+                'parent_id' => 0,
+                'order'     => 0,
+                'title'     => '系统管理',
+                'icon'      => 'fa-wrench',
+                'uri'       => 'auth/logs',
+            ],
+            [
+                'parent_id' => 14,
+                'order'     => 0,
+                'title'     => '导航管理',
+                'icon'      => 'fa-navicon',
+                'uri'       => 'nav',
+            ],
+        ]);
 
     }
 }

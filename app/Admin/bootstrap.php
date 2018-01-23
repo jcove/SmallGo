@@ -23,6 +23,5 @@ use Encore\Admin\Form;
 
 Encore\Admin\Form::forget(['map']);
 Form::extend('categoryIcon', CategoryIcon::class);
-Form::extend('ueditor', \App\Admin\Extensions\Ueditor::class);
 Form::extend('itemUrl',\App\Admin\Extensions\ItemUrl::class);
 Form::extend('couponUrl',\App\Admin\Extensions\CouponUrl::class);

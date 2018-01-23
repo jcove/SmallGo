@@ -8,6 +8,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Category;
+use App\Models\Channel;
 use App\Models\GoodsShare;
 use App\Models\GoodsTag;
 use App\Models\Tag;
@@ -80,9 +81,7 @@ class GoodsController
             $grid->category_id('分类')->display(function ($categoryId){
                 return Category::getName($categoryId);
             });
-            $grid->cover('封面')->display(function ($cover){
-                return "<img style='width:50px;' src='".asset('uploads/'.$cover)."'>";
-            });
+            $grid->cover('封面')->image();
             $grid->created_at();
             $grid->updated_at();
         });
@@ -114,6 +113,7 @@ class GoodsController
             $form->datetime('coupon_end_time','优惠券结束时间')->placeholder('填写优惠券链接后自动获取');
             $form->text('coupon_remain_count','优惠券剩余数量')->placeholder('填写优惠券链接后自动获取');
             $form->select('category_id','分类')->options(Category::allSelectOptions());
+            $form->select('channel_id','频道')->options(Channel::allSelectOptions());
             $form->text('from_site','宝贝来源网站')->placeholder('填写宝贝链接后自动获取');
             $form->text('price','价格')->placeholder('填写宝贝链接后自动获取');
 

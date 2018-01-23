@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+use Encore\Admin\Config\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
@@ -20,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
             Log::info($query->sql);
         });
         Schema::defaultStringLength(191);
+        Config::load();
 
     }
 

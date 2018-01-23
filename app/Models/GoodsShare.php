@@ -65,9 +65,11 @@ class GoodsShare extends Model
 
     public function getPicturesAttribute($pictures)
     {
-        $pictures                           =   json_decode($pictures, true);
-        foreach ($pictures as $k=>$v){
-            $pictures[$k]                   =   get_image_url($v);
+        if(!empty($pictures)){
+            $pictures                           =   json_decode($pictures, true);
+            foreach ($pictures as $k=>$v){
+                $pictures[$k]                   =   get_image_url($v);
+            }
         }
         return $pictures ? $pictures : '';
     }
