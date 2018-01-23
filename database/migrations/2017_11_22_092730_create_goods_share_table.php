@@ -90,7 +90,8 @@ class CreateGoodsShareTable extends Migration
             $table->increments('id');
             $table->string('title')->default("");
             $table->string('link')->default("");
-            $table->tinyInteger('order')->default(0);
+            $table->integer('order')->default(0);
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
 
