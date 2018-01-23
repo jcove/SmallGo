@@ -47,7 +47,7 @@ class CreateGoodsShareTable extends Migration
         Schema::create('ads',function (Blueprint $table){
             $table->increments('id');
             $table->timestamps();
-            $table->string('position',20)->default("");
+            $table->string('position',60)->default("");
             $table->integer('category_id')->default(0);
             $table->string('url')->default("");
             $table->string('cover')->default("");
@@ -90,7 +90,7 @@ class CreateGoodsShareTable extends Migration
             $table->increments('id');
             $table->string('title')->default("");
             $table->string('link')->default("");
-            $table->integer('order')->default(0);
+            $table->tinyInteger('order')->default(0);
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

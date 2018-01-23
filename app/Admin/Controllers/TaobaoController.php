@@ -22,8 +22,9 @@ class TaobaoController
     public function update(){
         if(request()->isMethod('get')){
             $content                        =   new Content(function (Content $content){
-                $content->header('header');
-                $content->description('description');
+                $content->header('商品更新');
+                $content->description('商品更新是基于淘宝联盟选品库更新，选品库的命名规则为:一级分类名称-二级分类名称-1，例如：服装-女装-1，后面的数字用于将多个选品库合并到一个，因为淘宝联盟对选品库的选品组有限制，每个选品组最多包含200个商品，很显然一个选品组不能满足我们对分类
+                的需求，因此后面加了数字角标，将多个选品组合并成一个分类');
 
                 $content->body($this->form());
             });
