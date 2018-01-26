@@ -21,7 +21,7 @@ class CreateGoodsShareTable extends Migration
             $table->integer('category_id')->default(0);;
             $table->string('from_site',30)->default("");
             $table->decimal('price',10,1)->default(0);
-            $table->string('click_url')->default("");
+            $table->string('click_url',500)->default("");
             $table->text('detail')->default("");;;
             $table->string('keywords')->default("");
             $table->string('description')->default("");
@@ -31,7 +31,7 @@ class CreateGoodsShareTable extends Migration
             $table->string('item_url')->default("");
             $table->decimal('subject',3,2)->default(0);
             $table->integer('subject_count')->default(0);
-            $table->string('coupon_click_url')->default("");
+            $table->string('coupon_click_url',500)->default("");
             $table->date('coupon_start_time')->nullable();
             $table->date('coupon_end_time')->nullable();
             $table->decimal('coupon_amount',10,2)->default(0);

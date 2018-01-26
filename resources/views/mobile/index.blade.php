@@ -26,6 +26,9 @@
         @include('mobile.component.channel_bar')
     </section>
     <section>
+        @include('mobile.widgest.category_side')
+    </section>
+    <section>
         <div class="goods-list-v">
             @if(count($list) > 0)
                 <ul id="result">

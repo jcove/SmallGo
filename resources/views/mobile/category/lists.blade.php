@@ -16,7 +16,7 @@
                         <a href="{{url('category',['id'=>$item->id,'sub_id'=>$child->id])}}">
                             <li>
                                 <i class="iconfont {{$child->icon}}"></i>
-                                <p style="margin-top: 0.5rem;color: #888">{{$child->name}}</p>
+                                <p >{{$child->name}}</p>
                             </li>
                         </a>
                     @endforeach

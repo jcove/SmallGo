@@ -18,7 +18,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         DB::listen(function ($query) {
-            Log::info($query->sql);
+            $tmp = str_replace('?', '"' . '%s' . '"', $query->sql);
+            $tmp = vsprintf($tmp, $query->bindings);
+            $tmp = str_replace("\\", "", $tmp);
+            Log::info($tmp . "\n\n\t");
         });
         Schema::defaultStringLength(191);
         Config::load();

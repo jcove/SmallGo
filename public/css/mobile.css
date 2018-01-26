@@ -550,6 +550,21 @@ body {
   background-color: #c12e2a;
   border-color: #b92c28;
 }
+.category-side {
+  margin-top: 0.13888889rem;
+  background-color: white;
+}
+.category-side .item {
+  width: 2.5rem;
+  float: left;
+  font-size: 0.38888889rem;
+  text-align: center;
+  padding-bottom: 0.27777778rem;
+  padding-top: 0.27777778rem;
+}
+.category-side .item i {
+  font-size: 0.44444444rem;
+}
 @font-face {
   font-family: "arial";
   src: url(/fonts/arial.eot?84922184e4af76551383a30d96ffe480);
@@ -1457,10 +1472,8 @@ p {
 .category-list .header {
   text-align: left;
   padding: 0.13888889rem 0.27777778rem;
-  margin-bottom: 0.55555556rem;
   color: black;
-  font-size: 0.55555556rem;
-  font-weight: bold;
+  font-size: 0.44444444rem;
   padding-top: 0.27777778rem;
 }
 .category-list ul a li {
@@ -1470,11 +1483,12 @@ p {
   padding-bottom: 0.27777778rem;
 }
 .category-list ul a li i {
-  color: #34A79E;
   font-size: 0.66666667rem !important;
 }
 .category-list ul a li p {
-  font-size: 0.44444444rem;
+  font-size: 0.38888889rem;
+  margin: 0;
+  color: #666;
 }
 .no-more {
   text-align: center;
