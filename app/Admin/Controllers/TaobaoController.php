@@ -133,10 +133,10 @@ class TaobaoController
         $goods->price                               =   $request->zk_final_price;
         $goods->status                              =   $request->status;
 
-        if(empty($goods->click_url)){
+        if(!empty($request->click_url)){
             $goods->click_url                       =   $request->click_url;
         }
-        $url                                        =   $goods->click_url;
+
         if(!empty($request->coupon_click_url)){
             $goods->coupon_click_url                =   $request->coupon_click_url;
             $goods->coupon_start_time               =   $request->coupon_start_time;
@@ -144,7 +144,6 @@ class TaobaoController
             $goods->coupon_status                   =   1;
             $goods->coupon_amount                   =   $request->coupon_amount;
             $goods->coupon_start_fee                =   $request->coupon_start_fee;
-            $url                                    =   $goods->coupon_click_url;
         }
         $goods->volume                              =   $request->volume;
         $goods->coupon_remain_count                 =   $request->coupon_remain_count ?$request->coupon_remain_count : 0;

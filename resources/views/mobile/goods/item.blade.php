@@ -128,9 +128,9 @@
         }
 
 
-        var head = document.querySelector('.beatHeader');
+
         var beat = document.querySelector('.beatWord');
-        var tips = document.querySelector('.itemTips');
+
         var word = document.querySelector('.itemWord');
         var copy = document.querySelector('.itemCopy');
         var open = document.querySelector('.itemOpen');
@@ -138,9 +138,6 @@
 
         if (text && text != 'null') {
 
-            tips.innerHTML = '';
-
-            head.className = 'beatHeader';
 
             //自动选择文本
             document.addEventListener("selectionchange", function (e) {
@@ -199,8 +196,8 @@
 
         var isLoad = false;
         var goodsId = $('.pic-detail-btn').data('goodsid');
-        $('.pic-detail-btn span.pic-detail-btn-span').click(function () {
-            if ($('.pic-detail-show').css('display') == 'none') {
+        $('.pic-detail-btn-span').click(function () {
+            if ($('.pic-detail-show').css('display') === 'none') {
                 if (!$(this).hasClass('cur')) {
                     $(this).addClass('cur');
                 }

@@ -5,9 +5,6 @@
             {{url('search/goods')}}
         @endslot
     @endcomponent
-    <div class="banner">
-        <img src="{{ asset('home/images/loading.gif') }}" data-src="{{$cover->cover}}" alt="{{$cover->name}}" class="lazyload sg-img-responsive">
-    </div>
     @include('mobile.component.category_bar')
 
     <div class="goods-list-h">

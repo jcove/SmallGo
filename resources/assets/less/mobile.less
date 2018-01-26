@@ -2,9 +2,7 @@
 @import "../../../node_modules/swiper/dist/css/swiper.css";
 @import "common";
 @import "color";
-
-
-
+@import "mobile/category_side";
 @font-face {font-family: "arial";
   src: url('../font/arial.eot?t=1510399040113'); /* IE9*/
   src: url('../font/arial.eot?t=1510399040113#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -40,7 +38,6 @@
   url('../font/caesar_open_t.ttf?t=1510399040113') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
   url('../font/caesar_open_t.svg?t=1510399040113#iconfont') format('svg'); /* iOS 4.1- */
 }
-
 .caesar {
   font-family:"caesar" !important;
   .font-size(14);
@@ -969,10 +966,8 @@ p{
   .header{
     text-align: left;
     .padding(5,10);
-    .margin-bottom(20);
     color: black;
-    .font-size(20);
-    font-weight: bold;
+    .font-size(16);
     .padding-top(10);
   }
   ul{
@@ -983,11 +978,12 @@ p{
       text-align: center;
       .padding-bottom(10);
         i{
-          color: @greenColor;
           .font-size(24)!important;
         }
         p{
-          .font-size(16);
+          .font-size(14);
+          margin: 0;
+          color: #666;
         }
       }
     }
