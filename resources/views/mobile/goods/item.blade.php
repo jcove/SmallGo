@@ -8,11 +8,11 @@
             display: none;
         }
     </style>
-    @if(isset($goods))
+    @if(isset($goods) && $goods->status > 0)
         <div class="detail-img">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    @if(count($goods->pictures) > 0)
+                    @if(!empty($goods->pictures))
                         @foreach($goods->pictures as $picture)
                             <div class="swiper-slide">
                                 <img src="{{get_image_url($picture)}}"/>
@@ -79,7 +79,7 @@
         @include('mobile.goods.go_buy')
         <div id="copy_dom" class="copy_dom" style="display: none">{{$goods->tpwd}}</div>
     @else
-        @include('mobile.component.empty')
+        @include('mobile.goods.empty')
     @endif
 
 @endsection

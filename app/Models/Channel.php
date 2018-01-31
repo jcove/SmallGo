@@ -68,19 +68,11 @@ class Channel extends Model
         return array_unique($data);
     }
     public static function allSelectOptions(){
-        $channels                                     =   static::getChildren();
+        $channels                                  =   static::orderBy('order' ,'asc')->get();
         $data                                           =   [0=>'无'];
         foreach ($channels as  $channel){
             if(!isset($data[$channel->id])){
                 $data[$channel->id]                    =   $channel->name;
-            }
-            $channelChild                          =   static::getChildren($channel->id);
-            foreach($channelChild as $child){
-
-                if(!isset($data[$child->id])){
-                    $data[$child->id]               =   '&nbsp;&nbsp;'.$child->name;
-
-                }
             }
         }
 

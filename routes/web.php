@@ -23,7 +23,6 @@ Route::get('/category/option','CategoryController@options');
 
 Route::get('/taobao/app','TaobaoController@openApp');
 Route::any('/taobao/client/collect','TaobaoController@saveClientCollect');
-Route::any('/test','TestController@index');
 Route::group(['middleware'=>['web','category']], function(){
     Auth::routes();
     Route::get('/go/{num_iid}','GoodsController@go');

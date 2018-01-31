@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cff4398fdf5b9b5bd7d887ffb4e59e0b",
+    "content-hash": "276d71232219f73b0dcce62c0d7aac81",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -829,6 +829,116 @@
             "time": "2017-08-10T02:15:48+00:00"
         },
         {
+            "name": "laravel-admin-ext/media-manager",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/media-manager.git",
+                "reference": "b7d1635fa151cb8cf73e6c9f5e5a12b876ad7e75"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/laravel-admin-extensions/media-manager/b7d1635fa151cb8cf73e6c9f5e5a12b876ad7e75.zip",
+                "reference": "b7d1635fa151cb8cf73e6c9f5e5a12b876ad7e75",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": "1.5.*",
+                "laravel/framework": "5.5.*",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "laravel/laravel": "5.*",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\Admin\\Media\\MediaServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Admin\\Media\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "z-song",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "Media manager for laravel",
+            "homepage": "https://github.com/laravel-admin-extensions/media-manager",
+            "keywords": [
+                "laravel-admin",
+                "manager",
+                "media"
+            ],
+            "time": "2017-08-09T09:06:25+00:00"
+        },
+        {
+            "name": "laravel-admin-ext/scheduling",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/scheduling.git",
+                "reference": "3691d7770f8b71eb952643e1aad3c1f57cb275ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/laravel-admin-extensions/scheduling/3691d7770f8b71eb952643e1aad3c1f57cb275ef.zip",
+                "reference": "3691d7770f8b71eb952643e1aad3c1f57cb275ef",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": "1.5.*",
+                "laravel/framework": "5.5.*",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "laravel/laravel": "5.*",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\Admin\\Scheduling\\SchedulingServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Admin\\Scheduling\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "z-song",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "Task scheduling extension for laravel-admin",
+            "homepage": "https://github.com/laravel-admin-extensions/scheduling",
+            "keywords": [
+                "laravel-admin",
+                "scheduling",
+                "task"
+            ],
+            "time": "2017-08-10T02:16:39+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v5.5.21",
             "source": {
@@ -1542,6 +1652,59 @@
             "time": "2017-09-27T21:40:39+00:00"
         },
         {
+            "name": "peinhu/aetherupload-laravel",
+            "version": "v1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/peinhu/AetherUpload-Laravel.git",
+                "reference": "5bd6a076d8c892b15984e04c36af718dc48d1873"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/peinhu/AetherUpload-Laravel/5bd6a076d8c892b15984e04c36af718dc48d1873.zip",
+                "reference": "5bd6a076d8c892b15984e04c36af718dc48d1873",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "suggest": {
+                "predis/predis": "Needed to support instant completion"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AetherUpload\\AetherUploadServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AetherUpload\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Payne Hu",
+                    "email": "huyang110yahoo@gmail.com",
+                    "homepage": "http://www.2ndrenais.com",
+                    "role": "Manager"
+                }
+            ],
+            "description": "Upload large files for Laravel 上传 大文件 laravel包",
+            "keywords": [
+                "big",
+                "large",
+                "大文件"
+            ],
+            "time": "2017-12-14T08:05:03+00:00"
+        },
+        {
             "name": "phpoffice/phpexcel",
             "version": "1.8.1",
             "source": {
@@ -1596,6 +1759,7 @@
                 "xls",
                 "xlsx"
             ],
+            "abandoned": "phpoffice/phpspreadsheet",
             "time": "2015-05-01T07:00:55+00:00"
         },
         {

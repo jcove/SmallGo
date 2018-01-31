@@ -152,6 +152,7 @@ class TaobaoController extends Controller
         $goods->coupon_remain_count                 =   $request->coupon_remain_count;
         $goods->category_id                         =   $categoryId ? $categoryId :  0;
         $goods->channel_id                          =   $channelId ? $channelId : 0;
+        $goods->tpwd                                =   $request->tpwd ? $request->tpwd : '';
         $goods->save();
         return \response()->json(['status'=>'success']);
 

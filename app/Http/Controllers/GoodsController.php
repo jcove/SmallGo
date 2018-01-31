@@ -22,20 +22,49 @@ use TopClient;
 
 class GoodsController extends Controller
 {
-
+    /**
+     * 站内商品详情
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
+     */
     public function detail($id){
         $goods                                  =   GoodsShare::where(['id'=>$id,'status'=>1])->first();
         $data                                   =   [];
         if($goods){
-            $data['goods']                          =   $goods;
+
             $data['title']                          =   $goods->title ? $goods->title : $goods->name;
             $data['code']                           =   base64_encode($goods->click_url);
             $taobao                                 =   new TaoBao();
             $data['recommend_goods_list']           =   $taobao->recommend($goods->original_id);
+            $cycle                              =   config('site.goods_update_cycle',0);
+            if($cycle > 0){
+                $lastUpdateTime                 =   new Carbon($goods->updated_at);
+                if($lastUpdateTime->addDay($cycle)<Carbon::now()){
+                    $item                       =   $taobao->item($goods->original_id);
+                    if($item){
+                        $goods->title           =   $item->title;
+                        $goods->volume          =   $item->volume;
+                        $goods->pictures        =   $item->pictures;
+                        $goods->cover           =   $item->cover;
+                        $goods->price           =   $item->price;
+                        $goods->save();
+                    }else{
+                        $goods->status          =   -1;
+                        $goods->save();
+                    }
+                }
+            }
+            $data['goods']                          =   $goods;
         }
 
         return $this->view('goods.item',$data);
     }
+
+    /**
+     * 淘宝商品详情
+     * @param $num_iid
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
+     */
     public function info($num_iid){
         $click_url                          =   request()->click_url;
         $coupon_start_time                  =   request()->coupon_start_time;
