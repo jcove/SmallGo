@@ -1,6 +1,6 @@
 <!-- 头部 -->
-<nav class="navbar navbar-default main">
-    <div class="container-fluid">
+<nav class="navbar navbar-small">
+    <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"

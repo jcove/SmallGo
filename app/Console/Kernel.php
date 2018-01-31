@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        'App\Console\InstallCommand'
+        'App\Console\Commands\InstallCommand',
+        'App\Console\Commands\ResolveRecommendCommand'
     ];
 
     /**
@@ -24,8 +25,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->command('command:resolve_recommend')->everyTenMinutes()->between('0:00', '5:00');;
+        $schedule->call(function () {
+            \AetherUpload\ResourceHandler::cleanUpDir();
+        })->daily();
     }
 
     /**

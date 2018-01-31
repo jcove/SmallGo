@@ -151,6 +151,8 @@ return [
      * Settings for extensions.
      */
     'extensions' => [
-
+        'media-manager' => [
+            'disk' => 'taobao'   // 指向config/filesystem.php中设置的disk
+        ],
     ],
 ];

@@ -10,10 +10,13 @@
         "fideloper/proxy": "~3.3",
         "jcove/taobao-sdk": "dev-master",
         "laravel-admin-ext/config": "^1.0",
+        "laravel-admin-ext/media-manager": "^1.0",
+        "laravel-admin-ext/scheduling": "^1.0",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "nesbot/carbon": "^1.22",
         "overtrue/laravel-wechat": "^3.1",
+        "peinhu/aetherupload-laravel": "~1.0",
         "phpoffice/phpexcel": "^1.8"
     },
     "require-dev": {
