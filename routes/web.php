@@ -20,7 +20,7 @@ Route::get('/install/setadmin','InstallController@setAdmin');
 Route::post('/install/db/init','InstallController@initDatabase');
 Route::get('/channel/option','ChannelController@options');
 Route::get('/category/option','CategoryController@options');
-
+Route::get('/test','TestController@index');
 Route::get('/taobao/app','TaobaoController@openApp');
 Route::any('/taobao/client/collect','TaobaoController@saveClientCollect');
 Route::group(['middleware'=>['web','category']], function(){

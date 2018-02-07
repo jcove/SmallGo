@@ -4,7 +4,7 @@
    采用laravel作为开发框架，项目后台依赖laravel-admin搭建，需要安装PHP 7.1+和Laravel 5.5，php包管理采用composer，如您不了解composer，请自行百度学习，以下内容默认您对larvavel和composer已经了解或熟悉，前端包管理采用npm，前端资源编译采用laravel-mix
 
    ## 主要特色：
-   ###### 优惠券 淘口令 淘点金 后台更新商品信息 支持微信
+   ###### 优惠券 淘口令 淘点金 后台更新商品信息 支持微信 单品自动更新 联盟精选导入 关键词提取
    
 安装 
 
@@ -13,6 +13,7 @@
     $ cd SmallGo 
     
     $ composer install
+    
     
 复制.example.env为.env，修改以下配置信息
 
@@ -33,10 +34,14 @@ TAOBAO_APP_SECRET   =   你的淘宝开放平台APP_SECRET
 AD_ZONE_ID          =   adzone_id,在pid中，PID：mm_memberid_siteid_adzoneid
 
 TAOBAO_PID          =   淘宝联盟pid，形如：mm_xxxxx_xxxxx_xxxx
+
+BOSONNLP_TOKEN      =   BosonNLP分词Token
     
     $ php artisan vendor:publish --provider="Encore\Admin\AdminServiceProvider"
 
     $ php artisan smallgo:install
+    
+    $ chmod -R 777 storage
     
 演示站点(搭建中) http://www.nayiya.com (支持pc和手机浏览)  
 交流社区(搭建中) http://www.361dream.com

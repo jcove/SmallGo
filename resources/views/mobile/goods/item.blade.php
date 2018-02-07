@@ -1,4 +1,10 @@
 @extends('mobile.layouts.layout')
+@section('keywords')
+    {{$goods->keywords}}
+@endsection
+@section('description')
+    {{$goods->description}}
+@endsection
 @section('style')
     <link rel="stylesheet" href="{{asset("css/wapshow.css")}}" type="text/css"/>
 @endsection
@@ -15,7 +21,7 @@
                     @if(!empty($goods->pictures))
                         @foreach($goods->pictures as $picture)
                             <div class="swiper-slide">
-                                <img src="{{get_image_url($picture)}}"/>
+                                <img alt="{{$goods->title}}" src="{{get_image_url($picture)}}"/>
                             </div>
                         @endforeach
                     @endif
@@ -223,7 +229,7 @@
                             $('span.loadding-lab').fadeOut(300);
                             if (jsonp.data.images.length > 0) {
                                 for (var i = 0; i < jsonp.data.images.length; i++) {
-                                    $('.pic-detail-show').append('<p><img src="' + jsonp.data.images[i] + '"/></p>');
+                                    $('.pic-detail-show').append('<p><img alt="{{$goods->title}}" src="' + jsonp.data.images[i] + '"/></p>');
                                 }
                             }
 

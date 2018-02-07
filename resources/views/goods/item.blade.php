@@ -1,4 +1,10 @@
 @extends('layouts.app')
+@section('keywords')
+    {{$goods->keywords}}
+@endsection
+@section('description')
+    {{$goods->description}}
+@endsection
 @section('content')
     @if(isset($goods) && $goods->status > 0)
         <div class="goods-detail">
@@ -9,7 +15,7 @@
                             @if(!empty($goods->pictures))
                                 @foreach($goods->pictures as $picture)
                                     @if ($loop->first)
-                                        <img src="{{get_image_url($picture)}}"/>
+                                        <img alt="{{$goods->title}}" src="{{get_image_url($picture)}}"/>
                                     @endif
                                 @endforeach
                             @endif
@@ -20,12 +26,12 @@
                                     @foreach($goods->pictures as $picture)
                                         @if ($loop->first)
                                             <li>
-                                                <img src="{{get_image_url($picture)}}"/>
+                                                <img alt="{{$goods->title}}" src="{{get_image_url($picture)}}"/>
                                             </li>
                                         @else
                                             @if($loop->index <5)
                                                 <li>
-                                                    <img src="{{get_image_url($picture)}}"/>
+                                                    <img alt="{{$goods->title}}" src="{{get_image_url($picture)}}"/>
                                                 </li>
                                             @endif
 
@@ -144,7 +150,7 @@
                             $('.loadding-lab').fadeOut(300);
                             if (jsonp.data.images.length > 0) {
                                 for (var i = 0; i < jsonp.data.images.length; i++) {
-                                    $('.content').append('<p><img src="' + jsonp.data.images[i] + '"/></p>');
+                                    $('.content').append('<p><img alt="{{$goods->title}}" src="' + jsonp.data.images[i] + '"/></p>');
                                 }
                             }
 
