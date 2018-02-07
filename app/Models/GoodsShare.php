@@ -12,6 +12,7 @@ use App\Searchable;
 use Carbon\Carbon;
 use Elasticsearch\Common\Exceptions\Missing404Exception;
 use GenPwdIsvParamDto;
+use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Model;
 
 use function Sodium\version_string;
@@ -97,6 +98,47 @@ class GoodsShare extends Model
     public function getCoverAttribute($cover)
     {
         return get_image_url($cover);
+    }
+    public function getKeywordsAttribute($keywords)
+    {
+        if(empty($keywords)){
+            $keywords                       =   $this->analysis($this->attributes['title']);
+            $this->attributes['keywords']   =   $keywords;
+            $this->save();
+        }
+
+        return $keywords;
+    }
+
+    public function getDescriptionAttribute($description){
+        if(empty($description)){
+            return $this->attributes['title'];
+        }
+        return $description;
+    }
+
+    public function analysis($title){
+
+        if(config('app.bosonnlp_token')){
+            $client = new Client();
+            $str                                    =   $title;
+            $res = $client->request('POST', 'http://api.bosonnlp.com/tag/analysis',[
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'Accept'     => 'application/json',
+                    'X-Token'      => config('app.bosonnlp_token')
+                ],
+                'body'=>json_encode([$str])
+            ]);
+            $body                                   =   (string)$res->getBody();
+            $json                                   =   \GuzzleHttp\json_decode($body,true);
+            if($json){
+                $word                               =   $json[0]['word'];
+                $word                               =   implode(',',$word);
+                return  $word;
+            }
+        }
+        return '';
     }
 
     public static function setCouponPrice($items){

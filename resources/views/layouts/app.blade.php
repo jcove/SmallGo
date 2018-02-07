@@ -8,13 +8,22 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@if(isset($title)) {{$title}}-{{config('app.name', 'SmallGo')}} @else {{config('app.name', 'SmallGo')}}@endif Powered by SmallGo</title>
-
+    <meta name="keywords" content="@yield('keywords', config('app.keywords'))"/>
+    <meta name="description" content="@yield('description', config('app.description'))"/>
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
     <link href="{{ mix('iconfont/iconfont.css')}}"  rel="stylesheet" >
     @yield('style')
     <script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>
+
+</head>
+<body>
+    @include('component.header')
+    @include('component.content')
+    @include('component.footer')
+    <!-- Scripts -->
+    <script src="{{ mix('js/app.js') }}"></script>
     <script>
         (function(){
             var bp = document.createElement('script');
@@ -29,13 +38,15 @@
             s.parentNode.insertBefore(bp, s);
         })();
     </script>
-</head>
-<body>
-    @include('component.header')
-    @include('component.content')
-    @include('component.footer')
-    <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?a5690d79cb1ea6ab51f9c19f8aa32924";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
     @yield('script')
 </body>
 </html>

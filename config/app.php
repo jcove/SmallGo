@@ -124,7 +124,7 @@ return [
     'log' => env('APP_LOG', 'single'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
-
+    'bosonnlp_token' => env('BOSONNLP_TOKEN',''),
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -227,7 +227,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'EasyWeChat' => Overtrue\LaravelWeChat\Facade::class,
-        'Search' => Mmanos\Search\Facade::class,
+
     ],
 
 ];

@@ -8,13 +8,13 @@
                 </a>
             </li>
             <li>
-                <a href="{{url('channel',['id'=>2])}}">
+                <a href="{{url('channel',['id'=>3])}}">
                     <i class="caesar">9.9</i>
                     <p class="pingfang">9.9包邮</p>
                 </a>
             </li>
             <li>
-                <a href="{{url('channel',['id'=>1])}}">
+                <a href="{{url('channel',['id'=>2])}}">
                     <i class="caesar">T</i>
                     <p class="pingfang">特价</p>
                 </a>

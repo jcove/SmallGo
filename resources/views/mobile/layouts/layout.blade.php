@@ -12,20 +12,7 @@
     <link href="//at.alicdn.com/t/font_433157_1j9zqcqasb57b9.css"  rel="stylesheet" >
     @yield('style')
     <script src="{{mix("js/flex.js")}}"></script>
-    <script>
-        (function(){
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https'){
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else{
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-    </script>
+
 </head>
 <body>
 <div id="app" class="app">
@@ -41,12 +28,34 @@
     };
 </script>
 <script src="{{mix("js/m.js")}}"></script>
-<script src="{{asset('vendor/laravel-admin/toastr/build/toastr.min.js')}}"></script>
 <script>
     $(function () {
         $('.footer').find('li').removeClass('active');
     })
 
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else{
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a5690d79cb1ea6ab51f9c19f8aa32924";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
 </script>
     @yield('script')
 </body>
