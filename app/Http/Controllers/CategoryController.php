@@ -30,7 +30,7 @@ class CategoryController extends Controller
         $goods                              =   GoodsShare::where(['status'=>1])->whereIn('category_id',$in)->orderBy($sort,$desc)->paginate(16);
 
 
-        $cover                              =   Ad::getCategoryCover($id);
+
         $data['list']                       =   GoodsShare::setCouponPrice($goods);
         $data['category_info']              =   $categoryInfo;
         $data['children']                   =   $categoryChildren;
@@ -39,7 +39,7 @@ class CategoryController extends Controller
         $data['sort']                       =   $sort;
         $data['title']                      =   $categoryInfo->name;
         $data['crumb']                      =   $crumb;
-        $data['cover']                      =   $cover;
+
         $data['desc']                       =   $desc=='desc'? 'asc' : 'desc';
         return $this->view('category.category',$data);
     }

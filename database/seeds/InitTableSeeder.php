@@ -6,7 +6,8 @@ use App\Models\Category;
 use App\Models\Channel;
 use App\Models\Nav;
 use Encore\Admin\Auth\Database\Menu;
-use Encore\Admin\Config\Config;
+use Encore\Admin\Auth\Database\Permission;
+use Encore\Admin\Config\ConfigModel;
 use Illuminate\Database\Seeder;
 
 class InitTableSeeder extends Seeder
@@ -175,14 +176,6 @@ class InitTableSeeder extends Seeder
                 'icon' => 'fa-navicon',
                 'uri' => 'nav',
             ],
-
-            [
-                'parent_id' => 0,
-                'order' => 8,
-                'title' => '配置管理',
-                'icon' => 'fa-toggle-on',
-                'uri' => 'config',
-            ],
             [
                 'parent_id' => 0,
                 'order' => 9,
@@ -221,12 +214,6 @@ class InitTableSeeder extends Seeder
         ]);
         Permission::insert([
             [
-                'name' => 'Admin Config',
-                'slug' => 'ext.config',
-                'http_method' => '',
-                'http_path' => '/config*',
-            ],
-            [
                 'name' => 'Scheduling',
                 'slug' => 'ext.scheduling',
                 'http_method' => '',
@@ -239,13 +226,6 @@ class InitTableSeeder extends Seeder
                 'http_path' => '/media*',
             ],
         ]);
-        Config::truncate();
-        Config::insert([
-            [
-                'name' => 'site.goods_update_cycle',
-                'value' => '1',
-                'description' => '商品信息自动更新周期,单位为天，只在详情页被打开时更新，只更新商品基本信息，不更新优惠券信息，请知晓',
-            ],
-        ]);
+
     }
 }

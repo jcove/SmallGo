@@ -13,7 +13,7 @@ class AlterNavTable extends Migration
      */
     public function up()
     {
-        Schema::create('navs', function (Blueprint $table) {
+        Schema::table('navs', function (Blueprint $table) {
             $table->char('client',10)->default('');
             $table->string('icon')->default('');
         });

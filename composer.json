@@ -10,7 +10,6 @@
         "fideloper/proxy": "~3.3",
         "guzzlehttp/guzzle": "^6.3",
         "jcove/taobao-sdk": "dev-master",
-        "laravel-admin-ext/config": "^1.0",
         "laravel-admin-ext/media-manager": "^1.0",
         "laravel-admin-ext/scheduling": "^1.0",
         "laravel/framework": "5.5.*",

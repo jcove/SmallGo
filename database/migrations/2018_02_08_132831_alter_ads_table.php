@@ -13,7 +13,7 @@ class AlterAdsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ads', function (Blueprint $table) {
+        Schema::table('ads', function (Blueprint $table) {
             $table->date('expire_date')->nullable();
         });
     }

@@ -13,7 +13,7 @@ class AlterGoodsSharesTable extends Migration
      */
     public function up()
     {
-        Schema::create('goods_shares', function (Blueprint $table) {
+        Schema::table('goods_shares', function (Blueprint $table) {
             $table->dateTime('tpwd_create_time')->nullable();
         });
     }
