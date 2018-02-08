@@ -24,9 +24,7 @@ class Ad extends Model
         return Storage::disk(config('admin.upload.disk'))->url($this->cover);
     }
 
-    public static function getCategoryCover($categoryId){
-        return static::where(['position'=>'category','type'=>static::$Type_Cover,'category_id'=>$categoryId])->first();
-    }
+
     public function getCoverAttribute($cover)
     {
         return get_image_url($cover);

@@ -4,14 +4,6 @@
     <div class="container">
         <div class="g-bd-list">
             <div class="row">
-                <div class="banner">
-                    @if(!empty($cover))
-                        <a href="{{$cover->url}}" target="_blank" title="{{$cover->name}}" class="wrap">
-                            <img src="{{ asset('home/images/loading.gif') }}" data-src="{{$cover->cover}}" alt="{{$cover->name}}" class="lazyload">
-                        </a>
-                    @endif
-                </div>
-
                 <!--商品展示区域-->
                 <div class="goodsArea" >
                     <div class="sortbar">

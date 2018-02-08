@@ -18,8 +18,6 @@ class HomeController extends Controller
             $content->header('Dashboard');
             $content->description('Description...');
 
-            $content->row(Dashboard::title());
-
             $content->row(function (Row $row) {
 
                 $row->column(4, function (Column $column) {

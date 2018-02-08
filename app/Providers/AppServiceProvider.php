@@ -24,8 +24,6 @@ class AppServiceProvider extends ServiceProvider
             Log::info($tmp . "\n\n\t");
         });
         Schema::defaultStringLength(191);
-        Config::load();
-
     }
 
     /**
