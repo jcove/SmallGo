@@ -8,15 +8,15 @@
 namespace App\Models;
 
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
 class Ad extends Model
 {
-    public static $Type_Swiper                               =   1;
-    public static $Type_Cover                                =   2;
-    public static function getList($position='index',$type=1){
-        return static::where(['position'=>$position,'type'=>$type])->get()->all();
+
+    public static function getList($position='pc_index_swiper'){
+        return static::where(['position'=>$position])->where('expire_date','>',Carbon::now()->addDay(-1))->get();
     }
 
 
@@ -30,5 +30,9 @@ class Ad extends Model
     public function getCoverAttribute($cover)
     {
         return get_image_url($cover);
+    }
+
+    public static function getByPosition($position){
+        return static :: where(['position'=>$position])->where('expire_date','>',Carbon::now()->addDay(-1))->first();
     }
 }

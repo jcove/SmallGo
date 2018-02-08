@@ -28,8 +28,12 @@ class IndexController extends Controller
 
 
         //幻灯片
+        if(is_mobile()){
+            $swipers                            =   Ad::getList('mobile_index_swiper');
+        }else{
+            $swipers                                =   Ad::getList();
+        }
 
-        $swipers                                =   Ad::getList();
         $data['swipers']                        =   $swipers;
         $data['desc']                           =   $desc =='desc' ? 'asc' : 'desc';
         $data['sort']                           =   $sort;

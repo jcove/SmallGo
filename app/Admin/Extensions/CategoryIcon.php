@@ -41,7 +41,7 @@ class CategoryIcon extends Field\Text
                                 "iconfont icon-dianqi-shouji","iconfont icon-muyin-wanju","iconfont icon-xihu-meizhuang","iconfont icon-jiaju-shouna","iconfont icon-yundonghuwai-huwai","iconfont icon-xihu-shengliyongpin",
                                 "iconfont icon-canchu-beihu","iconfont icon-nvshi-nvbao","iconfont icon-jiaju-weiyu","iconfont icon-qita-zhuoyi","iconfont icon-nvshi-chenshan","iconfont icon-jiaju-jiaju","iconfont icon-jiaju-shipin",
                                 "iconfont icon-muyin-weiyang","iconfont icon-nanshi-chenshan","iconfont icon-qita-chongwu","iconfont icon-nanshi-kuzhuang","iconfont icon-jiaju-chuangpinjiantao","iconfont icon-nanshi-wazi",
-                                "iconfont icon-qita-wujin","iconfont icon-nvshi-nvxie","iconfont icon-nvshi-wazi","iconfont icon-bangong-zhuoyi","iconfont icon-bangong-wenju"];
+                                "iconfont icon-qita-wujin","iconfont icon-nvshi-nvxie","iconfont icon-nvshi-wazi","iconfont icon-bangong-zhuoyi","iconfont icon-bangong-wenju",'iconfont icon-jingji','iconfont icon-quanchangbaoyou'];
                                 
          var searchicons    =   ["iconfont icon-muyin-qinju","iconfont icon-nanshi-nanxie","iconfont icon-nvshi-peishi","iconfont icon-dianqi-peijian","iconfont icon-nvshi-jiajufu",
                                 "iconfont icon-yinshi-lingshi","iconfont icon-canchu-canju","iconfont icon-yinshi-tiaoweipin","iconfont icon-nvshi-waitao","iconfont icon-canchu-chuju",
@@ -57,7 +57,7 @@ class CategoryIcon extends Field\Text
                                 "iconfont icon-dianqi-shouji","iconfont icon-muyin-wanju","iconfont icon-xihu-meizhuang","iconfont icon-jiaju-shouna","iconfont icon-yundonghuwai-huwai","iconfont icon-xihu-shengliyongpin",
                                 "iconfont icon-canchu-beihu","iconfont icon-nvshi-nvbao","iconfont icon-jiaju-weiyu","iconfont icon-qita-zhuoyi","iconfont icon-nvshi-chenshan","iconfont icon-jiaju-jiaju","iconfont icon-jiaju-shipin",
                                 "iconfont icon-muyin-weiyang","iconfont icon-nanshi-chenshan","iconfont icon-qita-chongwu","iconfont icon-nanshi-kuzhuang","iconfont icon-jiaju-chuangpinjiantao","iconfont icon-nanshi-wazi",
-                                "iconfont icon-qita-wujin","iconfont icon-nvshi-nvxie","iconfont icon-nvshi-wazi","iconfont icon-bangong-zhuoyi","iconfont icon-bangong-wenju"];
+                                "iconfont icon-qita-wujin","iconfont icon-nvshi-nvxie","iconfont icon-nvshi-wazi","iconfont icon-bangong-zhuoyi","iconfont icon-bangong-wenju",'iconfont icon-jingji','iconfont icon-quanchangbaoyou'];
 
 $('#category-icon').fontIconPicker({
         source: icons,

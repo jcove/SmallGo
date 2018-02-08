@@ -22,8 +22,14 @@
             <div class="swiper-pagination swiper-pagination-white"></div>
         </div>
     </section>
+
     <section>
         @include('mobile.component.channel_bar')
+    </section>
+    <section class="ad-box">
+        {!! smallgo_ad('mobile_index_left') !!}
+        {!! smallgo_ad('mobile_index_right_top') !!}
+        {!! smallgo_ad('mobile_index_right_bottom') !!}
     </section>
     <section>
         @include('mobile.widgest.category_side')
