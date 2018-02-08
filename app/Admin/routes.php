@@ -11,8 +11,7 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index');
-    $router->get('ad/{id?}/category','AdController@category');
-    $router->get('ad/category','AdController@category');
+    $router->resource('ad/position', AdPositionController::class);
     $router->resource('ad', AdController::class);
     $router->resource('category',CategoryController::class);
     $router->resource('goods',GoodsController::class);

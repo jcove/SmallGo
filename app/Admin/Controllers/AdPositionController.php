@@ -17,9 +17,10 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 
-class AdController
+class AdPositionController
 {
     use ModelForm;
+
     public function index()
     {
         return Admin::content(function (Content $content) {
@@ -71,18 +72,12 @@ class AdController
      */
     protected function grid()
     {
-        $position                       =   AdPosition::all()->pluck('name','position');
-        $array                          =   $position->toArray();
-        return Admin::grid(Ad::class, function (Grid $grid) use ($array){
+        return Admin::grid(AdPosition::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
             $grid->name('名称');
-            $grid->url('链接');
-            $grid->cover('图片')->image();
-            $grid->position('位置')->display(function ($position) use ($array){
-                return $array[$position];
-            });
-            $grid->expire_date('有效期');
+            $grid->description('位置描述');
+            $grid->position('位置');
             $grid->created_at();
             $grid->updated_at();
         });
@@ -95,14 +90,12 @@ class AdController
      */
     protected function form()
     {
-        return Admin::form(Ad::class, function (Form $form) {
+        return Admin::form(AdPosition::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->text('name','名称');
-            $form->image('cover','图片');
-            $form->date('expire_date','有效期');
-            $form->url('url','链接');
-            $form->select('position', '位置')->options(AdPosition::all()->pluck('name','position'));
+            $form->text('name', '名称');
+            $form->text('position', '位置');
+            $form->textarea('description','位置描述');
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
         });

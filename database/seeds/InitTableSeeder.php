@@ -97,13 +97,24 @@ class InitTableSeeder extends Seeder
         Nav::insert([
             [
                 'title' => '优选',
-                'link' => 'channel/1',
-                'order' => 1
+                'link' => '',
+                'order' => 1,
+                'client'=>'mobile',
+                'icon'  =>'iconfont icon-muyin-qinju'
             ],
             [
-                'title' => '男士',
-                'link' => 'category/1',
-                'order' => 1
+                'title' => '特价',
+                'link' => 'category/2',
+                'order' => 1,
+                'client'=>'mobile',
+                'icon'  =>'iconfont icon-jingji'
+            ],
+            [
+                'title' => '9.9包邮',
+                'link' => 'category/3',
+                'order' => 1,
+                'client'=>'mobile',
+                'icon'  =>'iconfont icon-quanchangbaoyou'
             ],
         ]);
         Menu::truncate();
@@ -192,6 +203,20 @@ class InitTableSeeder extends Seeder
                 'title' => '文件上传',
                 'icon' => 'fa-file',
                 'uri' => 'file/aether',
+            ],
+            [
+                'parent_id' => 9,
+                'order' => 0,
+                'title' => '广告位管理',
+                'icon' => 'fa-hand-pointer-o',
+                'uri' => 'ad/position',
+            ],
+            [
+                'parent_id' => 9,
+                'order' => 0,
+                'title' => '广告管理',
+                'icon' => 'fa-buysellads',
+                'uri' => 'ad',
             ],
         ]);
         Permission::insert([

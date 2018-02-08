@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 class Nav extends Model
 {
     public static function allNav($status = 1){
-        return static ::where(['status'=>$status])->get();
+        $client                             =   is_mobile() ? 'mobile' : 'pc';
+        return static ::where(['status'=>$status,'client'=>$client])->get();
     }
 }

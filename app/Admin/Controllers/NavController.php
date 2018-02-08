@@ -38,6 +38,17 @@ class NavController extends Controller
             $grid->id('ID')->sortable();
             $grid->title('标题');
             $grid->link('链接');
+            $grid->client('显示客户端')->display(function ($client){
+                switch ($client){
+                    case 'pc':
+                        $client                 =   'PC';
+                        break;
+                    case 'mobile':
+                        $client                 =   '手机';
+                        break;
+                }
+                return $client;
+            });
             $grid->created_at();
             $grid->updated_at();
         });
@@ -49,7 +60,11 @@ class NavController extends Controller
             $form->display('id', 'ID');
             $form->text('title','名称');
             $form->text('link','链接');
-
+            $form->categoryIcon('icon','图标');
+            $form->select('client','显示客户端')->options([
+                'pc'=>'PC',
+                'mobile'=>'手机'
+            ]);
         });
     }
     public function edit($id)

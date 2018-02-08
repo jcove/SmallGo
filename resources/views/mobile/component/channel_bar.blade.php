@@ -1,4 +1,4 @@
-@if(!empty($channels))
+@if(count($channels) > 0)
     <div  class="recommend-box">
         <p class="title">精选频道</p>
         <div id="iscroll">

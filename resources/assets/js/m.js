@@ -4,7 +4,6 @@ import Lazyload from 'lazyload';
 
 window.Lazyload = Lazyload;
 window.IScroll  =   IScroll;
-window.$ = window.jQuery = require('jquery');
 var deviceWidth         =   document.body.clientWidth;
 window.deviceWidth                  =   deviceWidth;
 

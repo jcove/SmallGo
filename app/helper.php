@@ -71,3 +71,23 @@ function is_mobile()
     }
     return FALSE;
 }
+function smallgo_ad($position){
+    $ad                                 =   \App\Models\Ad::getByPosition($position);
+    if($ad){
+        return smallgo_view('widget_ad.'.$position,['ad'=>$ad]);
+    }
+    return '';
+}
+function smallgo_view($view='',$data=[]){
+    if(request()->ajax() && !empty($view)){
+        $view                       =   $view.'_ajax';
+        if(!request()->acceptsHtml()){
+            return response()->json($data);
+        }
+    }
+    if(is_mobile()){
+        return view('mobile.'.$view,$data);
+    }else{
+        return view($view,$data);
+    }
+}
