@@ -98,21 +98,21 @@ class InitTableSeeder extends Seeder
         Nav::insert([
             [
                 'title' => '优选',
-                'link' => '',
+                'link' => '/',
                 'order' => 1,
                 'client'=>'mobile',
                 'icon'  =>'iconfont icon-muyin-qinju'
             ],
             [
                 'title' => '特价',
-                'link' => 'category/2',
+                'link' => 'channel/2',
                 'order' => 1,
                 'client'=>'mobile',
                 'icon'  =>'iconfont icon-jingji'
             ],
             [
                 'title' => '9.9包邮',
-                'link' => 'category/3',
+                'link' => 'channel/3',
                 'order' => 1,
                 'client'=>'mobile',
                 'icon'  =>'iconfont icon-quanchangbaoyou'
@@ -120,16 +120,65 @@ class InitTableSeeder extends Seeder
         ]);
         Menu::truncate();
         Menu::insert([
+		[
+                'parent_id' => 0,
+                'order'     => 1,
+                'title'     => 'Index',
+                'icon'      => 'fa-bar-chart',
+                'uri'       => '/',
+            ],
             [
                 'parent_id' => 0,
-                'order' => 1,
+                'order'     => 2,
+                'title'     => '系统',
+                'icon'      => 'fa-tasks',
+                'uri'       => '',
+            ],
+            [
+                'parent_id' => 2,
+                'order'     => 3,
+                'title'     => '管理员',
+                'icon'      => 'fa-users',
+                'uri'       => 'auth/users',
+            ],
+            [
+                'parent_id' => 2,
+                'order'     => 4,
+                'title'     => '角色',
+                'icon'      => 'fa-user',
+                'uri'       => 'auth/roles',
+            ],
+            [
+                'parent_id' => 2,
+                'order'     => 5,
+                'title'     => '权限',
+                'icon'      => 'fa-ban',
+                'uri'       => 'auth/permissions',
+            ],
+            [
+                'parent_id' => 2,
+                'order'     => 6,
+                'title'     => '菜单',
+                'icon'      => 'fa-bars',
+                'uri'       => 'auth/menu',
+            ],
+            [
+                'parent_id' => 2,
+                'order'     => 7,
+                'title'     => '操作日志',
+                'icon'      => 'fa-history',
+                'uri'       => 'auth/logs',
+            ],
+            [
+                'parent_id' => 0,
+                'order' => 3,
                 'title' => '运营管理',
                 'icon' => 'fa-adn',
                 'uri' => '/',
             ],
             [
                 'parent_id' => 8,
-                'order' => 2,
+                'order' => 3,
                 'title' => '广告',
                 'icon' => 'fa-adn',
                 'uri' => 'ad',
@@ -144,7 +193,7 @@ class InitTableSeeder extends Seeder
             [
                 'parent_id' => 8,
                 'order' => 4,
-                'title' => '商品',
+                'title' => '商品管理',
                 'icon' => 'fa-product-hunt',
                 'uri' => 'goods',
             ],
@@ -164,13 +213,6 @@ class InitTableSeeder extends Seeder
             ],
             [
                 'parent_id' => 0,
-                'order' => 0,
-                'title' => '系统管理',
-                'icon' => 'fa-wrench',
-                'uri' => '',
-            ],
-            [
-                'parent_id' => 14,
                 'order' => 0,
                 'title' => '导航管理',
                 'icon' => 'fa-navicon',

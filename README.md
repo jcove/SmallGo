@@ -6,7 +6,7 @@
    ## 主要特色：
    ###### <font color=#ff0000>优惠券 淘口令 淘点金 后台更新商品信息 支持微信 单品自动更新 联盟精选导入 关键词提取</font>
    
-安装 
+安装(linux) 
 
     $ git clone https://gitee.com/jcove/SmallGo.git
     
@@ -42,6 +42,7 @@ BOSONNLP_TOKEN      =   BosonNLP分词Token,注册地址https://bosonnlp.com
     $ php artisan smallgo:install
     
     $ chmod -R 777 storage
+    $ chmod -R 777 public/uploads
     
 演示站点(搭建中) http://www.nayiya.com (支持pc和手机浏览)  
 交流社区(搭建中) http://www.361dream.com
