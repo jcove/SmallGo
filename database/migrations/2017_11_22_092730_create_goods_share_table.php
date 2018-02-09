@@ -95,6 +95,13 @@ class CreateGoodsShareTable extends Migration
             $table->timestamps();
         });
 
+        Schema::create('schedule_logs', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->default("");
+            $table->string('md5')->default("");
+            $table->timestamps();
+        });
+
     }
 
     /**

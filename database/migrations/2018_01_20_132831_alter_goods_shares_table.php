@@ -15,6 +15,7 @@ class AlterGoodsSharesTable extends Migration
     {
         Schema::table('goods_shares', function (Blueprint $table) {
             $table->dateTime('tpwd_create_time')->nullable();
+            $table->string('tpwd',20)->default('');
         });
     }
 
