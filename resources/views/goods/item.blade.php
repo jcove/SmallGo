@@ -1,10 +1,13 @@
 @extends('layouts.app')
-@section('keywords')
-    {{$goods->keywords}}
-@endsection
-@section('description')
-    {{$goods->description}}
-@endsection
+@if(isset($goods))
+    @section('keywords')
+        {{$goods->keywords}}
+    @endsection
+    @section('description')
+        {{$goods->description}}
+    @endsection
+@endif
+
 @section('content')
     @if(isset($goods) && $goods->status > 0)
         <div class="goods-detail">
@@ -69,7 +72,7 @@
                                     领券购买</a>
                             @else
                                 <div class="buy-coupon theme-color-8">
-                                   <i class="iconfont icon-zhekou" style="font-size: 22px"></i>
+                                    <i class="iconfont icon-zhekou" style="font-size: 22px"></i>
                                 </div>
                                 <a rel="nofollow" class="btn "
                                    href="{{ $goods->click_url ? $goods->click_url : url('/go',['num_iid'=>$goods->original_id])}}"
@@ -98,7 +101,7 @@
                                             "bdSize": "16"
                                         }, "share": {}
                                     };
-                                    with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+                                    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
                                 </script>
                             </div>
                         </div>

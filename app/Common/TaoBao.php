@@ -10,6 +10,7 @@ namespace App\Common;
 
 use App\Models\GoodsShare;
 use Illuminate\Database\Eloquent\Collection;
+use TbkDgItemCouponGetRequest;
 use TbkItemInfoGetRequest;
 use TbkItemRecommendGetRequest;
 use TbkTpwdCreateRequest;
@@ -118,6 +119,62 @@ class TaoBao
         $goodsShare->item_url               =   $item->item_url;
         $goodsShare->cover                  =   $item->pict_url;
         $goodsShare->volume                 =   $item->volume;
+        if(isset($item->coupon_amount)){
+            $goodsShare->coupon_amount      =   $item->coupon_amount;
+        }
+        if(isset($item->coupon_price )){
+            $goodsShare->coupon_price       =   $item->coupon_price;
+        }
+        if(isset($item->coupon_status )){
+            $goodsShare->coupon_status       =   $item->coupon_status;
+        }
         return $goodsShare;
+    }
+    public function search($keywords,$perPageSize=10){
+        $page                           =   request()->page;
+        $req                            =   new TbkDgItemCouponGetRequest();
+        $req->setQ($keywords);
+        $req->setAdzoneId(config('taobao.ad_zone_id'));
+        $req->setPlatform('1');
+        $req->setPageSize('10');
+        $req->setPageNo($page);
+        $resp = $this->client->execute($req);
+        $result                         =   [];
+        if(empty($resp->code)){
+            if($resp->total_results > 0){
+                if(isset($resp->results)){
+                    $list                               =   new Collection();
+                    $data                               =   $resp->results->tbk_coupon;
+                    $pages                              =   ceil($resp->total_results/$perPageSize);
+                    if($data){
+                        foreach ($data as $k =>$v){
+
+                            preg_match_all('/\d+/', $v->coupon_info, $matches);
+
+                            if($matches){
+                                $v->coupon_amount       =   $matches[0][1];
+                            }else{
+                                $v->coupon_amount       =   0;
+                            }
+                            $v->zk_final_price          =   floatval($v->zk_final_price);
+                            $v->coupon_price            =   floatval($v->zk_final_price-$v->coupon_amount);
+                            $v->coupon_status           =   1;
+                            $list->add($this->itemToModel($v));
+                        }
+                        $result                         =   ['pages'=>$pages,'list'=>$list];
+                    }
+                }else{
+                    $result                             =   ['pages'=>0,'list'=>[]];
+                }
+
+            }else{
+                $result                             =   ['pages'=>0,'list'=>[]];
+            }
+            return $result;
+
+        }else{
+            $this->error                        =   $resp->msg;
+        }
+        return false;
     }
 }

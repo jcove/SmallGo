@@ -83,7 +83,6 @@ class ChannelController
 
             $grid->id('ID')->sortable();
             $grid->name('名称');
-            $grid->cover('封面')->image(100, 100);
             $grid->hidden('前台显示')->display(function ($hidden){
                 switch ($hidden){
                     case 0:
@@ -99,13 +98,10 @@ class ChannelController
     protected function form()
     {
         return Admin::form(Channel::class, function (Form $form) {
-
             $form->display('id', 'ID');
             $form->text('name','名称');
             $form->text('order','排序')->placeholder('1-100数字，升序排列')->help('1-100数字，升序排列');
             $form->select('hidden','前台显示')->options([0=>'是',1=>'否']);
-            $form->image('cover','封面');
-            $form->select('parent_id', '上级分类')->options(Channel::selectOptions());
         });
     }
     public function edit($id)

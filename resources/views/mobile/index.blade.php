@@ -5,14 +5,14 @@
             {{url('search/goods')}}
         @endslot
     @endcomponent
-    <section class="swiper-section">
+    <div class="swiper-section">
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 @if(!empty($swipers))
                     @foreach($swipers as $banner)
                         <div class="swiper-slide">
-                            <a href="{{$banner->url}}">
-                                <img src="{{$banner->cover}}"/>
+                            <a href="{{$banner->url}}" title="{{$banner->name}}">
+                                <img style="display: block" alt="{{$banner->name}}" src="{{$banner->cover}}"/>
                             </a>
                         </div>
                     @endforeach
@@ -21,30 +21,23 @@
             </div>
             <div class="swiper-pagination swiper-pagination-white"></div>
         </div>
-    </section>
+    </div>
 
-    <section>
-        @include('mobile.component.channel_bar')
-    </section>
-    <section class="ad-box">
+    {{--<div class="box">--}}
+        {{--@include('mobile.component.channel_bar')--}}
+    {{--</div>--}}
+    <div class="ad-box">
         {!! smallgo_ad('mobile_index_left') !!}
         {!! smallgo_ad('mobile_index_right_top') !!}
         {!! smallgo_ad('mobile_index_right_bottom') !!}
-    </section>
-    <section>
+    </div>
+    <div class="box">
         @include('mobile.widgest.category_side')
-    </section>
-    <section>
-        <div class="goods-list-v">
-            @if(count($list) > 0)
-                <ul id="result">
-                    @foreach($list as $item)
-                       @include('mobile.component.goods_list_item_v')
-                    @endforeach
-                </ul>
-            @endif
-        </div>
-    </section>
+    </div>
+    <div class="box">
+        @component('mobile.component.goods_list_h',['list'=>$list,'title'=>'本站精选'])
+        @endcomponent
+    </div>
 @endsection
 @section('script')
     <script>

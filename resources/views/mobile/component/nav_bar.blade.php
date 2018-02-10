@@ -4,7 +4,7 @@
             @if(count($navs) > 0)
                 @foreach($navs as $nav)
                     <li class="smallgo-nav-item">
-                        <a href="{{url($nav->link)}}">
+                        <a href="{{$nav->link}}">
                             <i class="{{$nav->icon}}"></i>
                             <p class="">{{$nav->title}}</p>
                         </a>

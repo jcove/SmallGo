@@ -78,19 +78,22 @@ class InitTableSeeder extends Seeder
                 'name' => '优选',
                 'cover' => '',
                 'parent_id' => 0,
-                'order' => 1
+                'order' => 1,
+                'hidden' =>1
             ],
             [
                 'name' => '特价',
                 'cover' => '',
                 'parent_id' => 0,
-                'order' => 1
+                'order' => 1,
+                'hidden' =>1
             ],
             [
                 'name' => '9.9包邮',
                 'cover' => '',
                 'parent_id' => 0,
-                'order' => 1
+                'order' => 1,
+                'hidden' =>1
             ]
 
         ]);
@@ -177,16 +180,16 @@ class InitTableSeeder extends Seeder
                 'uri' => '/',
             ],
             [
-                'parent_id' => 8,
+                'parent_id' => 0,
                 'order' => 3,
-                'title' => '广告',
+                'title' => '广告管理',
                 'icon' => 'fa-adn',
                 'uri' => 'ad',
             ],
             [
                 'parent_id' => 8,
                 'order' => 3,
-                'title' => '分类',
+                'title' => '分类管理',
                 'icon' => 'fa-certificate',
                 'uri' => 'category',
             ],
@@ -207,7 +210,7 @@ class InitTableSeeder extends Seeder
             [
                 'parent_id' => 8,
                 'order' => 6,
-                'title' => '频道',
+                'title' => '频道管理',
                 'icon' => 'fa-stack-exchange',
                 'uri' => 'channel',
             ],
@@ -235,7 +238,7 @@ class InitTableSeeder extends Seeder
             [
                 'parent_id' => 0,
                 'order' => 0,
-                'title' => '文件上传',
+                'title' => '联盟上传',
                 'icon' => 'fa-file',
                 'uri' => 'file/aether',
             ],

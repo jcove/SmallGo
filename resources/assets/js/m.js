@@ -56,10 +56,10 @@ window.setNextPageUrl=function (url) {
 }
 window.setGoodsLayout=function() {
     //商品列表宽度计算
-    var goodsItemWidth                      =   deviceWidth/2-3;
-    $('.goods-list-h  .item').width(goodsItemWidth).height(goodsItemWidth/5*8).css('margin-bottom',6);
-    $('.goods-list-h  .item:odd').css('margin-left',3);
-    $('.goods-list-h  .item:even').css('margin-right',3);
+    // var goodsItemWidth                      =   deviceWidth/2-3;
+    // $('.goods-list-h  .item').width(goodsItemWidth).height(goodsItemWidth/5*8).css('margin-bottom',6);
+    // $('.goods-list-h  .item:odd').css('margin-left',3);
+    // $('.goods-list-h  .item:even').css('margin-right',3);
 }
 var loading                             =   false;
 var haveDate                            =   true;
