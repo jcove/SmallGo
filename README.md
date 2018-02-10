@@ -38,7 +38,6 @@ TAOBAO_PID          =   淘宝联盟pid，形如：mm_xxxxx_xxxxx_xxxx
 BOSONNLP_TOKEN      =   BosonNLP分词Token,注册地址https://bosonnlp.com
     
 
-
     $ php artisan smallgo:install
     
     $ chmod -R 777 storage

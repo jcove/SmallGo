@@ -33,16 +33,6 @@ class TaobaoController extends Controller
         $resp = $c->execute($req);
         return response()->json($resp);
     }
-    public function goods(){
-        $c                      = new TopClient( config('taobao.app_key'),config('taobao.app_secret'));
-        $req                    = new TbkDgItemCouponGetRequest();
-        $req->setAdzoneId("35030473");
-        $req->setPlatform("1");
-        $req->setQ("https://item.taobao.com/item.htm?spm=a219t.7900221/10.1998910419.d30ccd691.45084afekfyQNe&id=556479386733");
-        dump($req);
-        $resp = $c->execute($req);
-        dump($resp);
-    }
 
     public function item($num_iid){
         if(empty($num_iid) ){
@@ -154,7 +144,7 @@ class TaobaoController extends Controller
         $goods->channel_id                          =   $channelId ? $channelId : 0;
         $goods->tpwd                                =   $request->tpwd ? $request->tpwd : '';
         $goods->save();
-        return \response()->json(['status'=>'success']);
+        return response()->json(['status'=>'success','id'=>$goods->id]);
 
     }
 

@@ -51,6 +51,7 @@ class CreateGoodsShareTable extends Migration
             $table->integer('category_id')->default(0);
             $table->string('url')->default("");
             $table->string('cover')->default("");
+            $table->string('name',60)->default("");
             $table->tinyInteger('type')->default(0);
         });
 

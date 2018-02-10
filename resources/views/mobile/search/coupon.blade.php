@@ -4,16 +4,14 @@
     @if(!empty($keywords))
         @component('mobile.component.search_bar',['url'=>url('search/coupon'),'keywords'=>$keywords])
         @endcomponent
-        <div class="goods-list-h">
-            @if(count($list) > 0)
-                <ul id="result" class="list">
-                    @foreach($list as $item)
-                        @include('mobile.search.goods_list_item_h')
-                    @endforeach
-                </ul>
-            @else
-                @include('mobile.component.empty')
-            @endif
+        <div class="box">
+
+                @if(isset($list) && count($list) > 0)
+                    @component('mobile.component.goods_list_h',['list'=>$list,'title'=>''])
+                    @endcomponent
+                @else
+                    @include('mobile.component.empty')
+                @endif
         </div>
     @else
         @component('mobile.component.search_bar')

@@ -1,10 +1,12 @@
 @extends('mobile.layouts.layout')
+@if(isset($goods))
 @section('keywords')
     {{$goods->keywords}}
 @endsection
 @section('description')
     {{$goods->description}}
 @endsection
+@endif
 @section('style')
     <link rel="stylesheet" href="{{asset("css/wapshow.css")}}" type="text/css"/>
 @endsection

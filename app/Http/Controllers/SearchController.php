@@ -8,6 +8,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Common\TaoBao;
 use App\Models\GoodsShare;
 use App\Searchable;
 use Elasticsearch\ClientBuilder;
@@ -38,51 +39,20 @@ class SearchController extends Controller
     public function coupon($keywords=''){
         $keywords                       =   $keywords ? $keywords : request()->keywords;
         $page                           =   request()->page;
-        $list                           =   [];
         $nextPageUrl                    =   '';
-        $hotGoods                       =   [];
         if(!empty($keywords)){
-            $c                          =   new TopClient( config('taobao.app_key'),config('taobao.app_secret'));
-            $c->format                  =   'json';
-            $req                        =   new TbkDgItemCouponGetRequest();
-            $req->setQ($keywords);
-            $req->setAdzoneId(config('taobao.ad_zone_id'));
-            $req->setPlatform('1');
-            $req->setPageSize('10');
-            $req->setPageNo($page);
-            $resp = $c->execute($req);
-            if(empty($resp->code)){
-                if($resp->total_results > 0){
-                    if(isset($resp->results)){
-                        $list                   =   $resp->results->tbk_coupon;
-                        $pages                  =   ceil($resp->total_results/10);
-                        if($page<$pages){
-                            $nextPageUrl        =   url('search/coupon',['keywords'=>$keywords]);
-                        }
-                        if($list){
-                            foreach ($list as $k =>$v){
-                                preg_match_all('/\d+/', $v->coupon_info, $matches);
-
-                                if($matches){
-                                    $list[$k]->coupon_amount  =   $matches[0][1];
-                                }else{
-                                    $list[$k]->coupon_amount  =   0;
-                                }
-                                $list[$k]->zk_final_price       =   floatval($v->zk_final_price);
-                                $list[$k]->coupon_price       =   floatval($v->zk_final_price-$list[$k]->coupon_amount);
-                            }
-                        }
-                    }
-
+            $taobao                     =   new TaoBao();
+            $result                     =   $taobao->search($keywords);
+            if($result){
+                if($page<$result['pages']){
+                    $nextPageUrl        =   url('search/coupon',['keywords'=>$keywords]);
                 }
-
+                $data['list']           =   $result['list'];
             }
         }
-        $data['list']                   =   $list;
         $data['keywords']               =   $keywords;
         $data['title']                  =   '找券';
-        $data['next_page_url']          =   $nextPageUrl;
-        $data['hot_goods']              =   $hotGoods;
+        $data['next_page_url']          =   isset($nextPageUrl) ? $nextPageUrl : '';
         return $this->view('search.coupon',$data);
     }
     public function search(){

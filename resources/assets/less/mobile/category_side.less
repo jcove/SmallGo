@@ -1,16 +1,31 @@
 @import "../functions";
 .category-side{
-  .margin-top(5);
-  background-color: white;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  .margin-top(10)!important;
+  .padding-top(20);
   .item{
-    .width(90);
     float: left;
+    .width(85);
     .font-size(14);
     text-align: center;
     .padding-bottom(10);
     .padding-top(10);
-    i{
-      .font-size(16);
+    .icon{
+      background-color: @colorBlue1;
+      color: white;
+      display: inline-block;
+      border-radius: 50%;
+      .padding(10);
+      .width(20);
+      .height(20);
+      i{
+        .font-size(22);
+      }
+    }
+    p{
+      color: #a8a8a8;
+      .padding-top(20);
     }
   }
 }

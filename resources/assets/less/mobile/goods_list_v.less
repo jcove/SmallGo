@@ -1,0 +1,112 @@
+.goods-list-v{
+  background-color: white;
+  .margin-top(5);
+  .item{
+    background-color: white;
+    border-bottom: 1px solid #cdcbcb;
+    .padding(3,0);
+    float: left;
+    .cover,.info{
+      float: left;
+    }
+    .cover{
+      width: 40%;
+      .img{
+        .padding(3,5);
+        .font-size(14px);
+        overflow: hidden;
+        .max-height(150);
+        img{
+          .width(150);
+
+        }
+      }
+    }
+    .info{
+      width: 60%;
+
+    }
+    .info{
+      .goods-title{
+        .font-size(14);
+      }
+      .goods-title,.original-price-box,.price-box{
+        .padding(0,0);
+      }
+      .original-price-box{
+        .margin-top(20);
+        overflow: hidden;
+        .line-height(30);
+        .padding-right(5);
+        .original-price,.volume{
+          width: 50%;
+          float: left;
+          .font-size(12);
+          color: #a3a3a3;
+        }
+      }
+      .price-box{
+        overflow: hidden;
+        .margin-top(10);
+        .padding-right(5);
+        p{
+          width: 50%;
+          float: left;
+        }
+        .goods-price{
+          .line-height(20);
+          .font-size(14);
+          color: #a3a3a3;
+          .tips{
+            .font-size(12);
+            .padding(3);
+            color: #ff2220;
+            .line-height(20);
+          }
+          .price{
+            .font-size(16);
+            color: @colorRed2;
+            .padding(3);
+            .line-height(20);
+            font-weight: bold;
+          }
+        }
+        .coupon-info{
+          .font-size(12);
+          .line-height(26);
+
+          span{
+            background: linear-gradient(to right,#ff8f03,#ff650e,#ff3c19);
+            color: white;
+            .padding(0,8);
+            .border-radius(3);
+            float: right;
+          }
+        }
+        .volume{
+          .font-size(12);
+          .line-height(26);
+          color: #a3a3a3;
+
+        }
+      }
+      .no-coupon{
+        .margin-top(70);
+        .goods-price{
+          .font-size(12);
+        }
+      }
+    }
+    .goods-title{
+      .height(40);
+      .line-height(20);
+      overflow: hidden;
+    }
+
+    .volume{
+      text-align: right;
+      color: #a3a3a3;
+    }
+  }
+
+}

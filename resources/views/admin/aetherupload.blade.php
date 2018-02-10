@@ -1,6 +1,6 @@
 <div class="box box-info">
     <div class="box-header with-border">
-        <h3 class="box-title">上传</h3>
+        <p>如何实现自动导入，<a href="http://www.361dream.com/article/62" target="_blank">点我看教程</a></p>
     </div>
     <!-- /.box-header -->
     <!-- form start -->

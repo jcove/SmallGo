@@ -15,10 +15,10 @@
     <script src="{{mix("js/flex.js")}}"></script>
 
 </head>
-<body>
-<div id="app" class="app">
-    @yield('content')
-</div>
+<body class="">
+    <div id="app" class="app">
+        @yield('content')
+    </div>
 <div class="bg">
 
 </div>
@@ -31,7 +31,7 @@
 <script src="{{mix("js/m.js")}}"></script>
 <script>
     $(function () {
-        $('.footer').find('a[href={{url()->full()}}]').closen('li').addClass('active');
+        $('.footer').find('a[href="{{url()->full()}}"]').closest('li').addClass('active');
     })
 
 </script>
