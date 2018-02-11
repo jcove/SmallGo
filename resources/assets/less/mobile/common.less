@@ -1,0 +1,45 @@
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  color: #777777;
+  .font-size(8);
+  box-shadow:  0 -1px 1px rgba(199,199,199,0.2);
+  ul{
+    li{
+      width: 33.333%;
+      float: left;
+      .padding-top(5);
+      .padding-bottom(5);
+      i{
+        .font-size(20)!important;
+      }
+      p{
+        .font-size(10);
+        color: #777777;
+      }
+      a{
+        color: #777777;
+      }
+    }
+    .active{
+      a{
+        i,p{
+          color: #ffd799;
+        }
+      }
+
+    }
+  }
+}
+.eui-btn{
+  background-color: @colorPink1;
+  color: white;
+  .padding(10,15);
+  text-align: center;
+  .font-size(12);
+  border: 0;
+}

@@ -18,7 +18,7 @@
         </script>
     </div>
     <div id="go-top">
-        <i class="iconfont icon-fanhuidingbu"></i>
+        <i class="iconfont icon-totop"></i>
     </div>
 </section>
 

@@ -7839,7 +7839,7 @@ body {
   overflow: hidden;
 }
 .navbar-small {
-  background-color: #f00582;
+  background-color: #53cfc4;
   border-radius: 0;
 }
 .navbar-small a {
@@ -7868,6 +7868,25 @@ body {
 .btn-danger.active {
   background-color: #c12e2a;
   border-color: #b92c28;
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  color: #b5b5b5;
+}
+.pagination > li > a,
+.pagination > li > span {
+  color: #b5b5b5;
+}
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+  background-color: #b5b5b5;
+  border-color: #b5b5b5;
 }
 .goods-detail {
   margin: auto;
