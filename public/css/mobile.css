@@ -1,4 +1,4 @@
-@import url(//at.alicdn.com/t/font_507260_vs4gjuqdjmdkj4i.css);/**
+@import url(//at.alicdn.com/t/font_507260_jkaoj6cv44y4x6r.css);/**
  * Swiper 3.4.2
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * 
@@ -522,7 +522,7 @@ button.swiper-pagination-bullet {
   background-color: #34A79E;
 }
 .bg-color-5 {
-  background-color: #cbccce;
+  background-color: #b5b5b5;
 }
 .bg-color-6 {
   background-color: #ccff66;
@@ -537,7 +537,7 @@ button.swiper-pagination-bullet {
   background-color: #33CC99;
 }
 .bg-color-10 {
-  background-color: #cbccce;
+  background-color: #b5b5b5;
 }
 .grad {
   /* Safari 5.1 - 6.0 */
@@ -555,6 +555,54 @@ button.swiper-pagination-bullet {
   margin-top: 0.13888889rem;
   margin-bottom: 0.27777778rem;
   background-color: white;
+}
+.eui-btn-blue {
+  background-color: #63d9f3 !important;
+}
+.eui-btn-orange {
+  background-color: #ff6600 !important;
+}
+.eui-btn-yellow {
+  background-color: #ffd799 !important;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  color: #777777;
+  font-size: 0.22222222rem;
+  -webkit-box-shadow: 0 -1px 1px rgba(199, 199, 199, 0.2);
+          box-shadow: 0 -1px 1px rgba(199, 199, 199, 0.2);
+}
+.footer ul li {
+  width: 33.333%;
+  float: left;
+  padding-top: 0.13888889rem;
+  padding-bottom: 0.13888889rem;
+}
+.footer ul li i {
+  font-size: 0.55555556rem !important;
+}
+.footer ul li p {
+  font-size: 0.27777778rem;
+  color: #777777;
+}
+.footer ul li a {
+  color: #777777;
+}
+.footer ul .active a i,
+.footer ul .active a p {
+  color: #ffd799;
+}
+.eui-btn {
+  background-color: #ffc4c0;
+  color: white;
+  padding: 0.27777778rem 0.41666667rem;
+  text-align: center;
+  font-size: 0.33333333rem;
+  border: 0;
 }
 .category-side {
   text-align: center;
@@ -663,9 +711,11 @@ button.swiper-pagination-bullet {
   outline: none;
 }
 .search-bar .search-bar-tool input:-ms-input-placeholder,
-.search-bar .search-bar-tool input::-webkit-input-placeholder {
+.search-bar .search-bar-tool input::-webkit-input-placeholder,
+.search-bar .search-bar-tool input:-moz-placeholder,
+.search-bar .search-bar-tool input::-moz-placeholder {
   text-align: center;
-  color: #444444;
+  color: #ccc;
 }
 .search-bar .search-bar-tool .go-search {
   padding: 0rem 0.55555556rem;
@@ -886,7 +936,7 @@ button.swiper-pagination-bullet {
   padding-left: 0.13888889rem;
 }
 .goods-list-h .item .info .price-box .no-coupon {
-  background-color: #cbccce;
+  background-color: #b5b5b5;
   width: 1.52777778rem;
   float: right;
 }
@@ -916,75 +966,134 @@ button.swiper-pagination-bullet {
 .goods-list-h .item .priceLeft {
   left: 0;
 }
-@font-face {
-  font-family: "arial";
-  src: url(/fonts/arial.eot?84922184e4af76551383a30d96ffe480);
-  /* IE9*/
-  src: url(/fonts/arial.eot?84922184e4af76551383a30d96ffe480#iefix) format('embedded-opentype'),  url(/fonts/arial.woff?609750fbb48d9ff2b020735c7d87bc70) format('woff'), url(/fonts/arial.ttf?cecd6fa4d9c45cba6db838a3172dab6e) format('truetype'),  url(/fonts/arial.svg?7793fbd89cfb1339db096b28cf2f5c94#iconfont) format('svg');
-  /* iOS 4.1- */
+.detail-img {
+  position: relative;
 }
-@font-face {
-  font-family: "yahei";
-  src: url(/fonts/weiruanyahei.eot?fd030c192aef163b561501acd800f2b1);
-  /* IE9*/
-  src: url(/fonts/weiruanyahei.eot?fd030c192aef163b561501acd800f2b1#iefix) format('embedded-opentype'),  url(/fonts/weiruanyahei.woff?2395e30b38b9ed4e2e7e3fbbf1fa4244) format('woff'), url(/fonts/weiruanyahei.ttf?ffa1ad36de8eedf99e24365268b47ff2) format('truetype'),  url(/fonts/weiruanyahei.svg?1d68fdef11fd08cd32cba795a7b32ed9#iconfont) format('svg');
-  /* iOS 4.1- */
+.detail-img .coupon-fee {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
 }
-@font-face {
-  font-family: "songti";
-  src: url(/fonts/huawensongti.eot?5c3f12415e7aef1961a051fe915ebfbe);
-  /* IE9*/
-  src: url(/fonts/huawensongti.eot?5c3f12415e7aef1961a051fe915ebfbe#iefix) format('embedded-opentype'),  url(/fonts/huawensongti.woff?9743e6c8892684c40961e220825c2514) format('woff'), url(/fonts/huawensongti.ttf?f822fd8d073adbce468b70f9fcdc3ae6) format('truetype'),  url(/fonts/huawensongti.svg?973d22468b69ab7ef58e3ca056c104fa#iconfont) format('svg');
-  /* iOS 4.1- */
+.detail-info {
+  background-color: white;
+  padding: 0.27777778rem;
 }
-@font-face {
-  font-family: "pingfang";
-  src: url(/fonts/pingfang.eot?5811aaa9c7000f0e75be0f008cfb861d);
-  /* IE9*/
-  src: url(/fonts/pingfang.eot?5811aaa9c7000f0e75be0f008cfb861d#iefix) format('embedded-opentype'),  url(/fonts/pingfang.woff?38e9dafb8b8fd460168cc02306ebd839) format('woff'), url(/fonts/pingfang.ttf?da9648daf3b263b7a4c1873cc858eda0) format('truetype'),  url(/fonts/pingfang.svg?defd56e7f6475ca1f24503658d6cf4b5#iconfont) format('svg');
-  /* iOS 4.1- */
-}
-@font-face {
-  font-family: "caesar";
-  src: url(/fonts/caesar_open_t.eot?8abafd0dde34b2ebf30da0156cef1b7c);
-  /* IE9*/
-  src: url(/fonts/caesar_open_t.eot?8abafd0dde34b2ebf30da0156cef1b7c#iefix) format('embedded-opentype'),  url(/fonts/caesar_open_t.woff?5eb06fdb509bae145eb4f98f6c4ef64f) format('woff'), url(/fonts/caesar_open_t.ttf?4f76eb93b4dda9d65ac378dcd050d5f5) format('truetype'),  url(/fonts/caesar_open_t.svg?17923b00a42826cf7d435a2824dfb6cf#iconfont) format('svg');
-  /* iOS 4.1- */
-}
-.caesar {
-  font-family: "caesar" !important;
+.detail-info .name {
+  color: #2c2c2c;
   font-size: 0.38888889rem;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
-.simsun {
-  font-family: "songti" !important;
+.detail-info p {
   font-size: 0.38888889rem;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
-.yahei {
-  font-family: "yahei" !important;
-  font-size: 0.38888889rem;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.detail-info .goods-original-box {
+  padding: 0.22222222rem 0rem;
 }
-.pingfang {
-  font-family: "pingfang" !important;
-  font-size: 0.38888889rem;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.detail-info .goods-original-box .original-price {
+  font-size: 0.33333333rem;
+  color: #a3a3a3;
 }
-.arial {
-  font-family: "arial" !important;
+.detail-info .goods-original-box .volume {
+  float: right;
+  font-size: 0.33333333rem;
+}
+.detail-info .goods-price-box {
+  position: relative;
+  margin-top: 0.27777778rem;
+}
+.detail-info .goods-price-box .goods-price .price {
+  font-size: 0.44444444rem;
+  color: #2c2c2c;
+}
+.detail-info .goods-price-box .volume {
+  float: right;
+  color: #888;
+  font-size: 0.33333333rem;
+}
+.detail-info .site-price {
+  color: #a3a3a3;
+  font-size: 0.33333333rem;
+  font-weight: normal;
+}
+.detail-content {
+  background-color: white;
+  margin-bottom: 1.11111111rem;
+}
+.detail-content .title {
+  border-top: 1px solid #ccc;
+  padding: 0.13888889rem 0.41666667rem;
+  text-align: center;
+}
+.detail-content .content img {
+  max-width: 100% !important;
+  height: auto;
+}
+.detail-buy {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.detail-buy .collect,
+.detail-buy .go-buy {
+  text-align: center;
   font-size: 0.38888889rem;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+.detail-buy .collect a,
+.detail-buy .go-buy a {
+  color: white;
+}
+.detail-buy .collect p,
+.detail-buy .go-buy p {
+  font-size: 0.33333333rem;
+}
+.detail-buy .collect {
+  width: 30%;
+  background-color: white;
+}
+.detail-buy .go-buy {
+  color: white;
+}
+.detail-buy .go-buy .coupon-amount {
+  font-size: 0.5rem;
+  line-height: 1.11111111rem;
+}
+.detail-buy .go-buy .coupon-date {
+  font-size: 0.27777778rem;
+}
+.goods-body .beatWord {
+  text-align: center;
+}
+.goods-body .beatWord fieldset {
+  width: 8.33333333rem;
+  margin: auto;
+  padding-top: 0rem;
+  border: 1px dotted #c0c0c0;
+  font-size: 0.38888889rem;
+}
+.goods-body .beatWord fieldset p {
+  font-size: 0.38888889rem;
+  line-height: 0.72222222rem;
+  color: #888;
+}
+.goods-body .beatWord fieldset legend {
+  padding: 0rem 0.13888889rem;
+  border: none;
+  font-size: 0.38888889rem;
+  letter-spacing: 0.05555556rem;
+  line-height: 0.55555556rem;
+}
+.goods-body .pic-detail-show p {
+  font-size: 0.38888889rem;
+}
+.goods-body .pic-detail-show img {
+  width: 98%;
+  vertical-align: middle;
+}
+.goods-body .loadding-lab {
+  font-size: 0.33333333rem;
+  padding: 0.27777778rem;
+  color: #888;
+  text-align: center;
 }
 html {
   font-size: 62.5%;
@@ -1040,10 +1149,11 @@ p {
 .swiper-container .swiper-wrapper .swiper-slide img {
   max-width: 100%;
 }
-.swiper-container .swiper-pagination-bullet {
-  width: 0.72222222rem;
-  height: 0.16666667rem;
-  border-radius: 0.08333333rem;
+.swiper-container .swiper-pagination-white .swiper-pagination-bullet {
+  background: #ffd799;
+}
+.swiper-container .swiper-pagination-white .swiper-pagination-bullet-active {
+  background: #ffd799;
 }
 .sg-box {
   margin-left: 0.13888889rem;
@@ -1200,7 +1310,6 @@ p {
 .coupon-fee {
   height: 0.61111111rem;
   line-height: 0.61111111rem;
-  border-radius: 0.05555556rem !important;
   font-size: 0.33333333rem;
   text-align: center;
   position: relative;
@@ -1210,197 +1319,6 @@ p {
   display: block;
   color: white;
   padding: 0.13888889rem;
-}
-.detail-info {
-  background-color: white;
-  padding: 0.27777778rem;
-}
-.detail-info p {
-  font-size: 0.38888889rem;
-}
-.detail-info .goods-original-box {
-  padding: 0.22222222rem 0rem;
-}
-.detail-info .goods-original-box .original-price {
-  font-size: 0.33333333rem;
-  color: #a3a3a3;
-}
-.detail-info .goods-original-box .volume {
-  float: right;
-  font-size: 0.33333333rem;
-}
-.detail-info .goods-price-box {
-  position: relative;
-  margin-top: 0.27777778rem;
-}
-.detail-info .goods-price-box .goods-price .tips {
-  font-size: 0.33333333rem;
-  padding: 0.08333333rem;
-  color: #ff2220;
-}
-.detail-info .goods-price-box .goods-price .price {
-  font-size: 0.44444444rem;
-  color: #ff002d;
-  font-weight: bold;
-}
-.detail-info .goods-price-box .volume {
-  float: right;
-  color: #888;
-  font-size: 0.33333333rem;
-}
-.detail-info .site-price {
-  color: #a3a3a3;
-  font-size: 0.33333333rem;
-  font-weight: normal;
-}
-.detail-coupon {
-  background: -webkit-gradient(linear, left top, right top, from(#ff721c), color-stop(#ff4413), to(#ff320f));
-  background: linear-gradient(to right, #ff721c, #ff4413, #ff320f);
-  color: white;
-  text-align: center;
-  padding: 0.27777778rem 0rem;
-  padding: 0.13888889rem;
-}
-.detail-coupon .coupon-amount {
-  font-size: 0.38888889rem;
-  padding: 0.22222222rem 0rem;
-}
-.detail-coupon .coupon-date {
-  font-size: 0.33333333rem;
-  padding: 0.22222222rem 0rem;
-}
-.tuwen-tkl .beatWord {
-  text-align: center;
-}
-.tuwen-tkl .beatWord fieldset {
-  padding: 0.22222222rem 0.27777778rem;
-  padding: 0rem 0.05555556rem;
-  border: 1px solid #c0c0c0;
-  font-size: 0.38888889rem;
-}
-.tuwen-tkl .beatWord fieldset p {
-  font-size: 0.44444444rem;
-  line-height: 0.72222222rem;
-}
-.tuwen-tkl .beatWord fieldset legend {
-  padding: 0rem 0.13888889rem;
-  background: #808080;
-  border: none;
-  font-size: 0.44444444rem;
-  letter-spacing: 0.05555556rem;
-  line-height: 0.55555556rem;
-  color: #fff;
-}
-.tuwen-tkl .beatWord button {
-  border: none;
-  font-size: 0.38888889rem;
-  padding: 0.16666667rem 0.27777778rem;
-  background: #f60;
-  display: inline-block;
-  padding: 0.27777778rem;
-  border-radius: 0.13888889rem;
-  color: #fff;
-}
-.tuwen-tkl .beatWord .itemOpen {
-  background: #00a1ff;
-}
-.detail-content {
-  background-color: white;
-  margin-bottom: 1.11111111rem;
-}
-.detail-content .title {
-  border-top: 1px solid #ccc;
-  padding: 0.13888889rem 0.41666667rem;
-  text-align: center;
-}
-.detail-content .content img {
-  max-width: 100%!important;
-  height: auto;
-}
-.detail-buy {
-  position: fixed;
-  height: 1.66666667rem;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid #ccc;
-}
-.detail-buy .collect,
-.detail-buy .go-buy {
-  float: left;
-  text-align: center;
-  height: 1.66666667rem;
-  font-size: 0.38888889rem;
-  padding-top: 0.27777778rem;
-}
-.detail-buy .collect a,
-.detail-buy .go-buy a {
-  color: white;
-}
-.detail-buy .collect p,
-.detail-buy .go-buy p {
-  font-size: 0.33333333rem;
-}
-.detail-buy .collect {
-  width: 30%;
-  background-color: white;
-}
-.detail-buy .go-buy {
-  width: 100%;
-  background: #ff2220;
-  color: white;
-}
-.detail-buy .go-buy .coupon-amount {
-  font-size: 0.5rem;
-  line-height: 1.11111111rem;
-}
-.detail-buy .go-buy .coupon-date {
-  font-size: 0.27777778rem;
-}
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  background-color: white;
-  color: #777777;
-  font-size: 0.22222222rem;
-}
-.footer:after {
-  content: " ";
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  height: 1px;
-  border-top: 1px solid #D9D9D9;
-  color: #D9D9D9;
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-  -webkit-transform: scaleY(0.5);
-  transform: scaleY(0.5);
-}
-.footer ul li {
-  width: 33.333%;
-  float: left;
-  padding-top: 0.13888889rem;
-  padding-bottom: 0.13888889rem;
-}
-.footer ul li i {
-  font-size: 0.5rem;
-  font-weight: bold;
-}
-.footer ul li p {
-  margin-top: 0.13888889rem;
-  font-size: 0.30555556rem;
-  color: #777777;
-  font-weight: bold;
-}
-.footer ul li a {
-  color: #777777;
-}
-.footer ul .active a i,
-.footer ul .active a p {
-  color: #ff2220;
 }
 .coupon-list {
   background-color: white;
@@ -1681,11 +1599,8 @@ p {
   bottom: 1.66666667rem;
   width: 0.83333333rem;
   height: 0.83333333rem;
-  border-radius: 0.41666667rem;
   display: none;
-  background: white;
-  -webkit-box-shadow: 0 1px 1px #a3a3a3;
-          box-shadow: 0 1px 1px #a3a3a3;
+  background: #f8f8f8;
   line-height: 0.83333333rem;
 }
 #go-top i {

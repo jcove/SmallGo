@@ -2,25 +2,21 @@
 @section('content')
     @component('mobile.component.search_bar')
         @slot('url')
-            {{url('search/goods')}}
+            {{url('search/coupon')}}
         @endslot
     @endcomponent
-    @include('mobile.component.category_bar')
 
-    <div class="goods-list-h">
-        @component('mobile.component.sort_bar',['url'=>'category/'.$id.'/'.$sub_id,'desc'=>$desc,'sort'=>$sort])
-        @endcomponent
-        @if(count($list) > 0)
-            <ul id="result">
-                @foreach($list as $item)
-                    @component('mobile.component.goods_list_item_h',['url'=>'/item','item'=>$item])
-                    @endcomponent
-                @endforeach
-            </ul>
-        @else
-                @include('mobile.component.empty')
-        @endif
-    </div>
+    @component('mobile.component.sort_bar',['url'=>'category/'.$id.'/'.$sub_id,'desc'=>$desc,'sort'=>$sort])
+    @endcomponent
+    @if(count($list) > 0)
+            <div class="box">
+                @component('mobile.component.goods_list_h',['list'=>$list])
+                @endcomponent
+            </div>
+    @else
+            @include('mobile.component.empty')
+    @endif
+
 @endsection
 @section('script')
     <script>

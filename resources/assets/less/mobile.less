@@ -1,84 +1,16 @@
 @import "functions";
 @import "../../../node_modules/swiper/dist/css/swiper.css";
 @import "mobile/theme";
-@import "//at.alicdn.com/t/font_507260_vs4gjuqdjmdkj4i.css";
+@import "//at.alicdn.com/t/font_507260_jkaoj6cv44y4x6r.css";
 @import "color";
+@import "mobile/common";
 @import "mobile/category_side";
 @import "mobile/ad";
 @import "mobile/search_bar";
 @import "mobile/goods_list_v";
 @import "mobile/goods_list_h";
-@font-face {font-family: "arial";
-  src: url('../font/arial.eot?t=1510399040113'); /* IE9*/
-  src: url('../font/arial.eot?t=1510399040113#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../font/arial.woff') format('woff'),
-  url('../font/arial.ttf?t=1510399040113') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('../font/arial.svg?t=1510399040113#iconfont') format('svg'); /* iOS 4.1- */
-}
-@font-face {font-family: "yahei";
-  src: url('../font/weiruanyahei.eot?t=1510399040113'); /* IE9*/
-  src: url('../font/weiruanyahei.eot?t=1510399040113#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../font/weiruanyahei.woff') format('woff'),
-  url('../font/weiruanyahei.ttf?t=1510399040113') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('../font/weiruanyahei.svg?t=1510399040113#iconfont') format('svg'); /* iOS 4.1- */
-}
-@font-face {font-family: "songti";
-  src: url('../font/huawensongti.eot?t=1510399040113'); /* IE9*/
-  src: url('../font/huawensongti.eot?t=1510399040113#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../font/huawensongti.woff') format('woff'),
-  url('../font/huawensongti.ttf?t=1510399040113') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('../font/huawensongti.svg?t=1510399040113#iconfont') format('svg'); /* iOS 4.1- */
-}
-@font-face {font-family: "pingfang";
-  src: url('../font/pingfang.eot?t=1510399040113'); /* IE9*/
-  src: url('../font/pingfang.eot?t=1510399040113#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../font/pingfang.woff') format('woff'),
-  url('../font/pingfang.ttf?t=1510399040113') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('../font/pingfang.svg?t=1510399040113#iconfont') format('svg'); /* iOS 4.1- */
-}
-@font-face {font-family: "caesar";
-  src: url('../font/caesar_open_t.eot?t=1510399040113'); /* IE9*/
-  src: url('../font/caesar_open_t.eot?t=1510399040113#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../font/caesar_open_t.woff') format('woff'),
-  url('../font/caesar_open_t.ttf?t=1510399040113') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('../font/caesar_open_t.svg?t=1510399040113#iconfont') format('svg'); /* iOS 4.1- */
-}
-.caesar {
-  font-family:"caesar" !important;
-  .font-size(14);
-  font-style:normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.simsun {
-  font-family:"songti" !important;
-  .font-size(14);
-  font-style:normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.yahei {
-  font-family:"yahei" !important;
-  .font-size(14);
-  font-style:normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import "mobile/goods";
 
-.pingfang {
-  font-family:"pingfang" !important;
-  .font-size(14);
-  font-style:normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.arial {
-  font-family:"arial" !important;
-  .font-size(14);
-  font-style:normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 html{
   font-size: 62.5%;
   height: 100%;
@@ -133,10 +65,13 @@ p{
       }
     }
   }
-  .swiper-pagination-bullet{
-    .width(26);
-    .height(6);
-    .border-radius(3);
+  .swiper-pagination-white {
+    .swiper-pagination-bullet {
+      background: @colorYellow;
+    }
+    .swiper-pagination-bullet-active {
+      background: @colorYellow;
+    }
   }
 }
 
@@ -313,7 +248,6 @@ p{
 .coupon-fee{
   .height(22);
   .line-height(22);
-  .border-radius(2)!important;
   .font-size(12);
   text-align: center;
   position: relative;
@@ -324,214 +258,8 @@ p{
   color: white;
   .padding(5);
 }
-.detail-info{
-  background-color: white;
-  .padding(10);
-  p{
-    .font-size(14);
-  }
-  .goods-original-box{
-    .padding(8,0);
-    .original-price{
-      .font-size(12);
-      color: #a3a3a3;
-    }
-    .volume{
-      float: right;
-      .font-size(12);
-    }
-  }
-
-  .goods-price-box{
-    position: relative;
-   .margin-top(10);
-    .goods-price{
-      .tips{
-        .font-size(12);
-        .padding(3);
-        color: #ff2220;
-      }
-      .price{
-        .font-size(16);
-        color: #ff002d;
-        font-weight: bold;
-      }
-    }
-    .volume{
-      float: right;
-      color: #888;
-      .font-size(12);
-    }
-  }
-  .site-price{
-    color: #a3a3a3;
-    .font-size(12);
-    font-weight: normal;
-  }
-
-}
-.detail-coupon{
-  background: linear-gradient(to right,#ff721c, #ff4413, #ff320f);
-  color: white;
-  text-align: center;
-  .padding(10,0);
-  .padding(5);
-  .coupon-amount{
-    .font-size(14);
-    .padding(8,0);
-
-  }
-  .coupon-date{
-    .font-size(12);
-    .padding(8,0);
-  }
-}
-.tuwen-tkl{
-
-  .beatWord{
-    text-align: center;
-
-    fieldset {
-      .padding(8,10);
-      .margin(0,2);
-      border: 1px solid #c0c0c0;
-      .font-size(14);
-      p{
-        .font-size(16);
-        .line-height(26);
-      }
-      legend {
-        .padding(0,5);
-        background: #808080;
-        border: none;
-        .font-size(16);
-        .letter-spacing(2);
-        .line-height(20);
-        color: #fff;
-      }
-    }
-    button {
-      border: none;
-      .font-size(14);
-      .padding(6,10);
-      background: #f60;
-      display: inline-block;
-      .margin(10);
-      .border-radius(5);
-      color: #fff;
-    }
-    .itemOpen {
-      background: #00a1ff;
-    }
-  }
 
 
-}
-.detail-content{
-  background-color: white;
-  .margin-bottom(40);
-  .title{
-    border-top: 1px solid #ccc;
-    .padding(5,15);
-    text-align: center;
-  }
-  .content{
-    img{
-      max-width: 100%!important;
-      height: auto;
-    }
-  }
-}
-.detail-buy{
-  position: fixed;
-  .height(60);
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid #ccc;
-  .collect,.go-buy{
-    float: left;
-    text-align: center;
-    .height(60);
-    .font-size(14);
-   .padding-top(10);
-    a{
-      color: white;
-    }
-    p{
-      .font-size(12);
-    }
-  }
-  .collect{
-    width: 30%;
-    background-color: white;
-  }
-  .go-buy{
-    width: 100%;
-    background: #ff2220;
-    color: white;
-    .coupon-amount{
-      .font-size(18);
-      .line-height(40);
-    }
-    .coupon-date{
-      .font-size(10);
-    }
-  }
-}
-
-.footer{
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  background-color: white;
-  color: #777777;
-  .font-size(8);
-  &:after{
-    content: " ";
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    height: 1px;
-    border-top: 1px solid #D9D9D9;
-    color: #D9D9D9;
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    -webkit-transform: scaleY(0.5);
-    transform: scaleY(0.5);
-  }
-  ul{
-    li{
-      width: 33.333%;
-      float: left;
-       .padding-top(5);
-      .padding-bottom(5);
-      i{
-        .font-size(18);
-        font-weight: bold;
-      }
-      p{
-        .margin-top(5);
-        .font-size(11);
-        color: #777777;
-        font-weight:bold;
-      }
-      a{
-        color: #777777;
-      }
-    }
-    .active{
-      a{
-        i,p{
-          color: #ff2220;
-        }
-
-      }
-
-    }
-  }
-}
 
 .coupon-list{
   background-color: white;
@@ -821,10 +549,8 @@ p{
   .bottom(60);
   .width(30);
   .height(30);
-  .border-radius(15);
   display: none;
-  background: white;
-  box-shadow: 0 1px 1px #a3a3a3;
+  background: @colorGray3;
   .line-height(30);
   i{
     display: block;

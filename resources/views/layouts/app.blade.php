@@ -12,8 +12,6 @@
     <meta name="description" content="@yield('description', config('app.description'))"/>
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-
-    <link href="{{ mix('iconfont/iconfont.css')}}"  rel="stylesheet" >
     @yield('style')
     <script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>
 

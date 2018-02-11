@@ -51,8 +51,8 @@
                         <div class="goods-price-box">
                             @if($goods->coupon_status > 0)
                                 <span class="now-price"><b class="theme-color-8">(独享)</b>券后价&nbsp;&nbsp;&nbsp;&nbsp;<b
-                                            class="theme-color-8">¥<i>{{$goods->coupon_price}}</i></b></span>
-                                <span class="org-price">在售价&nbsp;&nbsp;¥<i>{{$goods->price}}</i></span>
+                                            class="theme-color-8">¥<span>{{$goods->coupon_price}}</span></b></span>
+                                <span class="org-price">在售价&nbsp;&nbsp;¥<span>{{$goods->price}}</span></span>
                             @else
                                 <span class="now-price"><b class="theme-color-8">¥<i>{{$goods->price}}</i></b></span>
                             @endif
