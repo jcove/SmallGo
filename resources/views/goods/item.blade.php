@@ -111,7 +111,7 @@
         </div>
         <div class="goods-body clear row">
             <div class="recommend-box">
-                @include('widgets.recommend_goods')
+
             </div>
             <div class="goods-detail">
                 <div class="goods-body-title">
@@ -164,6 +164,9 @@
                     });
                 }, 1000);
             }
+            $.get("{{route('taobao.recommend')}}",{'num_iid':'{{$goods->original_id}}'},function (response) {
+                $('.recommend-box').append(response);
+            })
 
         </script>
 

@@ -42,8 +42,6 @@
                     <span class="volume">月销{{$goods->volume or 0}}</span>
                 </p>
             </div>
-
-
         </div>
         <div class="goods-body">
             <div class="beatWord">
@@ -205,13 +203,16 @@
                         jsonpCallback: "showTuwen",
                         success: function (jsonp) {
 
-                            $('loadding-lab').fadeOut(300);
+                            $('.loadding-lab').fadeOut(300);
                             if (jsonp.data.images.length > 0) {
                                 for (var i = 0; i < jsonp.data.images.length; i++) {
                                     $('.pic-detail-show').append('<p><img alt="{{$goods->title}}" src="' + jsonp.data.images[i] + '"/></p>');
                                 }
                             }
-
+                            $.get("{{route('taobao.recommend')}}",{'num_iid':'{{$goods->original_id}}'},function (response) {
+                                $('.goods-body').after(response);
+                                lazyload();
+                            });
                             isLoad = true;
                         },
                         error: function () {
@@ -235,6 +236,7 @@
                 loadDetail();
             }
         });
+
         @endif
 
     </script>

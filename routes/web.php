@@ -22,6 +22,7 @@ Route::get('/channel/option','ChannelController@options');
 Route::get('/category/option','CategoryController@options');
 Route::get('/test','TestController@index');
 Route::get('/taobao/app','TaobaoController@openApp');
+Route::get('/goods/recommend','TaobaoController@recommend')->name('taobao.recommend');
 Route::any('/taobao/client/collect','TaobaoController@saveClientCollect');
 Route::group(['middleware'=>['web','category']], function(){
     Auth::routes();

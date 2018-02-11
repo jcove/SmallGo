@@ -35,7 +35,6 @@ class GoodsController extends Controller
             $data['title']                          =   $goods->title ? $goods->title : $goods->name;
             $data['code']                           =   base64_encode($goods->click_url);
             $taobao                                 =   new TaoBao();
-            $data['recommend_goods_list']           =   $taobao->recommend($goods->original_id);
             $cycle                              =   config('site.goods_update_cycle',0);
             if($cycle > 0){
                 $lastUpdateTime                 =   new Carbon($goods->updated_at);
