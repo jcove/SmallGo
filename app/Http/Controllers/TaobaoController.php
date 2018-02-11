@@ -153,6 +153,18 @@ class TaobaoController extends Controller
         return strpos($request->header('user_agent'), 'MicroMessenger') !== false;
     }
 
+    public function recommend(){
+        $numIid                                 =   request()->num_iid;
+        if($numIid){
+            $taobao                                 =   new TaoBao();
+            $data['recommend_goods_list']           =   $taobao->recommend($numIid);
+            return smallgo_view('taobao.recommend',$data);
+        }else{
+            return '无相关推荐';
+        }
+
+    }
+
 
 
 }
