@@ -35,7 +35,7 @@
         @include('mobile.widgest.category_side')
     </div>
     <div class="box">
-        @component('mobile.component.goods_list_h',['list'=>$list,'title'=>'本站精选'])
+        @component('mobile.component.goods_list_h',['list'=>$list,'title'=>'本站精选','url'=>'/item'])
         @endcomponent
     </div>
 @endsection

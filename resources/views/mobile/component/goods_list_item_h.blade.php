@@ -1,5 +1,5 @@
 <li class="item">
-    <a href="{{ url($url,['id'=>$item->id]) }}">
+    <a href="@if($url=='/item'){{ url($url,['id'=>$item->id]) }} @else{{ url($url,['id'=>$item->original_id]) }}@endif">
         <div class="cover">
             <img class="lazyload img-responsive" alt="{{$item->name}}" data-src="{{ $item->cover }}"/>
         </div>

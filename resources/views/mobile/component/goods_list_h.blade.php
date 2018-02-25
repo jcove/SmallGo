@@ -12,7 +12,7 @@
     @if(count($list) > 0)
         <ul id="result">
             @foreach($list as $item)
-                @component('mobile.component.goods_list_item_h',['url'=>'/item','item'=>$item])
+                @component('mobile.component.goods_list_item_h',['url'=>$url,'item'=>$item])
                 @endcomponent
             @endforeach
         </ul>

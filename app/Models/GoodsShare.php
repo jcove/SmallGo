@@ -104,7 +104,9 @@ class GoodsShare extends Model
         if(empty($keywords)){
             $keywords                       =   $this->analysis($this->attributes['title']);
             $this->attributes['keywords']   =   $keywords;
-            $this->save();
+            if($this->id){
+                $this->save();
+            }
         }
 
         return $keywords;
