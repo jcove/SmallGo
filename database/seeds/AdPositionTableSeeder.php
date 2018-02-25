@@ -1,5 +1,4 @@
 <?php
-namespace Database\Seed;
 use App\Models\AdPosition;
 use Illuminate\Database\Seeder;
 

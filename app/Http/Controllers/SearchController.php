@@ -42,7 +42,7 @@ class SearchController extends Controller
         $nextPageUrl                    =   '';
         if(!empty($keywords)){
             $taobao                     =   new TaoBao();
-            $result                     =   $taobao->search($keywords);
+            $result                     =   $taobao->searchCoupon($keywords);
             if($result){
                 if($page<$result['pages']){
                     $nextPageUrl        =   url('search/coupon',['keywords'=>$keywords]);

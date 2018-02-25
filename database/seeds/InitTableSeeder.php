@@ -1,13 +1,9 @@
 <?php
-
-namespace Database\Seed;
-
 use App\Models\Category;
 use App\Models\Channel;
 use App\Models\Nav;
 use Encore\Admin\Auth\Database\Menu;
 use Encore\Admin\Auth\Database\Permission;
-use Encore\Admin\Config\ConfigModel;
 use Illuminate\Database\Seeder;
 
 class InitTableSeeder extends Seeder

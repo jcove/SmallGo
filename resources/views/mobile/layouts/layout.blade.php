@@ -4,9 +4,9 @@
     <meta charset="utf-8"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-    <meta name="keywords" content="@yield('keywords', config('app.keywords')))"/>
-    <meta name="description" content="@yield('description', config('app.description'))"/>
-    <title>@if(isset($title)) {{$title}}-{{config('app.name', 'SmallGo')}} @else {{config('app.name', 'SmallGo')}}@endif Powered by SmallGo</title>
+    <meta name="keywords" content="@yield('keywords', config('site.site_keywords')))"/>
+    <meta name="description" content="@yield('description', config('site.site_description'))"/>
+    <title>@if(isset($title)) {{$title}}-{{config('site.site_title', 'SmallGo')}} @else {{config('site.site_title', 'SmallGo')}}@endif Powered by SmallGo</title>
     <link rel="stylesheet" href="{{mix("css/mobile.css")}}" type="text/css"/>
     <link rel="stylesheet" href="{{asset("vendor/laravel-admin/toastr/build/toastr.min.css")}}" type="text/css"/>
     <link href="//at.alicdn.com/t/font_433157_1j9zqcqasb57b9.css"  rel="stylesheet" >

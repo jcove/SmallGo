@@ -7,9 +7,9 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@if(isset($title)) {{$title}}-{{config('app.name', 'SmallGo')}} @else {{config('app.name', 'SmallGo')}}@endif Powered by SmallGo</title>
-    <meta name="keywords" content="@yield('keywords', config('app.keywords'))"/>
-    <meta name="description" content="@yield('description', config('app.description'))"/>
+    <title>@if(isset($title)) {{$title}}-{{config('site.site_title', 'SmallGo')}} @else {{config('site.site_title', 'SmallGo')}}@endif Powered by SmallGo</title>
+    <meta name="keywords" content="@yield('keywords', config('site.site_keywords'))"/>
+    <meta name="description" content="@yield('description', config('site.site_description'))"/>
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @yield('style')
