@@ -42,6 +42,7 @@ BOSONNLP_TOKEN      =   BosonNLP分词Token,注册地址https://bosonnlp.com
     
     $ chmod -R 777 storage
     $ chmod -R 777 public/uploads
+后台：http://youdomain/admin  用户名：admin 密码：admin
     
 演示站点(搭建中) http://www.nayiya.com (支持pc和手机浏览)  
 交流社区(搭建中) http://www.361dream.com

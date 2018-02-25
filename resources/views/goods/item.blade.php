@@ -166,6 +166,7 @@
             }
             $.get("{{route('taobao.recommend')}}",{'num_iid':'{{$goods->original_id}}'},function (response) {
                 $('.recommend-box').append(response);
+                lazyload();
             })
 
         </script>
