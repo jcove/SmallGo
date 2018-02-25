@@ -71,7 +71,6 @@ class GoodsController extends Controller
         $coupon_amount                      =   request()->coupon_amount;
         $taobao                             =   new TaoBao();
         $goods                              =   $taobao->item($num_iid);
-
         $goods->coupon_start_time           =   $coupon_start_time;
         $goods->coupon_end_time             =   $coupon_end_time;
         $goods->coupon_amount               =   $coupon_amount;

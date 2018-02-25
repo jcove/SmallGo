@@ -126,6 +126,7 @@ class TaoBao
         $goodsShare->item_url = $item->item_url;
         $goodsShare->cover = $item->pict_url;
         $goodsShare->volume = $item->volume;
+        $goodsShare->status         =   1;
         if (isset($item->coupon_amount)) {
             $goodsShare->coupon_amount = $item->coupon_amount;
         }
