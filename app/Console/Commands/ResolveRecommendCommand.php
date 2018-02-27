@@ -72,6 +72,7 @@ class ResolveRecommendCommand extends Command
     }
 
     protected function resolve($file){
+        Log::info($file);
         if(strpos($file,'xls')){
             $log                                            =   new ScheduleLog();
             $log->name                                      =   $file;
@@ -135,6 +136,9 @@ class ResolveRecommendCommand extends Command
                             case '推广链接':
                                 $fields['click_url'] = $i;
                                 break;
+                            case '平台类型':
+                                $fields['from_site'] = $i;
+                                break;
                             default:
                                 if(is_numeric($title)){
                                     $fields['channel_id']=$title;
@@ -167,6 +171,9 @@ class ResolveRecommendCommand extends Command
                     }
                     if(isset($fields['volume'])){
                         $recommendGoods->volume = $sheet->getCell($fields['volume'] . $row)->getValue();
+                    }
+                    if(isset($fields['from_site'])){
+                        $recommendGoods->from_site = $sheet->getCell($fields['from_site'] . $row)->getValue();
                     }
                     $recommendGoods->price = $sheet->getCell($fields['price'] . $row)->getValue();
                     $recommendGoods->coupon_start_time = $sheet->getCell($fields['coupon_start_time'] . $row)->getValue();

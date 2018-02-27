@@ -17,7 +17,8 @@
         "nesbot/carbon": "^1.22",
         "overtrue/laravel-wechat": "^3.1",
         "peinhu/aetherupload-laravel": "~1.0",
-        "phpoffice/phpexcel": "^1.8"
+        "phpoffice/phpexcel": "^1.8",
+        "rachidlaasri/laravel-installer": "^3.2"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
