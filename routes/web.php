@@ -14,10 +14,6 @@
 
 use Illuminate\Support\Facades\Auth;
 Route::any('/wechat', 'WeChatController@serve');
-Route::get('/install','InstallController@index');
-Route::get('/install/db','InstallController@creteDatabase');
-Route::get('/install/setadmin','InstallController@setAdmin');
-Route::post('/install/db/init','InstallController@initDatabase');
 Route::get('/channel/option','ChannelController@options');
 Route::get('/category/option','CategoryController@options');
 Route::get('/test','TestController@index');

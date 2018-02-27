@@ -5,45 +5,70 @@
 
    ## 主要特色：
    ###### <font color=#ff0000>优惠券 淘口令 淘点金 后台更新商品信息 支持微信 单品自动更新 联盟精选导入 关键词提取</font>
-   
+       
 安装(linux) 
 
+1、
+    
     $ git clone https://gitee.com/jcove/SmallGo.git
     
     $ cd SmallGo 
     
     $ composer install
+2、 
     
+   在浏览器地址栏输入： http://你的域名/install
+   
+   按照提示进行安装
+   
+   进入 《环境设置》 后，建议选择《直接编辑》，修改如下配置，如无，请添加
+   
+    DB_HOST=127.0.0.1，数据库地址
+   
+    DB_PORT=3306， 数据库端口
+   
+    DB_DATABASE=smallgo，数据库名
+   
+    DB_USERNAME=homestead，数据库用户名
+   
+    DB_PASSWORD=secret，数据库密码
+   
+    TAOBAO_APP_KEY      =   你的淘宝开放平台APP_KEY
+   
+    TAOBAO_APP_SECRET   =   你的淘宝开放平台APP_SECRET
+   
+    AD_ZONE_ID          =   adzone_id,在pid中，PID：mm_memberid_siteid_adzoneid
+   
+    TAOBAO_PID          =   淘宝联盟pid，形如：mm_xxxxx_xxxxx_xxxx
+   
+    BOSONNLP_TOKEN      =   BosonNLP分词Token,注册地址https://bosonnlp.com
+   
+   如果选择《向导模式》，安装完毕后请手动修改.env文件中如下配置
+   
+    AOBAO_APP_KEY      =   你的淘宝开放平台APP_KEY
+      
+    AOBAO_APP_SECRET   =   你的淘宝开放平台APP_SECRET
+      
+    AD_ZONE_ID          =   adzone_id,在pid中，PID：mm_memberid_siteid_adzoneid
+      
+    TAOBAO_PID          =   淘宝联盟pid，形如：mm_xxxxx_xxxxx_xxxx
+      
+    BOSONNLP_TOKEN      =   BosonNLP分词Token,注册地址https://bosonnlp.com
+      
     
-复制.example.env为.env，修改以下配置信息
-
-DB_HOST=127.0.0.1，数据库地址
-
-DB_PORT=3306， 数据库端口
-
-DB_DATABASE=smallgo，数据库名
-
-DB_USERNAME=homestead，数据库用户名
-
-DB_PASSWORD=secret，数据库密码
-
-TAOBAO_APP_KEY      =   你的淘宝开放平台APP_KEY
-
-TAOBAO_APP_SECRET   =   你的淘宝开放平台APP_SECRET
-
-AD_ZONE_ID          =   adzone_id,在pid中，PID：mm_memberid_siteid_adzoneid
-
-TAOBAO_PID          =   淘宝联盟pid，形如：mm_xxxxx_xxxxx_xxxx
-
-BOSONNLP_TOKEN      =   BosonNLP分词Token,注册地址https://bosonnlp.com
+后台：http://你的域名/admin  用户名：admin 密码：admin
     
+演示站点 http://www.nayiya.com (支持pc、微信和手机浏览)
 
-    $ php artisan smallgo:install
-    
-    $ chmod -R 777 storage
-    $ chmod -R 777 public/uploads
-后台：http://youdomain/admin  用户名：admin 密码：admin
-    
-演示站点(搭建中) http://www.nayiya.com (支持pc和手机浏览)  
+#####演示站点环境：
+
+操作系统: centos7.2  
+
+php环境：lnmp集成环境，mysql5.7，php7.1
+  
+  
+  
 交流社区(搭建中) http://www.361dream.com
+
+
 QQ交流群：169730866

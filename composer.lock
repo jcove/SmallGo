@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d5cb3341e646299adbe58283539523a",
+    "content-hash": "46af655603975afe087e9b114664efd8",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2024,6 +2024,56 @@
                 "shell"
             ],
             "time": "2017-11-16T14:29:51+00:00"
+        },
+        {
+            "name": "rachidlaasri/laravel-installer",
+            "version": "3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RachidLaasri/LaravelInstaller.git",
+                "reference": "9a7c4bc1df7a393231c56de78238e86cea366d44"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/RachidLaasri/LaravelInstaller/9a7c4bc1df7a393231c56de78238e86cea366d44.zip",
+                "reference": "9a7c4bc1df7a393231c56de78238e86cea366d44",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "RachidLaasri\\LaravelInstaller\\Providers\\LaravelInstallerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "RachidLaasri\\LaravelInstaller\\": "src/"
+                },
+                "files": [
+                    "src/Helpers/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rachid Laasri",
+                    "email": "rashidlaasri@gmail.com"
+                },
+                {
+                    "name": "Jeremy Kenedy",
+                    "email": "jeremykenedy@gmail.com"
+                }
+            ],
+            "description": "Laravel web installer",
+            "time": "2018-01-12T01:21:12+00:00"
         },
         {
             "name": "ramsey/uuid",

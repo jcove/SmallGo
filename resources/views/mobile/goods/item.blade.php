@@ -52,15 +52,10 @@
                             class="itemCopy eui-btn eui-btn-blue">
                         复制口令
                     </button>
-                    <button type="button" data-clipboard-done="浏览器打开" class="itemCopy eui-btn"
+                    <button type="button" data-clipboard-done="复制成功" class="itemCopy eui-btn"
                             data-clipboard-code="{{$code}}">
                         复制链接
                     </button>
-                    @if($goods->coupon_status)
-                        <button type="button" class="itemOpen eui-btn eui-btn-yellow">立即领券</button>
-                    @else
-                        <button type="button" class="itemOpen eui-btn eui-btn-yellow">立即购买</button>
-                    @endif
 
                 </fieldset>
 
@@ -126,7 +121,8 @@
 
         var word = document.querySelector('.itemWord');
         var copy = document.querySelector('.itemCopy');
-        var open = document.querySelector('.itemOpen');
+        var open = $('.itemOpen');
+        console.log(open);
         var text = '{{$goods->tpwd}}';
         if (text && text != 'null') {
             //自动选择文本
@@ -162,19 +158,17 @@
 
         //////////////////////
 
-        if (mobileUtil.isIOS) {
-            var v = (navigator.userAgent).match(/OS (\d+)/i)[1];
-            if (v < 10) {
-                open.style.display = 'none';
-            }
-        }
-
-
+        // if (mobileUtil.isIOS) {
+        //     var v = (navigator.userAgent).match(/OS (\d+)/i)[1];
+        //     if (v < 10) {
+        //         open.hide();
+        //     }
+        // }
         var url = '{{$goods->click_url}}';
 
-        open.onclick = function () {
+        open.on('click',function () {
             doLnkJump(url);
-        }
+        });
 
         //////////////////////
 
