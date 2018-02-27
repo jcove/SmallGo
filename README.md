@@ -57,10 +57,14 @@
       
     
 后台：http://你的域名/admin  用户名：admin 密码：admin
+
+安装参考：http://www.361dream.com/article/63
+
+如遇到问题请加群，或者发帖求助
     
 演示站点 http://www.nayiya.com (支持pc、微信和手机浏览)
 
-#####演示站点环境：
+####演示站点环境：
 
 操作系统: centos7.2  
 
