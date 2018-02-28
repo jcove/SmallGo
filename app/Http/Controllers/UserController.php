@@ -19,18 +19,18 @@ class UserController extends Controller
         $user                           =   User::where('id',$userId)->first();
         $data['user']                   =   $user;
         $data['title']                  =   '我的';
-        return $this->view('user.my',$data);
+        return smallgo_view('user.my',$data);
     }
     public function history(){
         $userId                                 =   1;
         $data['list']                           =   History::history($userId);
         $data['title']                          =   '浏览历史';
-        return $this->view('user.history',$data);
+        return smallgo_view('user.history',$data);
     }
     public function collections(){
         $userId                                 =   1;
         $data['list']                           =   Collection::collections($userId);
         $data['title']                          =   '我的收藏';
-        return $this->view('user.collections',$data);
+        return smallgo_view('user.collections',$data);
     }
 }

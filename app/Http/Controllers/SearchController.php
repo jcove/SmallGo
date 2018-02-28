@@ -33,7 +33,7 @@ class SearchController extends Controller
         $data['sort']                       =   $sort;
         $data['keywords']                   =   $keywords;
         $data['desc']                       =   $desc == 'desc' ? 'asc':'desc';
-        return $this->view('search.goods',$data);
+        return smallgo_view('search.goods',$data);
     }
 
     public function coupon($keywords=''){
@@ -44,16 +44,16 @@ class SearchController extends Controller
             $taobao                     =   new TaoBao();
             $result                     =   $taobao->searchCoupon($keywords);
             if($result){
-                if($page<$result['pages']){
+                if($page<$result->lastPage()){
                     $nextPageUrl        =   url('search/coupon',['keywords'=>$keywords]);
                 }
-                $data['list']           =   $result['list'];
+                $data['list']           =   $result;
             }
         }
         $data['keywords']               =   $keywords;
         $data['title']                  =   '找券';
         $data['next_page_url']          =   isset($nextPageUrl) ? $nextPageUrl : '';
-        return $this->view('search.coupon',$data);
+        return smallgo_view('search.coupon',$data);
     }
     public function search(){
         $client                             =   ClientBuilder::create()->setHosts(config('cs.hosts'))->build();

@@ -86,8 +86,8 @@ function smallgo_view($view='',$data=[]){
         }
     }
     if(is_mobile()){
-        return view('mobile.'.$view,$data);
+        return view('mobile.'.config('site.template_mobile').'.'.$view,$data);
     }else{
-        return view($view,$data);
+        return view('pc.'.config('site.template_pc').'.'.$view,$data);
     }
 }

@@ -19,6 +19,7 @@ class IndexController extends Controller
     public function index($sort='id',$desc='desc'){
 
         $goods                                  =   GoodsShare::where(['status'=>1,'channel_id'=>1])->orderBy($sort,$desc)->paginate(16);
+
         if($goods){
             $data['list']                       =   GoodsShare::setCouponPrice($goods);
         }
@@ -38,6 +39,6 @@ class IndexController extends Controller
         $data['desc']                           =   $desc =='desc' ? 'asc' : 'desc';
         $data['sort']                           =   $sort;
 
-        return $this->view('index',$data) ;
+        return smallgo_view('index',$data) ;
     }
 }

@@ -31,9 +31,7 @@ mix.webpackConfig({
 mix.js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/m.js','public/js')
     .js('resources/assets/js/flex.js','public/js')
-   .less('resources/assets/less/eui.less', 'public/css')
     .less('resources/assets/less/app.less', 'public/css')
     .less('resources/assets/less/mobile.less', 'public/css')
-    .combine('resources/assets/iconfont/iconfont.css', 'public/iconfont/iconfont.css')
     .version();
 

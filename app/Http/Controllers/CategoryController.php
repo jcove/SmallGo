@@ -41,7 +41,7 @@ class CategoryController extends Controller
         $data['crumb']                      =   $crumb;
 
         $data['desc']                       =   $desc=='desc'? 'asc' : 'desc';
-        return $this->view('category.category',$data);
+        return smallgo_view('category.category',$data);
     }
 
     public function goods($id,$sort='id',$desc='desc'){
@@ -53,7 +53,7 @@ class CategoryController extends Controller
             $data['desc']                       =   $desc=='desc'? 'asc' : 'desc';
             $data['category_id']                =   $id;
             $data['sort']                       =   $sort;
-            return $this->view('category.goods',$data);
+            return smallgo_view('category.goods',$data);
         }
     }
 
@@ -61,7 +61,7 @@ class CategoryController extends Controller
         $lists                              =   Category::getAllCategory(0);
         $data['list']                       =   $lists;
         $data['title']                      =   '分类';
-        return $this->view('category.lists',$data);
+        return smallgo_view('category.lists',$data);
 
     }
     public function options(){

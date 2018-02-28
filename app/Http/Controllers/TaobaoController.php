@@ -79,7 +79,7 @@ class TaobaoController extends Controller
             return $response;
         }else{
             $data['url']                        =   $url;
-            return $this->view('taobao.open_app',$data);
+            return smallgo_view('taobao.open_app',$data);
         }
     }
 

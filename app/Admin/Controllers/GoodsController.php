@@ -123,13 +123,6 @@ class GoodsController
            // $form->multipleSelect('tag','标签')->options(Tag::selectOptions());
             $form->hidden('coupon_status','优惠券状态');
             $form->editor('detail','详情');
-            $form->saving(function (Form $form){
-               if(empty($form->tpwd)){
-                   $url                                 =   $form->coupon_click_url ? $form->coupon_click_url : $form->click_url;
-                   $tpwd                                =   GoodsShare::getTpwd($url,$form->title);
-                   $form->tpwd                          =   $tpwd;
-               }
-            });
         });
     }
 

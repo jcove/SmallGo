@@ -29,6 +29,6 @@ Route::group(['middleware'=>['web','category']], function(){
     Route::get('/item/{id}', 'GoodsController@detail');
     Route::get('/info/{id}', 'GoodsController@info');
     Route::get('/search/goods/{keywords?}/{sort?}/{desc?}','SearchController@goods');
-    Route::get('/search/coupon/{keywords?}/{page_no?}','SearchController@coupon');
+    Route::any('/search/coupon/{keywords?}/{page_no?}','SearchController@coupon')->name('search.coupon');
     Route::get('/', 'IndexController@index')->name('home');
 });
