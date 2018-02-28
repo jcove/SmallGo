@@ -1,0 +1,1 @@
+@include('pc.default.widgets.recommend_goods')

@@ -28,7 +28,7 @@ class CouponController extends Controller
         if(empty($resp->code)){
             $data                   =   $resp->results->tbk_coupon;
         }
-        return $this->view('coupon.search',$data);
+        return smallgo_view('coupon.search',$data);
 
     }
 }

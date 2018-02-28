@@ -10,6 +10,7 @@ namespace App\Common;
 
 use App\Models\GoodsShare;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use TbkDgItemCouponGetRequest;
 use TbkItemInfoGetRequest;
 use TbkItemRecommendGetRequest;
@@ -139,6 +140,11 @@ class TaoBao
         return $goodsShare;
     }
 
+    /**
+     * @param $keywords
+     * @param int $perPageSize
+     * @return bool|LengthAwarePaginator
+     */
     public function searchCoupon($keywords, $perPageSize = 10)
     {
         $page = request()->page;
@@ -146,7 +152,7 @@ class TaoBao
         $req->setQ($keywords);
         $req->setAdzoneId(config('taobao.ad_zone_id'));
         $req->setPlatform('1');
-        $req->setPageSize('10');
+        $req->setPageSize('16');
         $req->setPageNo($page);
         $resp = $this->client->execute($req);
         $result = [];
@@ -155,7 +161,6 @@ class TaoBao
                 if (isset($resp->results)) {
                     $list = new Collection();
                     $data = $resp->results->tbk_coupon;
-                    $pages = ceil($resp->total_results / $perPageSize);
                     if ($data) {
                         foreach ($data as $k => $v) {
 
@@ -171,20 +176,17 @@ class TaoBao
                             $v->coupon_status = 1;
                             $list->add($this->itemToModel($v));
                         }
-                        $result = ['pages' => $pages, 'list' => $list];
+                        $paginator                      =   new LengthAwarePaginator($list,$resp->total_results,16,$req->getPageNo());
+                        $paginator->appends(['keywords'=>$keywords]);
+                        $paginator->setPath('/search/coupon');
+                        return $paginator;
                     }
-                } else {
-                    $result = ['pages' => 0, 'list' => []];
                 }
 
-            } else {
-                $result = ['pages' => 0, 'list' => []];
             }
-            return $result;
-
         } else {
             $this->error = $resp->msg;
         }
-        return false;
+        return new LengthAwarePaginator('',0,16,$req->getPageNo());;
     }
 }

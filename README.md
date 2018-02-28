@@ -14,6 +14,12 @@
     
     $ cd SmallGo 
     
+    $ chmod -R 775 storage
+    
+    $ chmod -R 775 public/uploads
+    
+    $ chmod -R 775 bootstrap/cache
+    
     $ composer install
 2、 
     
@@ -70,7 +76,7 @@
 
 php环境：lnmp集成环境，mysql5.7，php7.1
   
-  
+完整安装流程：http://www.361dream.com/article/65  
   
 交流社区(搭建中) http://www.361dream.com
 

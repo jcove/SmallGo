@@ -26,7 +26,7 @@ class ChannelController extends Controller
         $data['id']                             =   $id;
         $data['sort']                           =   $sort;
         $data['desc']                           =   $desc=='desc' ? 'asc' : 'desc';
-        return $this->view('channel.goods',$data);
+        return smallgo_view('channel.goods',$data);
     }
     public function options(){
         $data                                   =    Channel::allSelectOptions();
