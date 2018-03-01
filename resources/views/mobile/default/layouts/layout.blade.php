@@ -53,7 +53,7 @@
     var _hmt = _hmt || [];
     (function() {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?a5690d79cb1ea6ab51f9c19f8aa32924";
+        hm.src = "https://hm.baidu.com/hm.js?{{config('site.baidu_tongji_id')}}";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
