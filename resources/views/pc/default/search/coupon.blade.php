@@ -15,7 +15,7 @@
                 <div class="goodsArea">
 
                     <div class="content">
-                        @component('pc.default.widgets.goods-list',['url'=>'/info','list'=>$list])
+                        @component('pc.default.widgets.goods-list',['route'=>'goods.info','list'=>$list])
                         @endcomponent
                     </div>
                 </div>

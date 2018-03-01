@@ -1,7 +1,7 @@
 <li class="item">
     <div class="product margin-auto">
         <div class="hd"><a
-                    href="{{$item->id >0  ? url('/item',['id'=>$item->id]) : url('/info',['num_iid'=>$item->original_id]) }}"
+                    href="@if($route==='goods.info') {{route($route,['num_iid'=>$item->original_id,'title'=>$item->seo_title])}} @else {{route($route,['id'=>$item->id,'title'=>$item->seo_title])}} @endif"
                     title="{{ $item->title }}" target="_blank"><img
                         src="{{asset('images/none.gif')}}"
                         data-src="{{get_image_url($item->cover)}}"
@@ -13,7 +13,7 @@
         </div>
         <div class="bd">
             <h4 class="name">
-                <a href="{{url('item',['id'=>$item->id])}}"
+                <a href="@if($route==='goods.info') {{route($route,['num_iid'=>$item->original_id,'title'=>urlencode($item->title)])}} @else {{route($route,['id'=>$item->id,'title'=>urlencode($item->title)])}} @endif"
                    title="{{ $item->title }}" target="_blank"><span></span><span>{{$item->name}}</span></a>
             </h4>
             <p class="price">¥ {{$item->price}}</p>

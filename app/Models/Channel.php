@@ -12,11 +12,10 @@ namespace App\Models;
 use Encore\Admin\Traits\AdminBuilder;
 use Encore\Admin\Traits\ModelTree;
 use Illuminate\Database\Eloquent\Model;
+use Overtrue\Pinyin\Pinyin;
 
 class Channel extends Model
 {
-
-
     use AdminBuilder,ModelTree;
     public static function getAllChannel($parentId = 0) {
         $channels                             =   static ::getChildren($parentId);
@@ -101,5 +100,13 @@ class Channel extends Model
     public function getCoverAttribute($cover)
     {
         return get_image_url($cover);
+    }
+    public function getSeoTitleAttribute($value){
+        if(isset($this->attributes['name']) and !empty($this->attributes['name'])){
+            $pinyin                              =   new Pinyin();
+            $this->attributes['seo_title']       =   $pinyin->permalink($this->attributes['name']);
+            return $this->attributes['seo_title'];
+        }
+        return $value;
     }
 }

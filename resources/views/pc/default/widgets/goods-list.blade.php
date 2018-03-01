@@ -3,7 +3,7 @@
     <ul class="itemList">
         @if(!empty($list))
             @foreach($list as $item)
-                @component("pc.default.widgets.goods-list-item",['url'=>$url,'item'=>$item])
+                @component("pc.default.widgets.goods-list-item",['route'=>$route,'item'=>$item])
                 @endcomponent
             @endforeach
         @endif

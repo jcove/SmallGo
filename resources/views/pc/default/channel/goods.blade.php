@@ -17,20 +17,20 @@
                     <div class="sortbar">
                         <div class="sorts" style="border-top:none">
                             <span class="name">排序：</span>
-                            <a href="{{ url('channel',['id'=>$id]) }}" class="sort sort-default @if($sort=='id') active @endif">默认</a>
-                            <a href="{{ url('channel',['id'=>$id,'sort'=>'price']) }}" class="sort sort-price @if($sort=='price') active @endif"><span>价格</span>
+                            <a href="{{ route('channel.show',['id'=>$id,'title'=>$channel->seo_title]) }}" class="sort sort-default @if($sort=='id') active @endif">默认</a>
+                            <a href="{{ route('channel.show',['id'=>$id,'title'=>$channel->seo_title,'sort'=>'price']) }}" class="sort sort-price @if($sort=='price') active @endif"><span>价格</span>
                                 <div class="icon">
                                     <i class="iconfont icon-down1"></i>
                                 </div>
                             </a>
-                            <a href="{{ url('channel',['id'=>$id,'sort'=>'created_at']) }}" class="sort sort-time @if($sort=='created_at') active @endif" >
+                            <a href="{{ route('channel.show',['id'=>$id,'title'=>$channel->seo_title,'sort'=>'created_at']) }}" class="sort sort-time @if($sort=='created_at') active @endif" >
                                 <span>上架时间</span>
                                 <i class="iconfont icon-down2"></i>
                             </a>
                         </div>
                     </div>
                     <div class="content">
-                        @component('pc.default.widgets.goods-list',['url'=>'/item','list'=>$list])
+                        @component('pc.default.widgets.goods-list',['route'=>'goods.item','list'=>$list])
                         @endcomponent
                     </div>
                 </div>

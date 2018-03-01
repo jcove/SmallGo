@@ -14,7 +14,7 @@ use App\Models\GoodsShare;
 
 class CategoryController extends Controller
 {
-    public function category($id,$sub_id=0,$sort='id',$desc='desc'){
+    public function category($id,$title='',$sub_id=0,$sort='id',$desc='desc'){
         $categoryModel                      =   new Category();
         $categoryChildren                   =   $categoryModel->getChildren($id);
         $categoryInfo                       =   Category::where(['id'=>$id])->first();

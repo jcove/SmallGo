@@ -7,7 +7,7 @@
         <div class="box">
 
                 @if(isset($list) && count($list) > 0)
-                    @component('mobile.default.component.goods_list_h',['list'=>$list,'title'=>'为您找到如下商品','url'=>'/info'])
+                    @component('mobile.default.component.goods_list_h',['list'=>$list,'title'=>'为您找到如下商品','route'=>'goods.info'])
                     @endcomponent
                 @else
                     @include('mobile.default.component.empty')
