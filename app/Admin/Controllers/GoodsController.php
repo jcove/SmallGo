@@ -78,12 +78,14 @@ class GoodsController
             $grid->id('ID')->sortable();
             $grid->name('名称');
             $grid->price('价格');
-            $grid->category_id('分类')->display(function ($categoryId){
-                return Category::getName($categoryId);
-            });
+            $grid->category_id('分类')->editable('select', Category::allSelectOptions())->sortable();;
             $grid->cover('封面')->image();
             $grid->created_at();
             $grid->updated_at();
+            $grid->filter(function($filter){
+                // 在这里添加字段过滤器
+                $filter->equal('category_id')->select(Category::allSelectOptions());
+            });
         });
     }
 

@@ -26,7 +26,7 @@
     {{--<div class="box">--}}
         {{--@include('mobile.default.component.channel_bar')--}}
     {{--</div>--}}
-    <div class="ad-box">
+    <div class="sg-box">
         {!! smallgo_ad('mobile_index_left') !!}
         {!! smallgo_ad('mobile_index_right_top') !!}
         {!! smallgo_ad('mobile_index_right_bottom') !!}
@@ -35,7 +35,7 @@
         @include('mobile.default.widgets.category_side')
     </div>
     <div class="box">
-        @component('mobile.default.component.goods_list_h',['list'=>$list,'title'=>'本站精选','url'=>'/item'])
+        @component('mobile.default.component.goods_list_h',['list'=>$list,'title'=>'本站精选','route'=>'goods.item'])
         @endcomponent
     </div>
 @endsection

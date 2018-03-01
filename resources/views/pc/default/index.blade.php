@@ -6,7 +6,7 @@
 
     </div>
 
-    @component('pc.default.widgets.goods-list',['url'=>'/item','list'=>$list])
+    @component('pc.default.widgets.goods-list',['route'=>'goods.item','list'=>$list])
     @endcomponent
     <div class="page-list">
         {{ $list->links() }}

@@ -12,6 +12,7 @@ namespace App\Models;
 use Encore\Admin\Traits\AdminBuilder;
 use Encore\Admin\Traits\ModelTree;
 use Illuminate\Database\Eloquent\Model;
+use Overtrue\Pinyin\Pinyin;
 
 class Category extends Model
 {
@@ -105,5 +106,13 @@ class Category extends Model
     public static function getByParentIdAndName($parentId,$name){
         return static::where(['parent_id'=>
             $parentId,'name'=>$name])->first();
+    }
+    public function getSeoTitleAttribute($value){
+        if(isset($this->attributes['name']) and !empty($this->attributes['name'])){
+            $pinyin                              =   new Pinyin();
+            $this->attributes['seo_title']       =   $pinyin->permalink($this->attributes['name']);
+            return $this->attributes['seo_title'];
+        }
+        return $value;
     }
 }

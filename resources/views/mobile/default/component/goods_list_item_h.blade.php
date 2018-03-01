@@ -1,5 +1,5 @@
 <li class="item">
-    <a href="@if($url=='/item'){{ url($url,['id'=>$item->id]) }} @else{{ url($url,['id'=>$item->original_id]) }}@endif" title="{{$item->title}}">
+    <a href="@if($route==='goods.info') {{route($route,['num_iid'=>$item->original_id,'title'=>$item->seo_title])}} @else {{route($route,['id'=>$item->id,'title'=>$item->seo_title])}} @endif" title="{{$item->title}}">
         <div class="cover">
             <img class="lazyload img-responsive" alt="{{$item->name}}" data-src="{{ $item->cover }}"/>
         </div>

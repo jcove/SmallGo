@@ -5,7 +5,7 @@
     @endcomponent
     @if(count($list) > 0)
             <div class="box">
-                @component('mobile.default.component.goods_list_h',['list'=>$list,'url'=>'/item'])
+                @component('mobile.default.component.goods_list_h',['list'=>$list,'route'=>'goods.item'])
                 @endcomponent
             </div>
     @else

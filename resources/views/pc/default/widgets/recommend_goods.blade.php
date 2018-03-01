@@ -4,7 +4,8 @@
     </div>
     @if(!empty($recommend_goods_list))
         @foreach($recommend_goods_list as $item)
-            @include("pc.default.widgets.goods-list-item")
+            @component("pc.default.widgets.goods-list-item",['route'=>'goods.info','item'=>$item])
+            @endcomponent
         @endforeach
     @endif
 </div>

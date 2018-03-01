@@ -3,7 +3,7 @@
         <ul>
             @foreach($categories as $category)
                 @if($loop->index <8)
-                    <a href="{{ url('category',['id'=>$category->id]) }}"
+                    <a href="{{ route('category.show',['id'=>$category->id,'title'=>$category_info->seo_title]) }}"
                        title="{{ $category->name }}">
                         <li class="item">
                             <span class="icon">
