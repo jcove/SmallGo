@@ -6,7 +6,7 @@
         @endslot
     @endcomponent
 
-    @component('mobile.default.component.sort_bar',['url'=>'category/'.$id.'/'.$sub_id,'desc'=>$desc,'sort'=>$sort])
+    @component('mobile.default.component.sort_bar',['route'=>'category.show','params'=>['id'=>$category_info->id,'title'=>$category_info->seo_title,'sub_id'=>0],'desc'=>$desc,'sort'=>$sort])
     @endcomponent
     @if(count($list) > 0)
             <div class="box">

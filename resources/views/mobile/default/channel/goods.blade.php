@@ -1,7 +1,7 @@
 @extends('mobile.default.layouts.layout')
 @section('content')
 
-    @component('mobile.default.component.sort_bar',['url'=>'channel/'.$id,'desc'=>$desc,'sort'=>$sort])
+    @component('mobile.default.component.sort_bar',['route'=>'channel.show','params'=>['id'=>$id,'title'=>$channel->seo_title],'desc'=>$desc,'sort'=>$sort])
     @endcomponent
     @if(count($list) > 0)
             <div class="box">
@@ -23,7 +23,7 @@
                 var scrollTop = $(this).scrollTop();
                 var scrollHeight = $(document).height();
                 var windowHeight = $(this).height();
-                if (scrollTop + windowHeight == scrollHeight) {
+                if (scrollTop + windowHeight === scrollHeight) {
                     nextPage(nextPageUrl+'?page='+page,'#result');
                     page++;
                 }
