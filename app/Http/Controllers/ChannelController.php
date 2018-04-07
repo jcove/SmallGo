@@ -19,7 +19,6 @@ class ChannelController extends Controller
 {
     public function channel($id,$title='',$sort='id',$desc='desc'){
         $list                                   =   GoodsShare::where(['channel_id'=>$id,'status'=>1])->orderBy($sort,$desc)->paginate(16);
-        $list->setCollection(GoodsShare::setCouponPrice($list->getCollection()));
         $data['list']                           =   $list;
         $channel                                =   Channel::info($id);
         $data['title']                          =   $channel['name'];
@@ -37,5 +36,4 @@ class ChannelController extends Controller
         }
         return $list;
     }
-
 }

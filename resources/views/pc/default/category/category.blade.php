@@ -13,7 +13,7 @@
                                 <a href="{{ route('category.show',['id'=>$category_info->id,'title'=>$category_info->seo_title]) }}" class="categoryItem @if($sub_id ==0) active @endif">全部</a>
                                 @if(!empty($children) )
                                     @foreach($children as $child)
-                                        <a href="{{ url('category',['id'=>$category_info->id,'sub_id'=>$child->id,'title'=>$child->seo_title]) }}" class="categoryItem @if($sub_id ==$child->id) active @endif">{{ $child->name }}</a>
+                                        <a href="{{ route('category.show',['id'=>$category_info->id,'sub_id'=>$child->id,'title'=>$child->seo_title]) }}" class="categoryItem @if($sub_id ==$child->id) active @endif">{{ $child->name }}</a>
                                     @endforeach
                                 @endif
                             </div>

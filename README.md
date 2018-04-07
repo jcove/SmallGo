@@ -68,7 +68,7 @@
 
 如遇到问题请加群，或者发帖求助
     
-演示站点 http://www.nayiya.com (支持pc、微信和手机浏览)
+演示站点 http://demo.nayiya.com (支持pc、微信和手机浏览)
 
 ####演示站点环境：
 

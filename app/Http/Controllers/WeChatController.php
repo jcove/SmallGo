@@ -21,11 +21,11 @@ class WeChatController
     {
 
 
-        $wechat = app('wechat');
-        $wechat->server->setMessageHandler(function($message){
+        $app = app('wechat.official_account');
+        $app->server->setMessageHandler(function($message){
             return "欢迎关注 overtrue！";
         });
 
-        return $wechat->server->serve();
+        return $app->server->serve();
     }
 }

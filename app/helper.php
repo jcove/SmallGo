@@ -81,9 +81,9 @@ function smallgo_ad($position){
 function smallgo_view($view='',$data=[]){
     if(request()->ajax() && !empty($view)){
         $view                       =   $view.'_ajax';
-        if(!request()->acceptsHtml()){
-            return response()->json($data);
-        }
+    }
+    if(!request()->acceptsHtml()){
+        return response()->json($data);
     }
     if(is_mobile()){
         return view('mobile.'.config('site.template_mobile').'.'.$view,$data);
