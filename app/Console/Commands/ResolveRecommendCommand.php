@@ -185,12 +185,18 @@ class ResolveRecommendCommand extends Command
                     }
                     if(isset($fields['coupon_info'])){
                         $couponInfo                             =   $sheet->getCell($fields['coupon_info'] . $row)->getValue();
-                        if(!empty($couponInfo) || $couponInfo!='无'){
+                        if(!empty($couponInfo) && $couponInfo!='无'){
                             preg_match_all('/\d+/',$couponInfo , $matches);
 
                             if ($matches) {
-                                $recommendGoods->coupon_amount = isset($matches[0][1]) ? $matches[0][1] : 0;
-                                $recommendGoods->coupon_start_fee = isset($matches[0][0]) ? $matches[0][0] : 0;
+                                if(strpos($couponInfo,'无条件')){
+                                    $recommendGoods->coupon_amount = isset($matches[0][0]) ? $matches[0][0] : 0;
+                                    $recommendGoods->coupon_start_fee=0;
+                                }else{
+                                    $recommendGoods->coupon_amount = isset($matches[0][1]) ? $matches[0][1] : 0;
+                                    $recommendGoods->coupon_start_fee = isset($matches[0][0]) ? $matches[0][0] : 0;
+                                }
+
                             }
                             $recommendGoods->coupon_status          =   1;
                         }
@@ -211,7 +217,7 @@ class ResolveRecommendCommand extends Command
                             $recommendGoods->coupon_click_url = mb_strcut($recommendGoods->coupon_click_url, 0, $pos);
                         }
                     }
-
+                    $recommendGoods->coupon_price               =   $recommendGoods->price-$recommendGoods->coupon_amount;
                     $recommendGoods->save();
                 }
             } catch (\PHPExcel_Reader_Exception $e) {

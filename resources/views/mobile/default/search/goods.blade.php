@@ -1,17 +1,14 @@
 @extends('mobile.default.layouts.layout')
 @section('content')
-    @component('mobile.default.component.search_bar')
-        @slot('url')
-            {{url('search/goods')}}
-        @endslot
+    @component('mobile.default.component.search_bar',['url'=>url('search/goods'),'keywords'=>$keywords])
     @endcomponent
     <div class="goods-list-h">
-        @component('mobile.default.component.sort_bar',['url'=>'search/goods/'.$keywords,'desc'=>$desc,'sort'=>$sort])
+        @component('mobile.default.component.sort_bar',['route'=>'search.goods','params'=>['keywords'=>$keywords],'desc'=>$desc,'sort'=>$sort])
         @endcomponent
         @if(count($list) > 0)
         <ul id="result" class="list">
             @foreach($list as $item)
-                @component('mobile.default.component.goods_list_item_h',['url'=>'/item','item'=>$item])
+                @component('mobile.default.component.goods_list_item_h',['route'=>'goods.item','item'=>$item])
                 @endcomponent
             @endforeach
         </ul>

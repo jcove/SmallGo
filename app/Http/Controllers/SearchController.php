@@ -22,7 +22,7 @@ class SearchController extends Controller
         $list                               =   [];
         if(!empty($keywords)){
         //    $list                           =   GoodsShare::where(['status'=>1])->search($keywords,null,true)->orderBy($sort,'desc')->paginate(9);
-            $list                           =   GoodsShare::where(['status'=>1])->where('title','like','%'.$keywords.'%')->orderBy($sort,$desc)->paginate(10);
+            $list                           =   GoodsShare::search($keywords)->where(['status'=>1])->orderBy($sort,$desc)->paginate(10);
             if($list->getCollection()){
                 $items                      =   $list->getCollection();
                 $list->setCollection(GoodsShare::setCouponPrice($items));

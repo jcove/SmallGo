@@ -78,7 +78,13 @@ class GoodsController
             $grid->id('ID')->sortable();
             $grid->name('名称');
             $grid->price('价格');
-            $grid->category_id('分类')->editable('select', Category::allSelectOptions())->sortable();;
+
+            $states = [
+                'on'  => ['value' => 1, 'text' => '是', 'color' => 'primary'],
+                'off' => ['value' => 0, 'text' => '否', 'color' => 'default'],
+            ];
+            $grid->is_recommend('推荐')->switch($states);
+            $grid->category_id('分类')->editable('select', Category::allSelectOptions())->sortable();
             $grid->cover('封面')->image();
             $grid->created_at();
             $grid->updated_at();
@@ -106,6 +112,12 @@ class GoodsController
             $form->url('click_url', '推广链接')->placeholder('联盟后台生成的推广链接');
 
             $form->couponUrl('coupon_click_url','优惠券链接')->placeholder('如无，可不填写');
+            $states = [
+                'on'  => ['value' => 1, 'text' => '是', 'color' => 'primary'],
+                'off' => ['value' => 0, 'text' => '否', 'color' => 'default'],
+            ];
+
+            $form->switch('is_recommend','推荐')->states($states);
             $form->text('name','商品名称')->placeholder('填写宝贝链接后自动获取');
             $form->image('cover','封面');
             $form->multipleImage('pictures','相册')->removable();;

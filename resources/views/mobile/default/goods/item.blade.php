@@ -107,7 +107,7 @@
                     window.location.href = url;
                 } else {
                     var ifr = document.createElement('iframe');
-                    ifr.src = '{{url('taobao/app')}}?url=' + encodeURIComponent(url);
+                    ifr.src = '{{route('taobao.open.app')}}?url=' + encodeURIComponent(url);
                     ifr.style.display = 'none';
                     document.body.appendChild(ifr);
                 }

@@ -13,7 +13,7 @@ window.onload = function () {
         paginationClickable: true,
         loop: true,
         speed: 600,
-        autoplay: 4000,
+        autoplay: 1000,
         onTouchEnd: function() {
             swiper.startAutoplay();
         }

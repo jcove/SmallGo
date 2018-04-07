@@ -22,4 +22,5 @@ Route::group([
     $router->post('/taobao/executeOne', 'TaobaoController@executeOne');
     $router->get('/taobao/coupon', 'TaobaoController@coupon');
     $router->get('/file/aether', 'FileController@aether');
+    $router->resource('/article', ArticleController::class);
 });

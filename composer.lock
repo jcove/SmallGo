@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "49f00f5d1d64fdc7c6255b04abc181b7",
+    "content-hash": "a76cdb5073c2a592b6781accd302002f",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -38,80 +38,6 @@
             ],
             "description": "implementation of xdg base directory specification for php",
             "time": "2014-10-24T07:27:01+00:00"
-        },
-        {
-            "name": "doctrine/cache",
-            "version": "v1.7.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/cache.git",
-                "reference": "b3217d58609e9c8e661cd41357a54d926c4a2a1a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://files.phpcomposer.com/files/doctrine/cache/b3217d58609e9c8e661cd41357a54d926c4a2a1a.zip",
-                "reference": "b3217d58609e9c8e661cd41357a54d926c4a2a1a",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~7.1"
-            },
-            "conflict": {
-                "doctrine/common": ">2.2,<2.4"
-            },
-            "require-dev": {
-                "alcaeus/mongo-php-adapter": "^1.1",
-                "mongodb/mongodb": "^1.1",
-                "phpunit/phpunit": "^5.7",
-                "predis/predis": "~1.0"
-            },
-            "suggest": {
-                "alcaeus/mongo-php-adapter": "Required to use legacy MongoDB driver"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.7.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
-                },
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com"
-                },
-                {
-                    "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com"
-                }
-            ],
-            "description": "Caching library offering an object-oriented API for many cache backends",
-            "homepage": "http://www.doctrine-project.org",
-            "keywords": [
-                "cache",
-                "caching"
-            ],
-            "time": "2017-08-25T07:02:50+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -233,6 +159,50 @@
                 "parser"
             ],
             "time": "2014-09-09T13:34:57+00:00"
+        },
+        {
+            "name": "easywechat-composer/easywechat-composer",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mingyoung/easywechat-composer.git",
+                "reference": "9f28ab61ae4cf46315a261bdd1853f24d6b6e560"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/mingyoung/easywechat-composer/9f28ab61ae4cf46315a261bdd1853f24d6b6e560.zip",
+                "reference": "9f28ab61ae4cf46315a261bdd1853f24d6b6e560",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "composer/composer": "^1.0",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "EasyWeChatComposer\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "EasyWeChatComposer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "MINGYOUNG",
+                    "email": "mingyoungcheung@gmail.com"
+                }
+            ],
+            "description": "The composer plugin for EasyWeChat",
+            "time": "2018-02-12T07:39:08+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -1339,6 +1309,52 @@
             "time": "2017-01-16T07:55:07+00:00"
         },
         {
+            "name": "nicolaslopezj/searchable",
+            "version": "1.9.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nicolaslopezj/searchable.git",
+                "reference": "c067f11a993c274c9da0d4a2e70ca07614bb92da"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/nicolaslopezj/searchable/c067f11a993c274c9da0d4a2e70ca07614bb92da.zip",
+                "reference": "c067f11a993c274c9da0d4a2e70ca07614bb92da",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "illuminate/database": "4.2.x|~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nicolaslopezj\\Searchable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Lopez",
+                    "email": "nicolaslopezj@me.com"
+                }
+            ],
+            "description": "Eloquent model search trait.",
+            "keywords": [
+                "database",
+                "eloquent",
+                "laravel",
+                "model",
+                "search",
+                "searchable"
+            ],
+            "time": "2017-08-09T04:37:57+00:00"
+        },
+        {
             "name": "nikic/php-parser",
             "version": "v3.1.3",
             "source": {
@@ -1391,35 +1407,36 @@
         },
         {
             "name": "overtrue/laravel-wechat",
-            "version": "3.1.10",
+            "version": "4.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/laravel-wechat.git",
-                "reference": "70b655714b5445f9be7f03a1c66c1b6deb26ef33"
+                "reference": "63e7fa6a639a05cb3bd3c4cd90c2de370933d58d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/overtrue/laravel-wechat/70b655714b5445f9be7f03a1c66c1b6deb26ef33.zip",
-                "reference": "70b655714b5445f9be7f03a1c66c1b6deb26ef33",
+                "url": "https://files.phpcomposer.com/files/overtrue/laravel-wechat/63e7fa6a639a05cb3bd3c4cd90c2de370933d58d.zip",
+                "reference": "63e7fa6a639a05cb3bd3c4cd90c2de370933d58d",
                 "shasum": ""
             },
             "require": {
-                "overtrue/wechat": "^3.3.3"
+                "illuminate/container": "^5.1",
+                "overtrue/wechat": "^4.0"
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Overtrue\\LaravelWechat\\ServiceProvider"
+                        "Overtrue\\LaravelWeChat\\ServiceProvider"
                     ],
                     "aliases": {
-                        "EasyWeChat": "Overtrue\\LaravelWechat\\Facade"
+                        "EasyWeChat": "Overtrue\\LaravelWeChat\\Facade"
                     }
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Overtrue\\LaravelWechat\\": "src/"
+                    "Overtrue\\LaravelWeChat\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1439,7 +1456,7 @@
                 "wechat",
                 "weixin"
             ],
-            "time": "2017-07-03T09:53:13+00:00"
+            "time": "2018-01-31T12:07:54+00:00"
         },
         {
             "name": "overtrue/pinyin",
@@ -1488,22 +1505,22 @@
         },
         {
             "name": "overtrue/socialite",
-            "version": "1.3.0",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/socialite.git",
-                "reference": "fda55f0acef43a144799b1957a8f93d9f5deffce"
+                "reference": "4a8677a9afed57654f1aa55eff2a2de5bbd8e1bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/overtrue/socialite/fda55f0acef43a144799b1957a8f93d9f5deffce.zip",
-                "reference": "fda55f0acef43a144799b1957a8f93d9f5deffce",
+                "url": "https://files.phpcomposer.com/files/overtrue/socialite/4a8677a9afed57654f1aa55eff2a2de5bbd8e1bc.zip",
+                "reference": "4a8677a9afed57654f1aa55eff2a2de5bbd8e1bc",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "~5.0|~6.0",
-                "php": ">=5.4.0",
-                "symfony/http-foundation": "~2.6|~2.7|~2.8|~3.0"
+                "php": ">=7.0",
+                "symfony/http-foundation": "^2.7|^3.0|^4.0"
             },
             "require-dev": {
                 "mockery/mockery": "~0.9",
@@ -1534,37 +1551,40 @@
                 "wechat",
                 "weibo"
             ],
-            "time": "2017-08-04T06:28:22+00:00"
+            "time": "2018-02-17T12:40:26+00:00"
         },
         {
             "name": "overtrue/wechat",
-            "version": "3.3.20",
+            "version": "4.0.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/wechat.git",
-                "reference": "802ea7218e9ceeffb9530f78cdf56033b58da963"
+                "reference": "74fc274357833d9df5b2a5e9c149bd638f597dea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/overtrue/wechat/802ea7218e9ceeffb9530f78cdf56033b58da963.zip",
-                "reference": "802ea7218e9ceeffb9530f78cdf56033b58da963",
+                "url": "https://files.phpcomposer.com/files/overtrue/wechat/74fc274357833d9df5b2a5e9c149bd638f597dea.zip",
+                "reference": "74fc274357833d9df5b2a5e9c149bd638f597dea",
                 "shasum": ""
             },
             "require": {
-                "doctrine/cache": "~1.4",
+                "easywechat-composer/easywechat-composer": "^1.0",
                 "ext-openssl": "*",
-                "guzzlehttp/guzzle": "~6.2",
-                "monolog/monolog": "^1.17",
-                "overtrue/socialite": ">=1.0.25",
-                "php": ">=5.5.0",
-                "pimple/pimple": "~3.0",
-                "symfony/http-foundation": "~2.6|~2.7|~2.8|~3.0",
-                "symfony/psr-http-message-bridge": "~0.3|^1.0"
+                "ext-simplexml": "*",
+                "guzzlehttp/guzzle": "^6.2",
+                "monolog/monolog": "^1.22",
+                "overtrue/socialite": "~2.0",
+                "php": ">=7.0",
+                "pimple/pimple": "^3.0",
+                "symfony/cache": "^3.3|^4.0",
+                "symfony/http-foundation": "^2.7|^3.0|^4.0",
+                "symfony/psr-http-message-bridge": "^0.3|^1.0"
             },
             "require-dev": {
-                "mockery/mockery": "^0.9.9",
+                "mikey179/vfsstream": "^1.6",
+                "mockery/mockery": "^1.0",
                 "overtrue/phplint": "dev-master",
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "~6.0"
             },
             "type": "library",
             "autoload": {
@@ -1572,7 +1592,8 @@
                     "EasyWeChat\\": "src/"
                 },
                 "files": [
-                    "src/Payment/helpers.php"
+                    "src/Kernel/Support/Helpers.php",
+                    "src/Kernel/Helpers.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1592,7 +1613,7 @@
                 "weixin",
                 "weixin-sdk"
             ],
-            "time": "2017-11-13T06:58:27+00:00"
+            "time": "2018-02-28T05:58:51+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -1802,6 +1823,52 @@
                 "dependency injection"
             ],
             "time": "2018-01-21T07:42:36+00:00"
+        },
+        {
+            "name": "psr/cache",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/cache.git",
+                "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/php-fig/cache/d11b50ad223250cf17b86e38383413f5a6764bf8.zip",
+                "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Cache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for caching libraries",
+            "keywords": [
+                "cache",
+                "psr",
+                "psr-6"
+            ],
+            "time": "2016-08-06T20:24:11+00:00"
         },
         {
             "name": "psr/container",
@@ -2258,6 +2325,76 @@
             "time": "2017-09-30T22:39:41+00:00"
         },
         {
+            "name": "symfony/cache",
+            "version": "v3.4.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/cache.git",
+                "reference": "cce49c7aa2fc82077355c8a6dfcd9e619abe6e98"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/symfony/cache/cce49c7aa2fc82077355c8a6dfcd9e619abe6e98.zip",
+                "reference": "cce49c7aa2fc82077355c8a6dfcd9e619abe6e98",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "psr/cache": "~1.0",
+                "psr/log": "~1.0",
+                "psr/simple-cache": "^1.0",
+                "symfony/polyfill-apcu": "~1.1"
+            },
+            "conflict": {
+                "symfony/var-dumper": "<3.3"
+            },
+            "provide": {
+                "psr/cache-implementation": "1.0",
+                "psr/simple-cache-implementation": "1.0"
+            },
+            "require-dev": {
+                "cache/integration-tests": "dev-master",
+                "doctrine/cache": "~1.6",
+                "doctrine/dbal": "~2.4",
+                "predis/predis": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Cache\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Cache component with PSR-6, PSR-16, and tags",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "caching",
+                "psr6"
+            ],
+            "time": "2018-02-11T14:42:07+00:00"
+        },
+        {
             "name": "symfony/console",
             "version": "v3.3.13",
             "source": {
@@ -2604,29 +2741,30 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v3.3.13",
+            "version": "v3.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "5943f0f19817a7e05992d20a90729b0dc93faf36"
+                "reference": "6f5935723c11b4125fc9927db6ad2feaa196e175"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/http-foundation/5943f0f19817a7e05992d20a90729b0dc93faf36.zip",
-                "reference": "5943f0f19817a7e05992d20a90729b0dc93faf36",
+                "url": "https://files.phpcomposer.com/files/symfony/http-foundation/6f5935723c11b4125fc9927db6ad2feaa196e175.zip",
+                "reference": "6f5935723c11b4125fc9927db6ad2feaa196e175",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.5.9|>=7.0.8",
-                "symfony/polyfill-mbstring": "~1.1"
+                "symfony/polyfill-mbstring": "~1.1",
+                "symfony/polyfill-php70": "~1.6"
             },
             "require-dev": {
-                "symfony/expression-language": "~2.8|~3.0"
+                "symfony/expression-language": "~2.8|~3.0|~4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.3-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -2653,7 +2791,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-13T18:13:16+00:00"
+            "time": "2018-02-22T10:48:49+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -2742,17 +2880,73 @@
             "time": "2017-11-16T18:14:43+00:00"
         },
         {
-            "name": "symfony/polyfill-mbstring",
-            "version": "v1.6.0",
+            "name": "symfony/polyfill-apcu",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296"
+                "url": "https://github.com/symfony/polyfill-apcu.git",
+                "reference": "e8ae2136ddb53dea314df56fcd88e318ab936c00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/polyfill-mbstring/2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296.zip",
-                "reference": "2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296",
+                "url": "https://files.phpcomposer.com/files/symfony/polyfill-apcu/e8ae2136ddb53dea314df56fcd88e318ab936c00.zip",
+                "reference": "e8ae2136ddb53dea314df56fcd88e318ab936c00",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Apcu\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting apcu_* functions to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "apcu",
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2018-01-30T19:27:44+00:00"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/symfony/polyfill-mbstring/78be803ce01e55d3491c1397cf1c64beb9c1b63b.zip",
+                "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b",
                 "shasum": ""
             },
             "require": {
@@ -2764,7 +2958,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
@@ -2798,7 +2992,66 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-10-11T12:05:26+00:00"
+            "time": "2018-01-30T19:27:44+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php70",
+            "version": "v1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php70.git",
+                "reference": "3532bfcd8f933a7816f3a0a59682fc404776600f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/symfony/polyfill-php70/3532bfcd8f933a7816f3a0a59682fc404776600f.zip",
+                "reference": "3532bfcd8f933a7816f3a0a59682fc404776600f",
+                "shasum": ""
+            },
+            "require": {
+                "paragonie/random_compat": "~1.0|~2.0",
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php70\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ],
+                "classmap": [
+                    "Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 7.0+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2018-01-30T19:27:44+00:00"
         },
         {
             "name": "symfony/process",
@@ -2851,25 +3104,25 @@
         },
         {
             "name": "symfony/psr-http-message-bridge",
-            "version": "v1.0.0",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/psr-http-message-bridge.git",
-                "reference": "66085f246d3893cbdbcec5f5ad15ac60546cf0de"
+                "reference": "c2b757934f2d9681a287e662efbc27c41fe8ef86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/psr-http-message-bridge/66085f246d3893cbdbcec5f5ad15ac60546cf0de.zip",
-                "reference": "66085f246d3893cbdbcec5f5ad15ac60546cf0de",
+                "url": "https://files.phpcomposer.com/files/symfony/psr-http-message-bridge/c2b757934f2d9681a287e662efbc27c41fe8ef86.zip",
+                "reference": "c2b757934f2d9681a287e662efbc27c41fe8ef86",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "psr/http-message": "~1.0",
-                "symfony/http-foundation": "~2.3|~3.0"
+                "symfony/http-foundation": "~2.3|~3.0|~4.0"
             },
             "require-dev": {
-                "symfony/phpunit-bridge": "~2.7|~3.0"
+                "symfony/phpunit-bridge": "~3.2|4.0"
             },
             "suggest": {
                 "psr/http-message-implementation": "To use the HttpFoundation factory",
@@ -2907,7 +3160,7 @@
                 "http-message",
                 "psr-7"
             ],
-            "time": "2016-09-14T18:37:20+00:00"
+            "time": "2017-12-19T00:31:44+00:00"
         },
         {
             "name": "symfony/routing",
