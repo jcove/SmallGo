@@ -13,7 +13,7 @@ class AlterGoodsShareTable extends Migration
      */
     public function up()
     {
-        Schema::table('goods_share', function (Blueprint $table) {
+        Schema::table('goods_shares', function (Blueprint $table) {
             $table->decimal('coupon_price',10,1)->default(0);
             $table->tinyInteger('is_recommend')->default(0);
         });
@@ -26,8 +26,6 @@ class AlterGoodsShareTable extends Migration
      */
     public function down()
     {
-        Schema::table('goods_share', function (Blueprint $table) {
-            //
-        });
+
     }
 }
