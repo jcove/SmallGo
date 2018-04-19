@@ -234,9 +234,9 @@ class GoodsShare extends Model
 
     public function getClickUrlAttribute($value){
 
-        if($this->isCoupon()){
-            return $this->coupon_click_url;
-        }else{
+//        if($this->isCoupon()){
+//            return $this->coupon_click_url;
+//        }else{
             if(empty($value)){
                 return '';
             }
@@ -247,8 +247,32 @@ class GoodsShare extends Model
                 return str_replace_first('http','https',$value);
             }
             return $value;
+//        }
+    }
+
+    public function setCouponInfoAttribute($value){
+        $this->attributes['coupon_info']            =   $value;
+        if(empty($this->coupon_amount)){
+
+            if(!empty($value) && $value!='无'){
+                preg_match_all('/\d+/',$value , $matches);
+
+                if ($matches) {
+                    $couponAmount                               =   0;
+                    if(strpos($value,'无条件')){
+                        $this->coupon_amount      =   isset($matches[0][0]) ? $matches[0][0] : 0;
+                        $this->coupon_start_fee   =   0;
+                    }else{
+                        $this->coupon_amount      =   isset($matches[0][1]) ? $matches[0][1] : 0;
+                        $this->coupon_start_fee   =   isset($matches[0][0]) ? $matches[0][0] : 0;
+                    }
+                    $this->coupon_price             =   $this->price-$this->coupon_amount;
+                }
+                $this->coupon_status              =   1;
+            }
         }
     }
+
     public function getItemUrlAttribute($value){
 
         if(empty($value)){

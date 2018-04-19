@@ -91,3 +91,15 @@ function smallgo_view($view='',$data=[]){
         return view('pc.'.config('site.template_pc').'.'.$view,$data);
     }
 }
+if (!function_exists('pub_asset')) {
+
+    /**
+     * @param $path
+     *
+     * @return string
+     */
+    function pub_asset($path)
+    {
+        return asset($path, config('site.secure'));
+    }
+}

@@ -218,9 +218,9 @@ class InitTableSeeder extends Seeder
             [
                 'parent_id' => 8,
                 'order' => 5,
-                'title' => '商品更新',
+                'title' => '选品库更新',
                 'icon' => 'fa-arrow-up',
-                'uri' => 'taobao/update',
+                'uri' => 'taobao/selection',
             ],
             [
                 'parent_id' => 8,

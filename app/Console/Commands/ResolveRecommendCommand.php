@@ -198,7 +198,7 @@ class ResolveRecommendCommand extends Command
                                 }
 
                             }
-                            $recommendGoods->coupon_status          =   1;
+                            $recommendGoods->coupon_status      =   1;
                         }
 
                     }
