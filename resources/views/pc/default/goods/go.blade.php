@@ -39,6 +39,8 @@
                         document.location.href = url;
                     }
                     else{
+                        console.log(msg.error_msg);
+                        return;
                         document.location.href = org_url;
                     }
                 },

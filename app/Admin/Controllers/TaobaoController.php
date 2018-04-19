@@ -8,6 +8,7 @@
 namespace App\Admin\Controllers;
 
 
+use App\Common\TaoBao;
 use App\Models\Category;
 use App\Models\Channel;
 use App\Models\GoodsShare;
@@ -19,7 +20,7 @@ use TopClient;
 
 class TaobaoController
 {
-    public function update(){
+    public function selection(){
         if(request()->isMethod('get')){
             $content                        =   new Content(function (Content $content){
                 $content->header('商品更新');
@@ -31,30 +32,21 @@ class TaobaoController
             return $content;
         }
 
-        if(request()->isMethod('post')){
-            $favoritesId                    =   request()->favorites_id;
-            return redirect()->route('taobao_execute_update',['favorites_id'=>$favoritesId]);
-        }
+
+        $favoritesId                    =   request()->favorites_id;
+        return redirect()->route('taobao.execute_update',['favorites_id'=>$favoritesId]);
+
 
     }
     public function executeUpdate($favoritesId,$pageNo=1){
-        $c                              =   new TopClient( config('taobao.app_key'),config('taobao.app_secret'));
-        $c->format                      =   'json';
-        $req                            =   new TbkUatmFavoritesItemGetRequest();
-        $req->setPlatform("1");
-        $req->setPageSize("20");
-        $req->setAdzoneId( config('taobao.ad_zone_id'));
-        $req->setFavoritesId($favoritesId);
-        $req->setPageNo($pageNo);
-        $req->setFields("num_iid,title,pict_url,small_images,reserve_price,zk_final_price,coupon_click_url,coupon_start_time,item_url,seller_id,coupon_end_time,coupon_remain_count,coupon_info,click_url,status,volume");
-        $resp = $c->execute($req);
 
-        if($resp){
+        $taobao                         =   new TaoBao();
+        $list                           =   $taobao->favourite($favoritesId,$pageNo);
+        if($list){
 
-            $total                      =   $resp->total_results;
-            $pageTotal                  =   $total/20;
-            $list                       =   $resp->results->uatm_tbk_item;
-            $favorites                              =   session('favorites');
+            $total                                      =   $taobao->getTotal();
+            $pageTotal                                  =   $taobao->getPages();
+            $favorites                                  =   session('favorites');
             $category                                   =   null;
             if($favorites){
                 $categoryName                           =   $favorites[$favoritesId];
@@ -75,7 +67,6 @@ class TaobaoController
 
             }
             foreach ($list as $k=>$v){
-                $list[$k]->_token                       =   csrf_token();
                 if($category){
                     $list[$k]->category_id              =   $category->id;
                 }
@@ -83,6 +74,12 @@ class TaobaoController
                 if(isset($channel) && !empty($channel)){
                     $list[$k]->channel_id               =   $channel->id;
                 }
+                $goods                                  =   GoodsShare::getByNumIid($v->original_id);
+                if(!empty($goods)){
+                    $v->id                              =   $goods->id;
+                    $v->exists                          =   true;
+                }
+                $v->save();
             }
             $data['page_no']            =   $pageNo;
             $data['list']               =   $list;
@@ -92,10 +89,8 @@ class TaobaoController
             if($data['page_total']!=$pageNo){
                 $data['next_page_url']  =   url('admin/taobao/executeUpdate',['favorites_id'=>$favoritesId,'page_no'=>$pageNo+1])   ;
             }
-
-            return view('admin.taobao.execute_update',$data);
         }
-
+        return view('admin.taobao.execute_update',$data);
     }
     public function form(){
         $data['favorites']                          =   $this->favorites();
@@ -106,7 +101,7 @@ class TaobaoController
         }
     }
 
-    public function executeOne($text=''){
+    public function executeOne(){
         $request                                    =   request();
         $goods                                      =   GoodsShare::getByNumIid($request->num_iid);
 
