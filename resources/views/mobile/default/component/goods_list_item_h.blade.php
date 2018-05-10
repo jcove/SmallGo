@@ -1,8 +1,11 @@
 <li class="item">
     <a href="@if($route==='goods.info') {{route($route,['num_iid'=>$item->original_id,'title'=>$item->seo_title])}} @else {{route($route,['id'=>$item->id,'title'=>$item->seo_title])}} @endif" title="{{$item->title}}">
-        <div class="cover">
-            <img class="lazyload img-responsive" alt="{{$item->name}}" data-src="{{ $item->cover }}"/>
+        <div class="cover-box">
+            <div class="cover">
+                <img class="lazyload img-responsive" alt="{{$item->name}}" data-src="{{ $item->cover }}"/>
+            </div>
         </div>
+
         <div class="info">
             <div class="name goods-title">{{$item->name}}</div>
             <div class="volume"> 月销:{{$item->volume}}</div>
