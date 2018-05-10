@@ -16,6 +16,7 @@ class AlterGoodsShareTable extends Migration
         Schema::table('goods_shares', function (Blueprint $table) {
             $table->decimal('coupon_price',10,1)->default(0);
             $table->tinyInteger('is_recommend')->default(0);
+            $table->string('coupon_info',60)->default('');
         });
     }
 

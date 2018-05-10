@@ -29,9 +29,9 @@
   }
   .item{
     float: left;
-    position: relative;
     background-color: @goodsItemHBgColor;
     .width(155);
+    .height(300);
     .margin-bottom(20);
     &:nth-child(odd){
       .margin-right(10);
@@ -43,6 +43,11 @@
     a{
       display: inline-block;
       width: 100%;
+    }
+    .cover-box{
+      .width(155);
+      .height(155);
+      overflow: hidden;
     }
     .cover{
       max-width: 100%;
@@ -60,11 +65,11 @@
       }
     }
     .info{
-      .height(50);
+
       margin-left:auto;
       margin-right: auto;
+      .height(135);
       .padding-bottom(5);
-      position: relative;
       .original-price-box{
         overflow: hidden;
       }
@@ -121,6 +126,7 @@
       display:-webkit-box;
       -webkit-box-orient:vertical;
       -webkit-line-clamp:2;
+      .height(46);
     }
     .priceLeft{
       left: 0;
