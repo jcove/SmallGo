@@ -122,7 +122,7 @@ class TaoBao
             return null;
         } else {
             if (isset($resp->code)) {
-                $this->error = $resp->code;
+                $this->error = $resp->msg;
                 return false;
             }
             return null;

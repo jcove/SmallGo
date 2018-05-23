@@ -15,7 +15,10 @@ class AlterGoodsSharesTable extends Migration
     {
         Schema::table('goods_shares', function (Blueprint $table) {
             $table->dateTime('tpwd_create_time')->nullable();
-            $table->string('tpwd',20)->default('');
+            $table->string('tpwd',20)->default('')->nullable();
+            $table->decimal('coupon_price',10,1)->default(0);
+            $table->tinyInteger('is_recommend')->default(0);
+            $table->string('coupon_info',60)->default('')->nullable();
         });
     }
 

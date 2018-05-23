@@ -21,6 +21,7 @@ Route::group([
     $router->get('/taobao/executeUpdate/{favorites_id?}/{page_no?}', 'TaobaoController@executeUpdate')->name('taobao.execute_update');
     $router->post('/taobao/executeOne', 'TaobaoController@executeOne');
     $router->get('/taobao/coupon', 'TaobaoController@coupon');
+    $router->get('/taobao/item/{id}', 'TaobaoController@item');
     $router->get('/file/aether', 'FileController@aether');
     $router->resource('/article', ArticleController::class);
 });

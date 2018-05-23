@@ -19,6 +19,7 @@ Route::get('/category/option','CategoryController@options');
 Route::get('/test','TestController@index');
 Route::get('/app','TaobaoController@openApp')->name('taobao.open.app');
 Route::get('/goods/recommend','TaobaoController@recommend')->name('taobao.recommend');
+Route::get('/taobao/item/{id}','TaobaoController@item');
 Route::any('/client/collect','TaobaoController@saveClientCollect')->name('client.collect');
 Route::group(['middleware'=>['web','category','throttle']], function(){
     Auth::routes();
