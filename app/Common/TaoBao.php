@@ -267,6 +267,7 @@ class TaoBao
         $req->setPageNo($page);
         $resp = $this->client->execute($req);
         $result = [];
+
         if (empty($resp->code)) {
             if ($resp->total_results > 0) {
                 if (isset($resp->results)) {
@@ -298,6 +299,6 @@ class TaoBao
         } else {
             $this->error = $resp->msg;
         }
-        return new LengthAwarePaginator('',0,16,$req->getPageNo());;
+        return null;
     }
 }
