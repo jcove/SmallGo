@@ -18,6 +18,8 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use function foo\func;
+use Illuminate\Validation\Rule;
+
 
 class GoodsController
 {
@@ -106,7 +108,7 @@ class GoodsController
         return Admin::form(GoodsShare::class, function (Form $form) {
            // $form->tag                          =   GoodsTag::tags($form->id);
             $form->display('id', 'ID');
-            $form->text('original_id','宝贝Id')->placeholder("原商城商品的Id，例，淘宝为id=540126528746")->rules('required|unique:goods_shares');
+            $form->text('original_id','宝贝Id')->placeholder("原商城商品的Id，例，淘宝为id=540126528746");//->rules('required|'.Rule::unique('goods_shares')->ignore($form->id));
             $form->itemUrl('item_url','宝贝链接')->rules('required');
             $form->text('tpwd','淘口令')->default('');
             $form->text('click_url', '推广链接')->placeholder('联盟后台生成的推广链接')->rules('required')->default('');;
@@ -119,7 +121,7 @@ class GoodsController
 
             $form->switch('is_recommend','推荐')->states($states)->default(0);
             $form->text('name','商品名称')->placeholder('填写宝贝链接后自动获取')->rules('required');;
-            $form->image('cover','封面');
+            $form->image('cover','封面')->options(['autoReplace'=>true]);
             $form->multipleImage('pictures','相册')->removable();;
 
             $form->text('coupon_amount','优惠券金额')->placeholder('优惠券金额')->default(0);
@@ -148,7 +150,10 @@ class GoodsController
                     $form->description                          =   '';
                 }
                 if(null==$form->detail){
-                    $form->detail                          =   '';
+                    $form->detail                               =   '';
+                }
+                if(null==$form->coupon_click_url){
+                    $form->coupon_click_url                     =   '';
                 }
             });
         });

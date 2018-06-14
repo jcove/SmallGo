@@ -43,7 +43,7 @@ class ItemUrl extends Url
                               var tmallReg          =   new RegExp(/*tmall*/);
                               if(tmallReg.test(url)){
                                 $('#from_site').val('天猫');
-                              }
+                              }   
                           }else{
                             alert('自动获取失败，请手动添加');
                           }
