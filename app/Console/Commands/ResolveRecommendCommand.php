@@ -218,6 +218,7 @@ class ResolveRecommendCommand extends Command
                         }
                     }
                     $recommendGoods->coupon_price               =   $recommendGoods->price-$recommendGoods->coupon_amount;
+                    $recommendGoods->is_recommend               =   1;
                     $recommendGoods->save();
                 }
             } catch (\PHPExcel_Reader_Exception $e) {

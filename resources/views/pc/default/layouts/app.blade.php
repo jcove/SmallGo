@@ -13,8 +13,11 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @yield('style')
-    <script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>
-
+    @if(config('site.secure'))
+        <script src="https://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>
+    @else
+        <script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>
+    @endif
 </head>
 <body>
     @include('pc.default.component.header')
