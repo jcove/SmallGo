@@ -18,7 +18,7 @@ class IndexController extends Controller
 {
     public function index(){
 
-        $goods                                  =   GoodsShare::where(['status'=>1,'is_recommend'=>1])->paginate(16);
+        $goods                                  =   GoodsShare::where(['status'=>1,'is_recommend'=>1])->orderBy('id','desc')->paginate(16);
 
         if($goods){
             $data['list']                       =   $goods;
