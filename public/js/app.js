@@ -3259,7 +3259,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     i1 = i3 - 1;
 
                     // We have our indexes i1 & i3, so we can calculate already:
-                    // y2 := ((x2âˆ’x1) Ã— (y3âˆ’y1)) Ã· (x3âˆ’x1) + y1
+                    // y2 := ((x2?x1) ¡Á (y3?y1)) ¡Â (x3?x1) + y1
                     return (x2 - this.x[i1]) * (this.y[i3] - this.y[i1]) / (this.x[i3] - this.x[i1]) + this.y[i1];
                 };
             },
@@ -5397,9 +5397,9 @@ var swiper = new _swiper2.default('.swiper-container', {
     direction: 'horizontal',
     loop: true,
 
-    // å¦‚æžœéœ€è¦åˆ†é¡µå™¨
+    // Èç¹ûÐèÒª·ÖÒ³Æ÷
     pagination: '.swiper-pagination',
-    // å¦‚æžœéœ€è¦å‰è¿›åŽé€€æŒ‰é’®
+    // Èç¹ûÐèÒªÇ°½øºóÍË°´Å¥
     nextButton: '.swiper-button-next',
     prevButton: '.swiper-button-prev'
 
@@ -5420,9 +5420,9 @@ $('.small_pic li').on('mouseover', function () {
     $(this).addClass('active');
 });
 $(window).scroll(function () {
-    //èŽ·å–çª—å£çš„æ»šåŠ¨æ¡çš„åž‚ç›´ä½ç½®
+    //»ñÈ¡´°¿ÚµÄ¹ö¶¯ÌõµÄ´¹Ö±Î»ÖÃ
     var s = $(window).scrollTop();
-    //å½“çª—å£çš„æ»šåŠ¨æ¡çš„åž‚ç›´ä½ç½®å¤§äºŽé¡µé¢çš„æœ€å°é«˜åº¦æ—¶ï¼Œè®©è¿”å›žé¡¶éƒ¨å…ƒç´ æ¸çŽ°ï¼Œå¦åˆ™æ¸éš
+    //µ±´°¿ÚµÄ¹ö¶¯ÌõµÄ´¹Ö±Î»ÖÃ´óÓÚÒ³ÃæµÄ×îÐ¡¸ß¶ÈÊ±£¬ÈÃ·µ»Ø¶¥²¿ÔªËØ½¥ÏÖ£¬·ñÔò½¥Òþ
     if (s > 800) {
         $("#go-top").fadeIn(100);
     } else {

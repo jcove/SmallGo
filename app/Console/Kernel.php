@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('command:resolve_recommend')->everyTenMinutes()->between('0:00', '5:00');
+        $schedule->command('command:resolve_recommend')->everyTenMinutes();
         $schedule->command('command:auto_update_coupon')->everyTenMinutes()->between('0:00', '5:00');
         $schedule->call(function () {
             \AetherUpload\ResourceHandler::cleanUpDir();
