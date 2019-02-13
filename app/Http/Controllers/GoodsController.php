@@ -68,11 +68,18 @@ class GoodsController extends Controller
         $coupon_start_time                  =   request()->coupon_start_time;
         $coupon_end_time                    =   request()->coupon_end_time;
         $coupon_amount                      =   request()->coupon_amount;
+        $coupon_click_url                   =   request()->coupon_click_url;
         $taobao                             =   new TaoBao();
         $goods                              =   $taobao->item($num_iid);
-        $goods->coupon_start_time           =   $coupon_start_time;
-        $goods->coupon_end_time             =   $coupon_end_time;
-        $goods->coupon_amount               =   $coupon_amount;
+        if($coupon_amount){
+            $goods->coupon_start_time           =   $coupon_start_time;
+            $goods->coupon_end_time             =   $coupon_end_time;
+            $goods->coupon_amount               =   $coupon_amount;
+            $goods->coupon_status               =   1;
+            $goods->coupon_click_url            =   $coupon_click_url;
+            $goods->coupon_price                =   $goods->price - $goods->coupon_amount;
+        }
+
         $data['title']                      =   $goods->title;
         $data['goods']                      =   $goods;
         $data['code']                       =   base64_encode($click_url);

@@ -22,7 +22,7 @@
             </ul>
             <form class="navbar-form navbar-right" role="search" action="{{route('search.coupon')}}" method="get">
                 <div class="form-group">
-                    <input type="text" name="keywords" class="form-control" placeholder="Search">
+                    <input type="text" name="keywords" value="{{isset($keywords) ? $keywords : ''}}" class="form-control" placeholder="关键词">
                 </div>
                 {{ csrf_field() }}
                 <button type="submit" class="btn btn-default">搜券</button>

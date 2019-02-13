@@ -7,5 +7,8 @@
             @component("pc.default.widgets.goods-list-item",['route'=>'goods.info','item'=>$item])
             @endcomponent
         @endforeach
+    @else
+        <p style="text-align: center">暂无推荐哦</p>
+
     @endif
 </div>

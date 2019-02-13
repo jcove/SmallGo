@@ -1,7 +1,7 @@
 <li class="item">
     <div class="product margin-auto">
         <div class="hd"><a
-                    href="@if($route==='goods.info') {{route($route,['num_iid'=>$item->original_id,'title'=>$item->seo_title])}} @else {{route($route,['id'=>$item->id,'title'=>$item->seo_title])}} @endif"
+                    href="@if($route==='goods.info') {{route($route,['num_iid'=>$item->original_id,'title'=>urlencode($item->title)])}}?coupon_click_url={{urlencode($item->coupon_click_url)}}&coupon_amount={{$item->coupon_amount}} @else {{route($route,['id'=>$item->id,'title'=>$item->seo_title])}} @endif"
                     title="{{ $item->title }}" target="_blank"><img
                         src="{{asset('images/none.gif')}}"
                         data-src="{{get_image_url($item->cover)}}"
@@ -13,10 +13,10 @@
         </div>
         <div class="bd">
             <h4 class="name">
-                <a href="@if($route==='goods.info') {{route($route,['num_iid'=>$item->original_id,'title'=>urlencode($item->title)])}} @else {{route($route,['id'=>$item->id,'title'=>urlencode($item->title)])}} @endif"
+                <a href="@if($route==='goods.info') {{route($route,['num_iid'=>$item->original_id,'title'=>urlencode($item->title)])}}?coupon_click_url={{urlencode($item->coupon_click_url)}}&coupon_amount={{$item->coupon_amount}} @else {{route($route,['id'=>$item->id,'title'=>urlencode($item->title)])}} @endif"
                    title="{{ $item->title }}" target="_blank"><span></span><span>{{$item->name}}</span></a>
             </h4>
-            <p class="price">¥ {{$item->price}}</p>
+            <p class="price">¥ {{$item->coupon_price}}</p>
             <div>
                 <hr>
             </div>

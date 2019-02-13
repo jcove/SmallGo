@@ -152,7 +152,6 @@ class TaoBao
         $req->setCount("20");
         $req->setPlatform("1");
         $resp = $this->client->execute($req);
-
         if (!empty($resp->results->n_tbk_item)) {
             $items = $resp->results->n_tbk_item;
             $list = new Collection();
