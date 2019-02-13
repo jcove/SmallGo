@@ -1,7 +1,11 @@
 {
-    "/js/app.js": "/js/app.js?id=0301fce676812f6945c4",
-    "/css/app.css": "/css/app.css?id=62c2a36038edaaed190e",
-    "/css/mobile.css": "/css/mobile.css?id=98bb679f8ffae93952f5",
-    "/js/m.js": "/js/m.js?id=656269a34c7a983a9f4a",
-    "/js/flex.js": "/js/flex.js?id=4d44d4610ecbdf39413b"
+    "/js/app.js": "/js/app.js?id=90e2c89be0d0e2d0d233",
+    "/taobao/css/detail_new.css": "/taobao/css/detail_new.css?id=d9990edb4dbe85d66d34",
+    "/css/app.css": "/css/app.css?id=5eeafffce2f006945e18",
+    "/css/mobile.css": "/css/mobile.css?id=55ea07e114d089dfefa3",
+    "/js/m.js": "/js/m.js?id=e4b1273c567f718bd09b",
+    "/js/flex.js": "/js/flex.js?id=c0f09668181b1399bba9",
+    "/taobao/js/combo.js": "/taobao/js/combo.js?id=48b6807f7a16be78bda6",
+    "/taobao/js/detail_new.js": "/taobao/js/detail_new.js?id=f0603c737a60e559ec40",
+    "/taobao/js/zepto.1.0.4.js": "/taobao/js/zepto.1.0.4.js?id=39e1b94588123d836eb5"
 }

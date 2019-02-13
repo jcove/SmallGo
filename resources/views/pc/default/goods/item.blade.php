@@ -119,7 +119,9 @@
                 </div>
                 <div class="content">
                     @if(empty($goods->detail))
-                        <p class="loadding-lab text-center">加载中，请稍后……</p>
+                        <p class="loadding-lab text-center">
+                            <iframe frameborder="0" width="100%" src="{{route('goods.desc')}}?_isH5Des=true#!id={{$goods->original_id}}&type=1&sellerType=C"></iframe>
+                        </p>
                     @else
                         {!! $goods->detail  !!}
                     @endif
@@ -136,39 +138,32 @@
 @endsection
 @section('script')
 
-
-
     @if(!empty($goods) && $goods->status > 0)
         <script>
-            if ($('.content').find('.loadding-lab').length > 0) {
-                setTimeout(function () {
-                    $.ajax({
-                        type: "get",
-                        async: false,
-                        url: 'http://hws.m.taobao.com/cache/mtop.wdetail.getItemDescx/4.1/?&data={"item_num_id":"' + '{{$goods->original_id}}' + '"}&type=jsonp',
-                        dataType: "jsonp",
-                        jsonp: "callback",
-                        jsonpCallback: "showTuwen",
-                        success: function (jsonp) {
-                            $('.loadding-lab').fadeOut(300);
-                            if (jsonp.data.images.length > 0) {
-                                for (var i = 0; i < jsonp.data.images.length; i++) {
-                                    $('.content').append('<p><img alt="{{$goods->title}}" src="' + jsonp.data.images[i] + '"/></p>');
-                                }
-                            }
-
-                            isLoad = true;
-                        },
-                        error: function () {
-                        }
-                    });
-                }, 1000);
-            }
             $.get("{{route('taobao.recommend')}}",{'num_iid':'{{$goods->original_id}}'},function (response) {
                 $('.recommend-box').append(response);
                 lazyload();
             })
 
+            $(document).ready(function () {
+                var iframes = document.getElementsByTagName('iframe');
+
+                for (var i = 0, j = iframes.length; i < j; ++i) {
+                    // 放在闭包中，防止iframe触发load事件的时候下标不匹配
+                    (function(_i) {
+                        iframes[_i].onload = function() {
+                            this.contentWindow.onbeforeunload = function() {
+                                iframes[_i].style.visibility = 'hidden';
+                                // iframes[_i].style.display = 'none';
+                                iframes[_i].setAttribute('height', 'auto');
+                            };
+                            this.setAttribute('height', this.contentWindow.document.body.scrollHeight);
+                            this.style.visibility = 'visible';
+
+                        };
+                    })(i);
+                }
+            })
         </script>
 
     @endif

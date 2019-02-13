@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "SmallGo",
+    "description": "淘宝客程序",
+    "keywords": ["淘宝客", "laravel"],
     "license": "MIT",
     "type": "project",
     "require": {

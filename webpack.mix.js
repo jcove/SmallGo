@@ -31,6 +31,10 @@ mix.webpackConfig({
 mix.js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/m.js','public/js')
     .js('resources/assets/js/flex.js','public/js')
+    .copy('resources/assets/taobao/js/combo.js','public/taobao/js/combo.js')
+    .copy('resources/assets/taobao/js/detail_new.js','public/taobao/js/detail_new.js')
+    .copy('resources/assets/taobao/js/zepto.1.0.4.js','public/taobao/js/zepto.1.0.4.js')
+    .less('resources/assets/taobao/css/detail_new.less','public/taobao/css')
     .less('resources/assets/less/app.less', 'public/css')
     .less('resources/assets/less/mobile.less', 'public/css')
     .version();

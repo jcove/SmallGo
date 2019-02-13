@@ -24,6 +24,7 @@ Route::any('/client/collect','TaobaoController@saveClientCollect')->name('client
 Route::group(['middleware'=>['web','category','throttle']], function(){
     Auth::routes();
     Route::get('/go/{num_iid}','GoodsController@go');
+    Route::get('/desc','GoodsController@desc')->name('goods.desc');
     Route::resource('/article',ArticleController::class);
     Route::get('/category/lists','CategoryController@lists');
     Route::get('/category/{id}/{title?}/{subId?}/{sort?}/{desc?}','CategoryController@category')->name('category.show');

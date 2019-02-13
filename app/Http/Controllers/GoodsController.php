@@ -55,7 +55,6 @@ class GoodsController extends Controller
             }
             $data['goods']                          =   $goods;
         }
-
         return smallgo_view('goods.item',$data);
     }
 
@@ -82,6 +81,10 @@ class GoodsController extends Controller
 
     public function go($num_iid){
         return smallgo_view('goods.go',['id'=>$num_iid]);
+    }
+
+    public function desc(){
+        return smallgo_view('goods.desc');
     }
 
 }

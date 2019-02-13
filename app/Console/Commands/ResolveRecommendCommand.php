@@ -8,6 +8,7 @@ use App\Models\ScheduleLog;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Reader\Exception;
 
 class ResolveRecommendCommand extends Command
 {
@@ -70,13 +71,9 @@ class ResolveRecommendCommand extends Command
     }
 
     protected function resolve($file){
-        Log::info($file);
         if(stripos($file,'xls')){
 
-                $log = new ScheduleLog();
-                $log->name = $file;
-                $log->md5 = md5_file($file);
-                $log->save();
+
                 try {
                     set_time_limit(300);
                     ini_set("memory_limit", "512M");
@@ -192,12 +189,9 @@ class ResolveRecommendCommand extends Command
                                     if (strpos($couponInfo, '无条件')) {
                                         $recommendGoods->coupon_amount = isset($matches[0][0]) ? intval($matches[0][0]) : 0;
                                         $recommendGoods->coupon_start_fee = 0;
-                                        Log::info(intval($matches[0][0]));
                                     } else {
                                         $recommendGoods->coupon_amount = isset($matches[0][1]) ? intval($matches[0][1]) : 0;
                                         $recommendGoods->coupon_start_fee = isset($matches[0][0]) ? intval($matches[0][0]) : 0;
-                                        Log::info(intval($matches[0][1]));
-                                        Log::info($recommendGoods->coupon_amount);
                                     }
 
                                 }
@@ -223,15 +217,19 @@ class ResolveRecommendCommand extends Command
                         Log::info($recommendGoods->coupon_amount);
                         $recommendGoods->coupon_price = $recommendGoods->price - intval($recommendGoods->coupon_amount);
                         $recommendGoods->is_recommend = 1;
+                        $recommendGoods->updated_at = '1970-0-1 00:00:00';
                         $recommendGoods->save();
                     }
-                } catch (\PHPExcel_Reader_Exception $e) {
+                } catch (Exception $e) {
                     Log::error($e->getMessage());
-
-                } catch (\PHPExcel_Exception $e) {
+                } catch (\PhpOffice\PhpSpreadsheet\Exception $e) {
                     Log::error($e->getMessage());
                 }
-                unlink($file);
+            $log = new ScheduleLog();
+            $log->name = $file;
+            $log->md5 = md5_file($file);
+            $log->save();
+            unlink($file);
 
         }
 

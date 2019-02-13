@@ -61,8 +61,9 @@
 
             </div>
             <div class="pic-detail">
-                <div class="pic-detail-show"></div>
-                <p class="loadding-lab">继续向下滑动，加载详情</p>
+                <div class="pic-detail-show">
+                    <iframe frameborder="0" width="100%" src="{{route('goods.desc')}}?_isH5Des=true#!id={{$goods->original_id}}&type=1&sellerType=C"></iframe>
+                </div>
             </div>
 
         </div>
@@ -122,7 +123,7 @@
         var word = document.querySelector('.itemWord');
         var copy = document.querySelector('.itemCopy');
         var open = $('.itemOpen');
-        console.log(open);
+
         var text = '{{$goods->tpwd}}';
         if (text && text != 'null') {
             //自动选择文本
@@ -179,57 +180,30 @@
         }
 
 
-        var isLoad = false;
-
-        function loadDetail() {
-            if ($('.pic-detail-show').css('display') === 'none') {
-                $('.pic-detail-show').css('display', 'block');
-            }
-            if (!isLoad) {
-                $('.loadding-lab').text('加载中，请稍后……');
-                setTimeout(function () {
-                    $.ajax({
-                        type: "get",
-                        async: false,
-                        url: 'http://hws.m.taobao.com/cache/mtop.wdetail.getItemDescx/4.1/?&data={"item_num_id":"{{$goods->original_id}}"}&type=jsonp',
-                        dataType: "jsonp",
-                        jsonp: "callback",
-                        jsonpCallback: "showTuwen",
-                        success: function (jsonp) {
-
-                            $('.loadding-lab').fadeOut(300);
-                            if (jsonp.data.images.length > 0) {
-                                for (var i = 0; i < jsonp.data.images.length; i++) {
-                                    $('.pic-detail-show').append('<p><img alt="{{$goods->title}}" src="' + jsonp.data.images[i] + '"/></p>');
-                                }
-                            }
-                            $.get("{{route('taobao.recommend')}}",{'num_iid':'{{$goods->original_id}}'},function (response) {
-                                $('.goods-body').after(response);
-                                lazyload();
-                            });
-                            isLoad = true;
-                        },
-                        error: function () {
-                        }
-                    });
-                }, 300);
-            }
-
-        }
-
-
         let is_weixin = function () {
             let ua = navigator.userAgent.toLowerCase();
             return ua.match(/MicroMessenger/i) === "micromessenger";
         };
-        $(window).scroll(function () {
-            var scrollTop = $(this).scrollTop();
-            var scrollHeight = $(document).height();
-            var windowHeight = $(this).height();
-            if (scrollTop + windowHeight === scrollHeight) {
-                loadDetail();
+        $(document).ready(function () {
+            var iframes = document.getElementsByTagName('iframe');
+
+            for (var i = 0, j = iframes.length; i < j; ++i) {
+                // 放在闭包中，防止iframe触发load事件的时候下标不匹配
+                (function(_i) {
+                    iframes[_i].onload = function() {
+                        this.contentWindow.onbeforeunload = function() {
+                            iframes[_i].style.visibility = 'hidden';
+                            // iframes[_i].style.display = 'none';
+                            iframes[_i].setAttribute('height', 'auto');
+                        };
+
+                        this.setAttribute('height', this.contentWindow.document.body.scrollHeight);
+                        this.style.visibility = 'visible';
+
+                    };
+                })(i);
             }
-        });
+        })
 
         @endif
 
