@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{asset("vendor/laravel-admin/toastr/build/toastr.min.css")}}" type="text/css"/>
     <link href="//at.alicdn.com/t/font_433157_1j9zqcqasb57b9.css"  rel="stylesheet" >
     @yield('style')
-    <script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="{{mix("js/flex.js")}}"></script>
 
 </head>
