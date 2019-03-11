@@ -19,7 +19,8 @@
         "overtrue/laravel-wechat": "~4.0",
         "overtrue/pinyin": "^3.0",
         "peinhu/aetherupload-laravel": "~1.0",
-        "phpoffice/phpspreadsheet": "^1.6"
+        "phpoffice/phpspreadsheet": "^1.6",
+        "predis/predis": "1.1"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

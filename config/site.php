@@ -14,7 +14,7 @@ return [
     'site_title'                =>  env('SITE_TITLE'),//网站关键词
     'site_keywords'             =>  env('SITE_KEYWORDS'),//网站关键词
     'site_description'          =>  env('SITE_DESCRIPTION'),//网站描述
-    'baidu_tongji_id'           =>  env('BAIDU_TONGJI_ID'),//百度统计
+    'baidu_tongji_id'           =>  env('SITE_BAIDU_TONGJI_ID'),//百度统计
     'template_pc'               =>  env('TEMPLATE_PC','default'),
     'template_mobile'           =>  env('TEMPLATE_MOBILE','default')
 ];
