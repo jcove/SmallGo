@@ -8,65 +8,52 @@
        
 安装(linux) 
 
-1、
     
     $ git clone https://gitee.com/jcove/SmallGo.git
     
+或者
+    
+    $ git clone https://github.com/jcove/SmallGo.git
+然后
+     
     $ cd SmallGo 
     
-    $ composer install
-2、 
+    $ cp .example.env .env
     
-   在浏览器地址栏输入： http://你的域名/install
-   
-   按照提示进行安装
-   
-   进入 《环境设置》 后，建议选择《直接编辑》，修改如下配置，如无，请添加
-   
-    DB_HOST=127.0.0.1，数据库地址
-   
-    DB_PORT=3306， 数据库端口
-   
-    DB_DATABASE=smallgo，数据库名
-   
-    DB_USERNAME=homestead，数据库用户名
-   
-    DB_PASSWORD=secret，数据库密码
-   
-    TAOBAO_APP_KEY      =   你的淘宝开放平台APP_KEY
-   
-    TAOBAO_APP_SECRET   =   你的淘宝开放平台APP_SECRET
-   
-    AD_ZONE_ID          =   adzone_id,在pid中，PID：mm_memberid_siteid_adzoneid
-   
-    TAOBAO_PID          =   淘宝联盟pid，形如：mm_xxxxx_xxxxx_xxxx
-   
-    BOSONNLP_TOKEN      =   BosonNLP分词Token,注册地址https://bosonnlp.com
-   
-   如果选择《向导模式》，安装完毕后请手动修改.env文件中如下配置
-   
-    AOBAO_APP_KEY      =   你的淘宝开放平台APP_KEY
-      
-    AOBAO_APP_SECRET   =   你的淘宝开放平台APP_SECRET
-      
-    AD_ZONE_ID          =   adzone_id,在pid中，PID：mm_memberid_siteid_adzoneid
-      
-    TAOBAO_PID          =   淘宝联盟pid，形如：mm_xxxxx_xxxxx_xxxx
-      
-    BOSONNLP_TOKEN      =   BosonNLP分词Token,注册地址https://bosonnlp.com
+修改.env文件里如下数据库配置为你的数据库
+
+    DB_DATABASE=你的数据库名
+    DB_USERNAME=你的数据库用户名
+    DB_PASSWORD=你的数据库密码
+然后
+    
+    $ chmod -R 775 storage
+    
+    $ chmod -R 775 public/uploads
+    
+    $ chmod -R 775 bootstrap/cache
+    
+    $ composer install
+    
+    $ php artisan smallgo:install
+
       
     
 后台：http://你的域名/admin  用户名：admin 密码：admin
-    
-演示站点 http://www.nayiya.com (支持pc、微信和手机浏览)
 
-#####演示站点环境：
+安装参考：http://www.361dream.com/article/63
+
+如遇到问题请加群，或者发帖求助
+    
+演示站点 http://demo.nayiya.com (支持pc、微信和手机浏览)
+
+####演示站点环境：
 
 操作系统: centos7.2  
 
-php环境：lnmp集成环境，mysql5.7，php7.1
+php环境：lnmp集成环境，mysql5.7，php7.2
   
-  
+完整安装流程：http://www.361dream.com/article/65  
   
 交流社区(搭建中) http://www.361dream.com
 

@@ -34,39 +34,18 @@ class TaobaoController extends Controller
         return response()->json($resp);
     }
 
-    public function item($num_iid){
-        if(empty($num_iid) ){
+    public function item($id){
+
+        if(empty($id) ){
             $this->error='非法的num_iid';
             return false;
         }
-        $req                                =   new TbkItemInfoGetRequest();
-        $req->setFields("num_iid,title,pict_url,small_images,reserve_price,zk_final_price,user_type,provcity,item_url,volume");
-        $req->setNumIids($num_iid);
-        $c                                  =   new TopClient( config('taobao.app_key'),config('taobao.app_secret'));
-        $resp                               =   $c->execute($req);
-        if(!empty($resp->results->n_tbk_item)){
-            $items = $resp->results->n_tbk_item;
-            foreach ($items as $row){
-                $goods['item_url'] = $row->item_url;
-                $goods['pic_url']  = $row->pict_url;
-                $goods['market_price']  = $row->reserve_price;
-                $goods['price'] = $row->zk_final_price;
-                if($goods['price'] ==0){
-                    $goods['price'] = $goods['market_price'];
-                }
-                $goods['click_url'] = $row->click_url;
-                $goods['title']     = $row->title;
-                $goods['num_iid']   = $row->num_iid;
-                $goods['volume']   = $row->volume;
-                $goodsList[] = $row;
-            }
-        }else{
-            if(isset($resp->code)){
-                return response()->json($resp);
-            }
-
+        $taobao                                 =   new TaoBao();
+        $goods                                  =   $taobao->item($id);
+        if(!$goods){
+            return response()->json(['status'=>false,'msg'=>$taobao->getError()]);
         }
-        return response()->json($goodsList[0]);
+        return response()->json($goods);
     }
 
     public function openApp(){
@@ -79,7 +58,7 @@ class TaobaoController extends Controller
             return $response;
         }else{
             $data['url']                        =   $url;
-            return $this->view('taobao.open_app',$data);
+            return smallgo_view('taobao.open_app',$data);
         }
     }
 

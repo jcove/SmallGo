@@ -17,16 +17,16 @@ use App\Models\Recommend;
 
 class ChannelController extends Controller
 {
-    public function channel($id,$sort='id',$desc='desc'){
+    public function channel($id,$title='',$sort='id',$desc='desc'){
         $list                                   =   GoodsShare::where(['channel_id'=>$id,'status'=>1])->orderBy($sort,$desc)->paginate(16);
-        $list->setCollection(GoodsShare::setCouponPrice($list->getCollection()));
         $data['list']                           =   $list;
-        $recommendInfo                          =   Channel::info($id);
-        $data['title']                          =   $recommendInfo['name'];
+        $channel                                =   Channel::info($id);
+        $data['title']                          =   $channel['name'];
         $data['id']                             =   $id;
         $data['sort']                           =   $sort;
+        $data['channel']                        =   $channel;
         $data['desc']                           =   $desc=='desc' ? 'asc' : 'desc';
-        return $this->view('channel.goods',$data);
+        return smallgo_view('channel.goods',$data);
     }
     public function options(){
         $data                                   =    Channel::allSelectOptions();
@@ -36,5 +36,4 @@ class ChannelController extends Controller
         }
         return $list;
     }
-
 }

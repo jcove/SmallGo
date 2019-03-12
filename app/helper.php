@@ -81,13 +81,25 @@ function smallgo_ad($position){
 function smallgo_view($view='',$data=[]){
     if(request()->ajax() && !empty($view)){
         $view                       =   $view.'_ajax';
-        if(!request()->acceptsHtml()){
-            return response()->json($data);
-        }
+    }
+    if(!request()->acceptsHtml()){
+        return response()->json($data);
     }
     if(is_mobile()){
-        return view('mobile.'.$view,$data);
+        return view('mobile.'.config('site.template_mobile').'.'.$view,$data);
     }else{
-        return view($view,$data);
+        return view('pc.'.config('site.template_pc').'.'.$view,$data);
+    }
+}
+if (!function_exists('pub_asset')) {
+
+    /**
+     * @param $path
+     *
+     * @return string
+     */
+    function pub_asset($path)
+    {
+        return asset($path, config('site.secure'));
     }
 }

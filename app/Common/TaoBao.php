@@ -8,19 +8,25 @@
 namespace App\Common;
 
 
+use App\Models\Category;
+use App\Models\Channel;
 use App\Models\GoodsShare;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use TbkDgItemCouponGetRequest;
 use TbkItemInfoGetRequest;
 use TbkItemRecommendGetRequest;
 use TbkTpwdCreateRequest;
+use TbkUatmFavoritesItemGetRequest;
 use TopClient;
 
 class TaoBao
 {
     private $client;
     private $error = '商品不存在';
-
+    private $total;
+    private $pageNo;
+    private $pages;
     /**
      * TaoBao constructor.
      */
@@ -30,6 +36,56 @@ class TaoBao
         $this->client->format = 'json';
 
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
+    /**
+     * @param mixed $total
+     */
+    public function setTotal($total)
+    {
+        $this->total = $total;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPageNo()
+    {
+        return $this->pageNo;
+    }
+
+    /**
+     * @param mixed $pageNo
+     */
+    public function setPageNo($pageNo)
+    {
+        $this->pageNo = $pageNo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPages()
+    {
+        return $this->pages;
+    }
+
+    /**
+     * @param mixed $pages
+     */
+    public function setPages($pages)
+    {
+        $this->pages = $pages;
+    }
+
+
 
     /**
      * @return string
@@ -66,7 +122,7 @@ class TaoBao
             return null;
         } else {
             if (isset($resp->code)) {
-                $this->error = $resp->code;
+                $this->error = $resp->msg;
                 return false;
             }
             return null;
@@ -96,7 +152,6 @@ class TaoBao
         $req->setCount("20");
         $req->setPlatform("1");
         $resp = $this->client->execute($req);
-
         if (!empty($resp->results->n_tbk_item)) {
             $items = $resp->results->n_tbk_item;
             $list = new Collection();
@@ -114,6 +169,38 @@ class TaoBao
         }
     }
 
+    public function favourite($favoriteId,$pageNo){
+        $req                            =   new TbkUatmFavoritesItemGetRequest();
+        $req->setPlatform("1");
+        $req->setPageSize("20");
+        $req->setAdzoneId( config('taobao.ad_zone_id'));
+        $req->setFavoritesId($favoriteId);
+        $req->setPageNo($pageNo);
+        $req->setFields("num_iid,title,pict_url,small_images,reserve_price,zk_final_price,coupon_click_url,coupon_start_time,item_url,coupon_end_time,coupon_remain_count,coupon_info,click_url,status,volume");
+        $resp = $this->client->execute($req);
+        if($resp){
+
+            $total                                      =   $resp->total_results;
+            $pageTotal                                  =   $total/20;
+            $this->total                                =   $total;
+            $this->pages                                =   ceil($pageTotal);
+            $this->pageNo                               =   $pageNo;
+            $items                                      =   $resp->results->uatm_tbk_item;
+
+            $list = new Collection();
+            foreach ($items as $row) {
+                $goods = $this->itemToModel($row);
+                $list->add($goods);
+            }
+            return $list;
+        }else{
+            if (isset($resp->code)) {
+                $this->error = $resp->code;
+            }
+            return false;
+        }
+    }
+
     protected function itemToModel($item)
     {
         $goodsShare = new GoodsShare();
@@ -127,8 +214,17 @@ class TaoBao
         $goodsShare->cover = $item->pict_url;
         $goodsShare->volume = $item->volume;
         $goodsShare->status         =   1;
+        if(isset($item->coupon_info)){
+            $goodsShare->coupon_info          =   $item->coupon_info;
+        }
+        if (isset($item->coupon_end_time)) {
+            $goodsShare->coupon_end_time = $item->coupon_end_time;
+        }
         if (isset($item->coupon_amount)) {
             $goodsShare->coupon_amount = $item->coupon_amount;
+        }
+        if (isset($item->coupon_start_time)) {
+            $goodsShare->coupon_start_time = $item->coupon_start_time;
         }
         if (isset($item->coupon_price)) {
             $goodsShare->coupon_price = $item->coupon_price;
@@ -136,9 +232,29 @@ class TaoBao
         if (isset($item->coupon_status)) {
             $goodsShare->coupon_status = $item->coupon_status;
         }
+        if(isset($item->coupon_click_url)){
+            $goodsShare->coupon_click_url = $item->coupon_click_url;
+        }
+        if(isset($item->coupon_remain_count)){
+            $goodsShare->coupon_remain_count = $item->coupon_remain_count;
+        }
+        if(isset($item->coupon_start_fee)){
+            $goodsShare->coupon_start_fee = $item->coupon_start_fee;
+        }
+        if(isset($item->click_url)){
+            $goodsShare->click_url          =   $item->click_url;
+        }
+        if($goodsShare->isCoupon()){
+            $goodsShare->coupon_status      =   1;
+        }
         return $goodsShare;
     }
 
+    /**
+     * @param $keywords
+     * @param int $perPageSize
+     * @return bool|LengthAwarePaginator
+     */
     public function searchCoupon($keywords, $perPageSize = 10)
     {
         $page = request()->page;
@@ -146,16 +262,16 @@ class TaoBao
         $req->setQ($keywords);
         $req->setAdzoneId(config('taobao.ad_zone_id'));
         $req->setPlatform('1');
-        $req->setPageSize('10');
+        $req->setPageSize('16');
         $req->setPageNo($page);
         $resp = $this->client->execute($req);
         $result = [];
+
         if (empty($resp->code)) {
             if ($resp->total_results > 0) {
                 if (isset($resp->results)) {
                     $list = new Collection();
                     $data = $resp->results->tbk_coupon;
-                    $pages = ceil($resp->total_results / $perPageSize);
                     if ($data) {
                         foreach ($data as $k => $v) {
 
@@ -171,20 +287,17 @@ class TaoBao
                             $v->coupon_status = 1;
                             $list->add($this->itemToModel($v));
                         }
-                        $result = ['pages' => $pages, 'list' => $list];
+                        $paginator                      =   new LengthAwarePaginator($list,$resp->total_results,16,$req->getPageNo());
+                        $paginator->appends(['keywords'=>$keywords]);
+                        $paginator->setPath('/search/coupon');
+                        return $paginator;
                     }
-                } else {
-                    $result = ['pages' => 0, 'list' => []];
                 }
 
-            } else {
-                $result = ['pages' => 0, 'list' => []];
             }
-            return $result;
-
         } else {
             $this->error = $resp->msg;
         }
-        return false;
+        return null;
     }
 }

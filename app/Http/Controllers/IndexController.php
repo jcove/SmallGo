@@ -16,28 +16,23 @@ use App\Models\GoodsShare;
 
 class IndexController extends Controller
 {
-    public function index($sort='id',$desc='desc'){
+    public function index(){
 
-        $goods                                  =   GoodsShare::where(['status'=>1,'channel_id'=>1])->orderBy($sort,$desc)->paginate(16);
+        $goods                                  =   GoodsShare::where(['status'=>1,'is_recommend'=>1])->orderBy('id','desc')->paginate(16);
+
         if($goods){
-            $data['list']                       =   GoodsShare::setCouponPrice($goods);
+            $data['list']                       =   $goods;
         }
 
         $data['channels']                       =   Channel::getChildren();
-
-
-
         //幻灯片
         if(is_mobile()){
             $swipers                            =   Ad::getList('mobile_index_swiper');
         }else{
-            $swipers                                =   Ad::getList();
+            $swipers                            =   Ad::getList();
         }
-
         $data['swipers']                        =   $swipers;
-        $data['desc']                           =   $desc =='desc' ? 'asc' : 'desc';
-        $data['sort']                           =   $sort;
 
-        return $this->view('index',$data) ;
+        return smallgo_view('index',$data) ;
     }
 }

@@ -1,0 +1,56 @@
+.article-list{
+  background-color: #f8f8f8;
+  li{
+    margin: auto;
+    overflow: hidden;
+    .padding(10);
+    .margin-bottom(10);
+    background-color: white;
+  }
+  .cover{
+    .width(105);
+    .height(100);
+    .margin-right(10);
+    float: left;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+  .info{
+    .width(215);
+    float: left;
+    .title{
+      font-weight: 700;
+      .font-size(15);
+      .height(48);
+      .line-height(24);
+      text-overflow: ellipsis
+    }
+    .pub-date{
+      .font-size(12);
+      color: #888;
+    }
+  }
+}
+.article-detail{
+  .padding(10);
+  .title{
+    font-weight: 700;
+    .font-size(15);
+    text-align: center;
+    .line-height(26);
+  }
+  .pub-date{
+    .font-size(12);
+    color: #888;
+    text-align: center;
+    line-height:2;
+  }
+  .article-body{
+    p{
+      line-height: 2;
+      .font-size(13);
+      .padding(10,0);
+    }
+  }
+
+}

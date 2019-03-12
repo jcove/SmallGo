@@ -55,8 +55,7 @@ class GoodsController extends Controller
             }
             $data['goods']                          =   $goods;
         }
-
-        return $this->view('goods.item',$data);
+        return smallgo_view('goods.item',$data);
     }
 
     /**
@@ -69,19 +68,30 @@ class GoodsController extends Controller
         $coupon_start_time                  =   request()->coupon_start_time;
         $coupon_end_time                    =   request()->coupon_end_time;
         $coupon_amount                      =   request()->coupon_amount;
+        $coupon_click_url                   =   request()->coupon_click_url;
         $taobao                             =   new TaoBao();
         $goods                              =   $taobao->item($num_iid);
-        $goods->coupon_start_time           =   $coupon_start_time;
-        $goods->coupon_end_time             =   $coupon_end_time;
-        $goods->coupon_amount               =   $coupon_amount;
+        if($coupon_amount){
+            $goods->coupon_start_time           =   $coupon_start_time;
+            $goods->coupon_end_time             =   $coupon_end_time;
+            $goods->coupon_amount               =   $coupon_amount;
+            $goods->coupon_status               =   1;
+            $goods->coupon_click_url            =   $coupon_click_url;
+            $goods->coupon_price                =   $goods->price - $goods->coupon_amount;
+        }
+
         $data['title']                      =   $goods->title;
         $data['goods']                      =   $goods;
         $data['code']                       =   base64_encode($click_url);
-        return $this->view('goods.item',$data);
+        return smallgo_view('goods.item',$data);
     }
 
     public function go($num_iid){
-        return $this->view('goods.go',['id'=>$num_iid]);
+        return smallgo_view('goods.go',['id'=>$num_iid]);
+    }
+
+    public function desc(){
+        return smallgo_view('goods.desc');
     }
 
 }

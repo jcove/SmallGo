@@ -22,7 +22,7 @@ class SearchController extends Controller
         $list                               =   [];
         if(!empty($keywords)){
         //    $list                           =   GoodsShare::where(['status'=>1])->search($keywords,null,true)->orderBy($sort,'desc')->paginate(9);
-            $list                           =   GoodsShare::where(['status'=>1])->where('title','like','%'.$keywords.'%')->orderBy($sort,$desc)->paginate(10);
+            $list                           =   GoodsShare::search($keywords)->where(['status'=>1])->orderBy($sort,$desc)->paginate(10);
             if($list->getCollection()){
                 $items                      =   $list->getCollection();
                 $list->setCollection(GoodsShare::setCouponPrice($items));
@@ -33,7 +33,7 @@ class SearchController extends Controller
         $data['sort']                       =   $sort;
         $data['keywords']                   =   $keywords;
         $data['desc']                       =   $desc == 'desc' ? 'asc':'desc';
-        return $this->view('search.goods',$data);
+        return smallgo_view('search.goods',$data);
     }
 
     public function coupon($keywords=''){
@@ -44,16 +44,16 @@ class SearchController extends Controller
             $taobao                     =   new TaoBao();
             $result                     =   $taobao->searchCoupon($keywords);
             if($result){
-                if($page<$result['pages']){
+                if($page<$result->lastPage()){
                     $nextPageUrl        =   url('search/coupon',['keywords'=>$keywords]);
                 }
-                $data['list']           =   $result['list'];
+                $data['list']           =   $result;
             }
         }
         $data['keywords']               =   $keywords;
         $data['title']                  =   '找券';
         $data['next_page_url']          =   isset($nextPageUrl) ? $nextPageUrl : '';
-        return $this->view('search.coupon',$data);
+        return smallgo_view('search.coupon',$data);
     }
     public function search(){
         $client                             =   ClientBuilder::create()->setHosts(config('cs.hosts'))->build();

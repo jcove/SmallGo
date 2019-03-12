@@ -29,20 +29,25 @@ class ItemUrl extends Url
                       url: "/taobao/item/"+id,
                       dataType: 'json',
                       success: function(result) {
-                          $('#title').val(result.title);
-                          $('#price').val(result.zk_final_price);
-                          $('#name').val(result.title);
-                          $('#original_id').val(result.num_iid);
-                          $('#item_url').val(result.item_url);
+                          if(result.title){
+                              $('#title').val(result.title);
+                              $('#price').val(result.price);
+                              $('#name').val(result.title);
+                              $('#original_id').val(result.original_id);
+                              $('#item_url').val(result.item_url);
+                              
+                              var taobaoReg         =   new RegExp(/*taobao*/);
+                              if(taobaoReg.test(url)){
+                                $('#from_site').val('淘宝');
+                              }
+                              var tmallReg          =   new RegExp(/*tmall*/);
+                              if(tmallReg.test(url)){
+                                $('#from_site').val('天猫');
+                              }   
+                          }else{
+                            alert('自动获取失败，请手动添加');
+                          }
                           
-                          var taobaoReg         =   new RegExp(/*taobao*/);
-                          if(taobaoReg.test(url)){
-                            $('#from_site').val('淘宝');
-                          }
-                          var tmallReg          =   new RegExp(/*tmall*/);
-                          if(tmallReg.test(url)){
-                            $('#from_site').val('天猫');
-                          }
                       }
                   });
                 }

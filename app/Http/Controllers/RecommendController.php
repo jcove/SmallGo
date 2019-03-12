@@ -25,7 +25,7 @@ class RecommendController extends Controller
         $data['id']                             =   $id;
         $data['sort']                           =   $sort;
         $data['desc']                           =   $desc=='desc' ? 'asc' : 'desc';
-        return $this->view('recommend.goods',$data);
+        return smallgo_view('recommend.goods',$data);
     }
     public function goods($id){
         $goods                                  =   RecommendGoods::where(['id'=>$id,'status'=>1])->first();
@@ -41,7 +41,7 @@ class RecommendController extends Controller
         $data['title']                          =   $goods->title ? $goods->title : $goods->name;
 
 
-        return $this->view('goods.item',$data);
+        return smallgo_view('goods.item',$data);
     }
 
 }
