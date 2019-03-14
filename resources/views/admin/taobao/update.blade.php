@@ -4,7 +4,7 @@
             <div class="box box-info">
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form action="{{request()->getRequestUri()}}" method="post" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data" pjax-container="">
+                <form id="update-form" action="/admin/taobao/execute-update" method="post" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data" pjax-container="">
                     <div class="box-body">
 
                         <div class="fields-group">
@@ -20,7 +20,7 @@
                                         <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
                                         <select id="favorites_id" name="favorites_id" class="form-control" >
                                             @foreach($favorites as $favorite)
-                                                <option value="{{$favorite->favorites_id}}">{{$favorite->favorites_title}}</option>
+                                                <option value="{{$favorite->favorites_id}}" {{ isset($favorites_id) && $favorites_id == $favorite->favorites_id ? 'selected="selected"' : '' }}>{{$favorite->favorites_title}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -51,6 +51,7 @@
 
                     </div>
                     <input name="_previous_" value="{{url('taobao/update')}}" class="_previous_" type="hidden"><!-- /.box-footer -->
+                    <input type="hidden" name="page_no" value={{ isset($page_no) ? $page_no : 1 }}>
                 </form>
             </div>
         </div>

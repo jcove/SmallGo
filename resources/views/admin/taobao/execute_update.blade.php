@@ -1,4 +1,4 @@
-
+@include('admin.taobao.update')
 <section class="content">
     <div class="row">
         <div class="col-md-12">
@@ -33,84 +33,25 @@
 
 </section>
 <script>
-    {{--var  total          =   {{$total}};--}}
-    var  i              =   1;
-    var timer                       =   null;
-    var next_page_url   =   '{{$next_page_url}}';
-    if(next_page_url!=''){
-        toastr.success('第{{$page_no}}页采集完成,即将采集下一页');
-        setTimeout(function () {
-            $.pjax({
-                url: next_page_url,
-                container: '#pjax-container'
-            });
-        },3000);
-    }else {
-        toastr.success("更新成功",null);
-    }
 
+    $(function () {
+        
+        var  i             =   1;
+        var timer          =   null;
+        var next_page_url  =   '{{$next_page_url}}';
+        $('select').bind('change', function (event) {
+            $('input[name=page_no]').val(1);
+        });
 
-    {{--$(function () {--}}
-        {{--var array                       =   [];--}}
-        {{--var tmpArray                    =   [];--}}
+        if(next_page_url!=''){
+            toastr.success('第{{$page_no}}页采集完成,即将采集下一页');
+            setTimeout(function () {
 
-        {{--$('.id-field').each(function () {--}}
-            {{--var  that                   =   $(this);--}}
-            {{--var data                    =   $(this).data('text');--}}
-            {{--array[data.num_iid]         =   {obj:that,data:data};--}}
-            {{--tmpArray.push({obj:that,data:data});--}}
-        {{--});--}}
-        {{--toastr.success('即将开始采集...');--}}
-        {{--setTimeout(function () {--}}
-            {{--var j=0;--}}
-
-            {{--timer                               =   setInterval(function () {--}}
-                {{--if(j<tmpArray.length){--}}
-                    {{--// var url                     =   tmpArray[j].data.coupon_click_url;--}}
-                    {{--// if(url){--}}
-                    {{--//     url                         =   url.replace(/coupon\/edetail/ig, "cp/coupon");--}}
-                    {{--//--}}
-                    {{--//     $.ajax({--}}
-                    {{--//         url: url,--}}
-                    {{--//         dataType: 'jsonp',--}}
-                    {{--//         jsonp: 'callback',--}}
-                    {{--//         success: function(result) {--}}
-                    {{--//             if(result.succ)--}}
-                    {{--//             if (result.status === '1111') {--}}
-                    {{--//                 alert('啊噢！阿里妈妈访问限制啦请切换IP或者等待几分钟');--}}
-                    {{--//                 return;--}}
-                    {{--//             }--}}
-                    {{--//             console.log(result);--}}
-                    {{--//             array[result.result.item.itemId].data.coupon_amount      =   result.result.amount;--}}
-                    {{--//             array[result.result.item.itemId].data.coupon_start_fee   =   result.result.startFee;--}}
-                    {{--//             array[result.result.item.itemId].data.coupon_click_url   =   result.result.item.shareUrl;--}}
-                    {{--//             execute(array[result.result.item.itemId].obj,array[result.result.item.itemId].data);--}}
-                    {{--//         }--}}
-                    {{--//     });--}}
-                    {{--// }else {--}}
-                        {{--execute(tmpArray[j].obj,tmpArray[j].data);--}}
-                   {{--// }--}}
-                    {{--j++;--}}
-                {{--}--}}
-            {{--},1000)--}}
-        {{--},1000)--}}
-    {{--});--}}
-    {{--function execute(that,data) {--}}
-        {{--$.post("{{url('admin/taobao/executeOne')}}",data,function (response) {--}}
-            {{--that.next().next().next().find('i').removeClass('fa-circle-o').addClass('fa-check').css('color','green');--}}
-            {{--if(i==20){--}}
-                {{--if(next_page_url!=''){--}}
-                    {{--$.pjax({--}}
-                        {{--url: next_page_url,--}}
-                        {{--container: '#pjax-container'--}}
-                    {{--});--}}
-                {{--}else {--}}
-                    {{--toastr.success("更新成功",null);--}}
-                    {{--clearInterval(timer);--}}
-                {{--}--}}
-            {{--}--}}
-            {{--i++;--}}
-        {{--});--}}
-    {{--}--}}
-
+                $('input[name=page_no]').val({{ $page_no + 1 }});
+                $('#update-form').submit();
+            },3000);
+        }else {
+            toastr.success("已更新第" + {{ $page_no }}  + " 更新成功", null);
+        }
+    });
 </script>

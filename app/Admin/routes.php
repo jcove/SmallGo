@@ -18,7 +18,8 @@ Route::group([
     $router->resource('channel', ChannelController::class);
     $router->resource('nav', NavController::class);
     $router->any('/taobao/selection', 'TaobaoController@selection');
-    $router->get('/taobao/executeUpdate/{favorites_id?}/{page_no?}', 'TaobaoController@executeUpdate')->name('taobao.execute_update');
+    // $router->get('/taobao/executeUpdate/{favorites_id?}/{page_no?}', 'TaobaoController@executeUpdate')->name('taobao.execute_update');
+    $router->post('/taobao/execute-update', 'TaobaoController@executeUpdate')->name('taobao.execute_update');
     $router->post('/taobao/executeOne', 'TaobaoController@executeOne');
     $router->get('/taobao/coupon', 'TaobaoController@coupon');
     $router->get('/taobao/item/{id}', 'TaobaoController@item');
