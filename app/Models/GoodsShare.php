@@ -8,19 +8,15 @@
 namespace App\Models;
 
 
-use App\Searchable;
 use Carbon\Carbon;
-use Elasticsearch\Common\Exceptions\Missing404Exception;
-use GenPwdIsvParamDto;
 use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Model;
 
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Overtrue\Pinyin\Pinyin;
-use function Sodium\version_string;
 use TbkTpwdCreateRequest;
 use TopClient;
-use WirelessShareTpwdCreateRequest;
+
 
 class GoodsShare extends Model
 {
@@ -55,13 +51,6 @@ class GoodsShare extends Model
         return static::where(['status'=>1])->orderBy('created_at', 'desc')->take($num)->get();
     }
 
-    public function getGalleriesAttribute($value){
-        if($value){
-            return $value;
-        }
-        $this->attributes['galleries']  =   GoodsGallery::where(['goods_id'=>$this->id])->get();
-        return $this->attributes['galleries'];
-    }
 
     public function setPicturesAttribute($pictures)
     {

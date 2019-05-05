@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use App\Models\Nav;
 use Closure;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 
 class Category
 {
@@ -16,13 +18,23 @@ class Category
      */
     public function handle($request, Closure $next)
     {
-        $categoryModel                          =   new \App\Models\Category();
-        //$categories                             =   cache('categories');
+
+        $categories                             =   Cache::get('categories');
         if(empty($categories)){
+            $categoryModel                          =   new \App\Models\Category();
             $categories                         =   $categoryModel->getAllCategory(0);
-            cache(['categories'=>$categories],30);
+            Cache::put('categories', json_encode($categories), 60*12);
+        }else{
+            $categories                         =   new Collection(json_decode($categories));
         }
-        $navs                                   =   Nav::allNav(1);
+
+        $navs                                   =   Cache::get('navs');
+        if(empty($navs)){
+            $navs                               =   Nav::allNav(1);
+            Cache::put('$navs', json_encode($navs), 60*12);
+        }else{
+            $navs                               =   new Collection(json_decode($navs));
+        }
         view()->share('categories',$categories);
         view()->share('navs',$navs);
         return $next($request);
