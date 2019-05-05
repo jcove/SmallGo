@@ -17,6 +17,7 @@ use App\Models\History;
 use App\Models\RecommendGoods;
 use App\Models\TagGoods;
 use Carbon\Carbon;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use TbkItemInfoGetRequest;
 use TopClient;
 
@@ -71,6 +72,10 @@ class GoodsController extends Controller
         $coupon_click_url                   =   request()->coupon_click_url;
         $taobao                             =   new TaoBao();
         $goods                              =   $taobao->item($num_iid);
+
+        if(empty($goods)){
+            throw new NotFoundHttpException("商品不存在");
+        }
         if($coupon_amount){
             $goods->coupon_start_time           =   $coupon_start_time;
             $goods->coupon_end_time             =   $coupon_end_time;

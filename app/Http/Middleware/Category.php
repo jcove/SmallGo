@@ -25,7 +25,7 @@ class Category
             $categories                         =   $categoryModel->getAllCategory(0);
             Cache::put('categories', json_encode($categories), 60*12);
         }else{
-            $categories                         =   new Collection(json_decode($categories));
+            $categories                         =   new Collection(is_array($categories)? $categories : json_decode($categories));
         }
 
         $navs                                   =   Cache::get('navs');
