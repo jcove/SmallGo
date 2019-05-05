@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
                 $tmp = str_replace('?', '"' . '%s' . '"', $query->sql);
                 $tmp = vsprintf($tmp, $query->bindings);
                 $tmp = str_replace("\\", "", $tmp);
-                Log::debug($tmp . "\n\n\t");
+                Log::info('执行SQL:' . $tmp);
             });
         }
 

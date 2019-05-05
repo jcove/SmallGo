@@ -31,7 +31,7 @@ class Category
         $navs                                   =   Cache::get('navs');
         if(empty($navs)){
             $navs                               =   Nav::allNav(1);
-            Cache::put('$navs', json_encode($navs), 60*12);
+            Cache::put('navs', json_encode($navs), 60*12);
         }else{
             $navs                               =   new Collection(json_decode($navs));
         }
