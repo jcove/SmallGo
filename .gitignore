@@ -6,3 +6,5 @@ node_modules
 /.env
 /composer.lock
 .vscode/
+*.log
+.vagrant

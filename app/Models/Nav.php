@@ -18,6 +18,10 @@ class Nav extends Model
         return static ::where(['status'=>$status,'client'=>$client])->get();
     }
 
+    public static function getByClient($client,$status = 1){
+        return static ::where(['status'=>$status,'client'=>$client])->get();
+    }
+
     public function getLinkAttribute($link){
         if(URL::isValidUrl($link)){
             return $link;

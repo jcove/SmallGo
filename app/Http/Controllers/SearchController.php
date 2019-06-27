@@ -11,7 +11,6 @@ namespace App\Http\Controllers;
 use App\Common\TaoBao;
 use App\Models\GoodsShare;
 use App\Searchable;
-use Elasticsearch\ClientBuilder;
 use TbkDgItemCouponGetRequest;
 use TopClient;
 

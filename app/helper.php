@@ -82,14 +82,18 @@ function smallgo_view($view='',$data=[]){
     if(request()->ajax() && !empty($view)){
         $view                       =   $view.'_ajax';
     }
-    if(!request()->acceptsHtml()){
+
+    if(request()->acceptsHtml()){
+        if(is_mobile()){
+            return view('mobile.'.config('site.template_mobile').'.'.$view,$data);
+        }else{
+            return view('pc.'.config('site.template_pc').'.'.$view,$data);
+        }
+    }
+    if(request()->acceptsJson()){
         return response()->json($data);
     }
-    if(is_mobile()){
-        return view('mobile.'.config('site.template_mobile').'.'.$view,$data);
-    }else{
-        return view('pc.'.config('site.template_pc').'.'.$view,$data);
-    }
+
 }
 if (!function_exists('pub_asset')) {
 

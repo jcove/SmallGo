@@ -5,10 +5,14 @@
  * Time: 上午10:56
  */
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
+
 
 use App\Common\TaoBao;
+use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\GoodsShare;
+use App\RestResponse;
 use Carbon\Carbon;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -20,14 +24,11 @@ class GoodsController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
-    public function detail($id){
+    public function info($id){
         $goods                                  =   GoodsShare::where(['id'=>$id,'status'=>1])->first();
-        $data                                   =   [];
         if($goods){
 
-            $data['title']                          =   $goods->title ? $goods->title : $goods->name;
-            $data['code']                           =   base64_encode($goods->click_url);
-            $taobao                                 =   new TaoBao();
+            $taobao                             =   new TaoBao();
             $cycle                              =   config('site.goods_update_cycle',0);
             if($cycle > 0){
                 $lastUpdateTime                 =   new Carbon($goods->updated_at);
@@ -46,9 +47,9 @@ class GoodsController extends Controller
                     }
                 }
             }
-            $data['goods']                          =   $goods;
+
         }
-        return smallgo_view('goods.item',$data);
+        return RestResponse::data($goods);
     }
 
     /**
@@ -56,7 +57,7 @@ class GoodsController extends Controller
      * @param $num_iid
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\JsonResponse|\Illuminate\View\View
      */
-    public function info($num_iid){
+    public function tb($num_iid){
         $click_url                          =   request()->click_url;
         $coupon_start_time                  =   request()->coupon_start_time;
         $coupon_end_time                    =   request()->coupon_end_time;
@@ -77,10 +78,26 @@ class GoodsController extends Controller
             $goods->coupon_price                =   $goods->price - $goods->coupon_amount;
         }
 
-        $data['title']                      =   $goods->title;
-        $data['goods']                      =   $goods;
-        $data['code']                       =   base64_encode($click_url);
-        return smallgo_view('goods.item',$data);
+        return RestResponse::data($goods);
+    }
+
+    public function list(){
+        $categoryId                             =   request()->category_id;
+        $sort                                   =   request()->sort;
+        $desc                                   =   request()->desc;
+
+        $sort                                   =   $sort ? $sort : 'id';
+        $desc                                   =   $desc ? $desc : 'desc';
+
+        $GoodsModel                             =   GoodsShare::where(['status'=>1]);
+        if($categoryId){
+            $categoryModel                      =   new Category();
+            $in                                 =   $categoryModel->getAllCategoryId($categoryId);
+            $where['category_id']               =   $categoryId;
+            $GoodsModel                         =   $GoodsModel->whereIn('category_id',$in);
+        }
+        $goods                                  =   $GoodsModel->orderBy($sort,$desc)->paginate(16);
+        return RestResponse::data($goods);
     }
 
     public function go($num_iid){

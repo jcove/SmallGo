@@ -10,10 +10,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Ad;
+use App\RestResponse;
 
 class AdController extends Controller
 {
     public function banner(){
-        return response()->json(Ad::getList());
+        return RestResponse::data(Ad::getList());
     }
 }

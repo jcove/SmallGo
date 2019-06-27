@@ -21,7 +21,7 @@ Route::get('/app','TaobaoController@openApp')->name('taobao.open.app');
 Route::get('/goods/recommend','TaobaoController@recommend')->name('taobao.recommend');
 Route::get('/taobao/item/{id}','TaobaoController@item');
 Route::any('/client/collect','TaobaoController@saveClientCollect')->name('client.collect');
-Route::group(['middleware'=>['web','category','throttle:30,3']], function(){
+Route::group(['middleware'=>['web','throttle:30,3']], function(){
     Auth::routes();
     Route::get('/go/{num_iid}','GoodsController@go');
     Route::get('/desc','GoodsController@desc')->name('goods.desc');

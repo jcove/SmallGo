@@ -1,5 +1,5 @@
 {
-    "name": "SmallGo",
+    "name": "jcove/small-go",
     "description": "淘宝客程序",
     "keywords": ["淘宝客", "laravel"],
     "license": "MIT",
@@ -7,7 +7,7 @@
     "require": {
         "php": ">=7.0.0",
         "encore/laravel-admin": "1.5.*",
-        "fideloper/proxy": "~3.3",
+        "fideloper/proxy": "~4.0",
         "guzzlehttp/guzzle": "^6.3",
         "jcove/taobao-sdk": "dev-master",
         "laravel-admin-ext/media-manager": "^1.0",
