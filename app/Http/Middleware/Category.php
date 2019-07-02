@@ -23,7 +23,7 @@ class Category
         if(empty($categories)){
             $categoryModel                          =   new \App\Models\Category();
             $categories                         =   $categoryModel->getAllCategory(0);
-            Cache::put('categories', json_encode($categories), 60*12);
+
         }else{
             $categories                         =   new Collection(is_array($categories)? $categories : json_decode($categories));
         }

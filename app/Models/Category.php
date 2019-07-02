@@ -12,6 +12,8 @@ namespace App\Models;
 use Encore\Admin\Traits\AdminBuilder;
 use Encore\Admin\Traits\ModelTree;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Overtrue\Pinyin\Pinyin;
 
 class Category extends Model
@@ -20,19 +22,28 @@ class Category extends Model
 
     use AdminBuilder,ModelTree;
     public static function getAllCategory($parentId = 0) {
-        $categories                             =   static ::getChildren($parentId);
-        $allCategories                          =   array();
-        if (!empty($categories)) {
-            foreach ($categories as $key => $category) {
-                $allCategories[$category->id]   =   $category;
+        $allCategories                             =   Cache::get('categories');
+        if(empty($allCategories)){
+            $categories                             =   static ::getChildren($parentId);
+            $allCategories                          =   array();
+            if (!empty($categories)) {
+                foreach ($categories as $key => $category) {
+                    $allCategories[$key]   =   $category;
 
-                $categoryChild                  =   static ::getChildren($category->id);
-                if (!empty($categoryChild)) {
-                    $allCategories[$category->id]->child = $categoryChild;
+                    $categoryChild                  =   static ::getChildren($category->id);
+                    if (!empty($categoryChild)) {
+                        $allCategories[$key]->children = $categoryChild;
+                    }
                 }
             }
+            Cache::put('categories', json_encode($allCategories), 60*12);
+            return $allCategories;
+        }else{
+            return new Collection(is_array($allCategories)? $allCategories : json_decode($allCategories));
         }
-        return $allCategories;
+
+
+
     }
 
     public static function getAllCategoryId($parentId){

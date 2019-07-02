@@ -73,7 +73,6 @@ class ResolveRecommendCommand extends Command
     protected function resolve($file){
         if(stripos($file,'xls')){
 
-
                 try {
                     set_time_limit(300);
                     ini_set("memory_limit", "512M");
@@ -83,6 +82,7 @@ class ResolveRecommendCommand extends Command
                     $PHPExcel = $reader->load($file); // 载入excel文件
                     $sheet = $PHPExcel->getSheet(0); // 读取第一個工作表
                     $highestRow = $sheet->getHighestRow(); // 取得总行数
+                    Log::info('共计'.($highestRow-1).'个商品');
                     $fields = [];
                     for ($i = 'A'; $i < 'ZZ'; $i++) {
                         $title = $sheet->getCell($i . '1')->getValue();
@@ -149,6 +149,7 @@ class ResolveRecommendCommand extends Command
 
                     /** 循环读取每个单元格的数据 */
                     for ($row = 2; $row <= $highestRow; $row++) {//行数是以第1行开始
+                        Log::info('开始执行第'.($row-1).'条');
                         $recommendGoods = GoodsShare::getByNumIid($sheet->getCell($fields['original_id'] . $row)->getValue());
                         if (empty($recommendGoods)) {
                             $recommendGoods = new GoodsShare();
@@ -214,10 +215,10 @@ class ResolveRecommendCommand extends Command
                                 $recommendGoods->coupon_click_url = mb_strcut($recommendGoods->coupon_click_url, 0, $pos);
                             }
                         }
-                        Log::info($recommendGoods->coupon_amount);
+
                         $recommendGoods->coupon_price = $recommendGoods->price - intval($recommendGoods->coupon_amount);
                         $recommendGoods->is_recommend = 1;
-                        $recommendGoods->updated_at = '1970-0-1 00:00:00';
+
                         $recommendGoods->save();
                     }
                 } catch (Exception $e) {
