@@ -67,7 +67,7 @@ class GoodsShare extends Model
                 $pictures[$k]                   =   get_image_url($v);
             }
         }
-        return $pictures ? $pictures : '';
+        return $pictures ? $pictures : [];
     }
 
     public function getCouponAmountAttribute($amount){
