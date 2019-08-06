@@ -93,7 +93,6 @@ class GoodsController extends Controller
         if($categoryId){
             $categoryModel                      =   new Category();
             $in                                 =   $categoryModel->getAllCategoryId($categoryId);
-            $where['category_id']               =   $categoryId;
             $GoodsModel                         =   $GoodsModel->whereIn('category_id',$in);
         }
         $goods                                  =   $GoodsModel->orderBy($sort,$desc)->paginate(16);

@@ -209,7 +209,7 @@ class TaoBao
         $goodsShare->title = $item->title;
         $goodsShare->pictures = isset($item->small_images->string) ? $item->small_images->string : '';
         $goodsShare->price = $item->zk_final_price;
-        $goodsShare->original_id = $item->num_iid;;
+        $goodsShare->original_id = (string)$item->num_iid;//强制转换string，与数据库保持一致
         $goodsShare->item_url = $item->item_url;
         $goodsShare->cover = $item->pict_url;
         $goodsShare->volume = $item->volume;
