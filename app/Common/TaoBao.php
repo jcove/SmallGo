@@ -227,7 +227,7 @@ class TaoBao
             $goodsShare->coupon_start_time = $item->coupon_start_time;
         }
         if (isset($item->coupon_price)) {
-            $goodsShare->coupon_price = $item->coupon_price;
+            $goodsShare->coupon_price = (string)floatval($item->coupon_price);
         }
         if (isset($item->coupon_status)) {
             $goodsShare->coupon_status = $item->coupon_status;
