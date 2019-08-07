@@ -274,17 +274,22 @@ class TaoBao
                     $data = $resp->results->tbk_coupon;
                     if ($data) {
                         foreach ($data as $k => $v) {
+                               if(isset($v->coupon_info)){
+                                   preg_match_all('/\d+/', $v->coupon_info, $matches);
 
-                            preg_match_all('/\d+/', $v->coupon_info, $matches);
+                                   if ($matches) {
+                                       $v->coupon_amount = $matches[0][1];
+                                   } else {
+                                       $v->coupon_amount = 0;
+                                   }
 
-                            if ($matches) {
-                                $v->coupon_amount = $matches[0][1];
-                            } else {
-                                $v->coupon_amount = 0;
-                            }
+                                   $v->coupon_price = floatval($v->zk_final_price - $v->coupon_amount);
+                                   $v->coupon_status = 1;
+                               }else{
+                                   $v->coupon_status = 0;
+                               }
                             $v->zk_final_price = floatval($v->zk_final_price);
-                            $v->coupon_price = floatval($v->zk_final_price - $v->coupon_amount);
-                            $v->coupon_status = 1;
+
                             $list->add($this->itemToModel($v));
                         }
                         $paginator                      =   new LengthAwarePaginator($list,$resp->total_results,16,$req->getPageNo());
