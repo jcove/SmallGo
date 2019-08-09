@@ -126,4 +126,7 @@ class Category extends Model
         }
         return $value;
     }
+    public function getIconUrlAttribute($value){
+        return get_image_url($value);
+    }
 }
