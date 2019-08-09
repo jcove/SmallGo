@@ -34,4 +34,5 @@ Route::group(['middleware'=>['web','throttle:30,3']], function(){
     Route::get('/search/goods/{keywords?}/{sort?}/{desc?}','SearchController@goods')->name('search.goods');
     Route::any('/search/coupon/{keywords?}/{page_no?}','SearchController@coupon')->name('search.coupon');
     Route::get('/', 'IndexController@index')->name('home');
+
 });

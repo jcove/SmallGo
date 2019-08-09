@@ -11,17 +11,5 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function view($view='',$data=[]){
-        if(request()->ajax() && !empty($view)){
-            $view                       =   $view.'_ajax';
-            if(!request()->acceptsHtml()){
-                return response()->json($data);
-            }
-        }
-        if(is_mobile()){
-            return view('mobile.'.$view,$data);
-        }else{
-            return view($view,$data);
-        }
-    }
+
 }

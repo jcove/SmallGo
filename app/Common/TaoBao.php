@@ -258,6 +258,7 @@ class TaoBao
     public function searchCoupon($keywords, $perPageSize = 10)
     {
         $page = request()->page;
+        $pageSize = request()->page_size ? request()->page_size : 16;
         $req = new TbkDgItemCouponGetRequest();
         $req->setQ($keywords);
         $req->setAdzoneId(config('taobao.ad_zone_id'));
@@ -286,6 +287,7 @@ class TaoBao
                                    $v->coupon_price = floatval($v->zk_final_price - $v->coupon_amount);
                                    $v->coupon_status = 1;
                                }else{
+                                   dump($v);
                                    $v->coupon_status = 0;
                                }
                             $v->zk_final_price = floatval($v->zk_final_price);

@@ -73,6 +73,7 @@ class CategoryController
 
             $form->display('id', 'ID');
             $form->text('name','名称');
+            $form->image('icon_url','上传图标');
             $form->categoryIcon('icon','图标');
             $form->select('parent_id', '上级分类')->options(Category::selectOptions());
         });

@@ -9,6 +9,7 @@
         "encore/laravel-admin": "1.5.*",
         "fideloper/proxy": "~4.0",
         "guzzlehttp/guzzle": "^6.3",
+        "jcove/restful": "^1.0",
         "jcove/taobao-sdk": "dev-master",
         "laravel-admin-ext/media-manager": "^1.0",
         "laravel-admin-ext/scheduling": "^1.0",
