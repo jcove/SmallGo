@@ -41,21 +41,4 @@
     
 后台：http://你的域名/admin  用户名：admin 密码：admin
 
-安装参考：http://www.361dream.com/article/63
-
-如遇到问题请加群，或者发帖求助
-    
-演示站点 http://demo.nayiya.com (支持pc、微信和手机浏览)
-
-####演示站点环境：
-
-操作系统: centos7.2  
-
-php环境：lnmp集成环境，mysql5.7，php7.2
-  
-完整安装流程：http://www.361dream.com/article/65  
-  
-交流社区(搭建中) http://www.361dream.com
-
-
-QQ交流群：169730866
+#SmallGo已停止更新，作者认为以后App将是主角，web应用将被弱化，作者无力开发App，决定停更，特此声明！
